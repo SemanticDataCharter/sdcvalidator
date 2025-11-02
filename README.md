@@ -4,6 +4,9 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![PyPI version](https://img.shields.io/pypi/v/sdcvalidator.svg)](https://pypi.org/project/sdcvalidator/)
+![Tests](https://github.com/Axius-SDC/sdcvalidator/workflows/Test%20Suite/badge.svg)
+[![codecov](https://codecov.io/gh/Axius-SDC/sdcvalidator/branch/main/graph/badge.svg)](https://codecov.io/gh/Axius-SDC/sdcvalidator)
 
 ## Overview
 
@@ -223,11 +226,28 @@ SDCvalidator consists of:
 
 ## Documentation
 
-- [SDC4 Module Documentation](sdcvalidator/sdc4/README.md)
-- [API Reference](https://sdcvalidator.readthedocs.io/)
-- [Semantic Data Charter Specification](https://semanticdatacharter.com/)
+### User Documentation
+- [API Reference](https://sdcvalidator.readthedocs.io/) - Comprehensive API documentation
+- [SDC4 Module Documentation](sdcvalidator/sdc4/README.md) - SDC4-specific features
+- [Semantic Data Charter](https://semanticdatacharter.github.io) - SDC4 specification
+- [SDCRM Repository](https://github.com/SemanticDataCharter/SDCRM) - Reference model schemas
+
+### Developer Documentation
+- [CONTRIBUTING.md](CONTRIBUTING.md) - How to contribute
+- [CLAUDE.md](CLAUDE.md) - Developer guidance and architecture
+- [SECURITY.md](SECURITY.md) - Security policy and best practices
+- [CHANGELOG.rst](CHANGELOG.rst) - Version history
 
 ## Development
+
+### Contributing
+
+We welcome contributions! Please see our comprehensive guides:
+
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Contribution guidelines and workflow
+- **[CLAUDE.md](CLAUDE.md)** - Developer guide and architecture documentation
+- **[GitHub Issues](https://github.com/Axius-SDC/sdcvalidator/issues)** - Report bugs or request features
+- **[GitHub Discussions](https://github.com/Axius-SDC/sdcvalidator/discussions)** - Ask questions and discuss ideas
 
 ### Running Tests
 
@@ -240,11 +260,31 @@ pytest tests/sdc4/ -v
 
 # Run with coverage
 pytest --cov=sdcvalidator --cov-report=html
+
+# Run linters
+flake8 sdcvalidator
+mypy sdcvalidator
 ```
 
-### Contributing
+### Development Setup
 
-Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+```bash
+# Clone repository
+git clone https://github.com/Axius-SDC/sdcvalidator.git
+cd sdcvalidator
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate
+
+# Install in development mode
+pip install -e ".[dev]"
+
+# Run tests
+pytest tests/ -v
+```
+
+See [CLAUDE.md](CLAUDE.md) for complete developer guide.
 
 ## Credits
 
@@ -263,10 +303,24 @@ This software is distributed under the terms of the **MIT License**.
 
 See the [LICENSE](LICENSE) file for details.
 
+## SDC4 Ecosystem
+
+SDCvalidator is part of the SDC4 (Semantic Data Charter version 4) ecosystem:
+
+- **[SDCRM](https://github.com/SemanticDataCharter/SDCRM)** v4.0.0 - Reference model and schemas
+- **[SDCStudio](https://github.com/AxiusSDC/SDCStudio)** v4.0.0 - Web application for model generation
+- **[SDCvalidator](https://github.com/Axius-SDC/sdcvalidator)** v4.0.1 - This library (validation and recovery)
+- **[Obsidian Template](https://github.com/SemanticDataCharter/SDCObsidianTemplate)** v4.0.0 - Markdown templates for dataset descriptions
+
+All SDC4 projects use **4.x.x** versioning - the MAJOR version (4) represents the SDC generation.
+
 ## Support
 
+- **Documentation**: [https://sdcvalidator.readthedocs.io/](https://sdcvalidator.readthedocs.io/)
 - **Issues**: [GitHub Issues](https://github.com/Axius-SDC/sdcvalidator/issues)
-- **Contact**: contact@axius-sdc.com
+- **Discussions**: [GitHub Discussions](https://github.com/Axius-SDC/sdcvalidator/discussions)
+- **Email**: contact@axius-sdc.com
+- **Security**: See [SECURITY.md](SECURITY.md) for security policy
 
 ## Acknowledgments
 
