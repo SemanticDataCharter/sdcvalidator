@@ -2,10 +2,11 @@
 CHANGELOG
 *********
 
-`v4.0.4`_ (2025-11-04)
+`v4.0.5`_ (2025-11-04)
 ======================
 **Selective ExceptionalValue Tagging & Configurable Output**
 
+* **NOTE**: Version 4.0.4 was published with preliminary selective tagging; this release adds configurable output and fixes
 * **CRITICAL CLARIFICATION**: ExceptionalValue tagging applies **only to data-bearing elements**
 * **Fixed**: Structural and metadata elements now properly fail validation instead of being tagged
 * **Breaking Change**: Validation errors in structural elements (label, vtb, vte, tr, modified, etc.) now cause validation failure as intended by SDC4 spec
