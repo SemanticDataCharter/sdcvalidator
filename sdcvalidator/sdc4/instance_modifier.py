@@ -58,28 +58,32 @@ class InstanceModifier:
         # Check if this element should receive ExceptionalValue tag
         element_name = self._extract_element_name_from_xpath(xpath)
 
-        # Don't tag structural elements
+        # Don't tag structural elements - these should fail validation
         if element_name and element_name in STRUCTURAL_ELEMENTS:
             return False
 
-        # Only tag data-bearing elements
-        if element_name and element_name not in DATA_BEARING_ELEMENTS:
-            return False
+        # All other elements (data-bearing, custom, or unknown) can be tagged
+        # This allows flexibility for custom element names and future SDC versions
 
         # Ensure namespace is registered
         self._register_namespace()
 
-        # Find the target element using XPath
-        target_elem = self._find_element_by_xpath(root, xpath)
-        if target_elem is None:
+        # Find the element with the invalid value using XPath
+        invalid_elem = self._find_element_by_xpath(root, xpath)
+        if invalid_elem is None:
+            return False
+
+        # Find the parent element (XdAnyType) where ExceptionalValue should be inserted
+        parent_elem = self._find_parent_element(root, invalid_elem)
+        if parent_elem is None:
             return False
 
         # Create the ExceptionalValue element
         ev_element = self._create_exceptional_value_element(ev_type, reason)
 
-        # Insert at the appropriate position in the sequence
-        insert_pos = self._find_insertion_position(target_elem)
-        target_elem.insert(insert_pos, ev_element)
+        # Insert at the appropriate position in the parent's sequence
+        insert_pos = self._find_insertion_position(parent_elem)
+        parent_elem.insert(insert_pos, ev_element)
 
         return True
 
@@ -120,14 +124,19 @@ class InstanceModifier:
 
     def _find_element_by_xpath(self, root: ET.Element, xpath: str) -> Optional[ET.Element]:
         """
-        Find an element by XPath.
+        Find an element by XPath (including Clark notation support).
 
         :param root: The root element to search from.
-        :param xpath: The XPath expression.
+        :param xpath: The XPath expression (may use Clark notation: {namespace}localname).
         :return: The found element or None.
         """
         if not xpath:
             return None
+
+        # Handle Clark notation in XPath by traversing manually
+        # Clark notation: /{namespace}localname/{namespace}localname/...
+        if '{' in xpath:
+            return self._find_element_by_clark_path(root, xpath)
 
         # Handle namespace prefixes in XPath
         # Convert xpath like /ns:root/ns:child to proper namespaced search
@@ -153,6 +162,88 @@ class InstanceModifier:
             # This is a fallback for complex XPath expressions
             return self._find_element_by_manual_parse(root, xpath)
 
+        return None
+
+    def _find_element_by_clark_path(self, root: ET.Element, clark_path: str) -> Optional[ET.Element]:
+        """
+        Find an element by traversing a Clark notation path.
+
+        Clark notation: /{namespace}localname/{namespace}localname/...
+
+        :param root: The root element to search from.
+        :param clark_path: The path using Clark notation.
+        :return: The found element or None.
+        """
+        # Parse Clark notation path components
+        # Need to be careful not to split on slashes inside the namespace URI
+        parts = []
+        i = 0
+        while i < len(clark_path):
+            if clark_path[i] == '/':
+                # Skip slashes
+                i += 1
+                continue
+            elif clark_path[i] == '{':
+                # Start of namespaced element: {namespace}localname
+                # Find the matching '}'
+                end_brace = clark_path.index('}', i)
+                # Find the next '/' or end of string
+                next_slash = clark_path.find('/', end_brace)
+                if next_slash == -1:
+                    next_slash = len(clark_path)
+                # Extract the full element name with namespace
+                part = clark_path[i:next_slash]
+                parts.append(part)
+                i = next_slash
+            else:
+                # Element without namespace
+                next_slash = clark_path.find('/', i)
+                if next_slash == -1:
+                    next_slash = len(clark_path)
+                part = clark_path[i:next_slash]
+                parts.append(part)
+                i = next_slash
+
+        if not parts:
+            return None
+
+        # Start from root
+        current = root
+
+        # Check if the first part is the root element itself
+        if parts[0] == root.tag:
+            # Skip the root element in the path
+            parts = parts[1:]
+            if not parts:
+                return root
+
+        # Traverse each part of the path
+        for part in parts:
+            # The part is in Clark notation: {namespace}localname or just localname
+            found = False
+            for child in current:
+                if child.tag == part:
+                    current = child
+                    found = True
+                    break
+
+            if not found:
+                return None
+
+        return current
+
+    def _find_parent_element(self, root: ET.Element, child: ET.Element) -> Optional[ET.Element]:
+        """
+        Find the parent element of a given child element.
+
+        :param root: The root element to search from.
+        :param child: The child element whose parent we want to find.
+        :return: The parent element or None.
+        """
+        # Iterate through all elements in the tree
+        for parent in root.iter():
+            if child in list(parent):
+                return parent
         return None
 
     def _extract_namespaces(self, root: ET.Element) -> Dict[str, str]:
@@ -248,19 +339,27 @@ class InstanceModifier:
         """
         Create an ExceptionalValue element.
 
+        Per SDC4 spec, the element name is the ExceptionalValue code (INV, UNK, etc.)
+        with a child <ev-name> element containing the human-readable name.
+
+        Example:
+            <sdc4:INV>
+                <ev-name>Invalid</ev-name>
+            </sdc4:INV>
+
         :param ev_type: The ExceptionalValueType.
         :param reason: Optional additional reason text.
         :return: The created element.
         """
-        # Create element with namespaced tag
+        # Create element with the ExceptionalValue code as the tag name
         tag = f"{{{self.sdc4_ns}}}{ev_type.code}"
         ev_elem = ET.Element(tag)
 
         # Add the ev-name child element
-        ev_name_elem = ET.SubElement(ev_elem, f"{{{self.sdc4_ns}}}ev-name")
+        ev_name_elem = ET.SubElement(ev_elem, "ev-name")
         ev_name_elem.text = ev_type.ev_name
 
-        # Optionally add reason as a comment or custom element
+        # Optionally add reason as a comment
         if reason:
             comment = ET.Comment(f" Validation error: {reason} ")
             ev_elem.insert(0, comment)

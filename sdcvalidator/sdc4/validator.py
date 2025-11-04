@@ -72,14 +72,38 @@ class SDC4Validator:
 
     def validate_with_recovery(self,
                                 xml_source: Union[str, Path, ET.Element, XMLResource],
-                                remove_existing_ev: bool = True) -> ET.ElementTree:
+                                output_path: Optional[Union[str, Path]] = None,
+                                remove_existing_ev: bool = True,
+                                save: bool = True) -> ET.ElementTree:
         """
         Validate an XML instance and insert ExceptionalValue elements for errors.
 
+        The recovered XML with ExceptionalValue tags is automatically saved unless save=False.
+
         :param xml_source: The XML instance to validate (file path, element, or XMLResource).
+        :param output_path: Optional output file path. If None and xml_source is a file path,
+                           defaults to '{original_filename}-ev.xml' in the same directory.
+                           If xml_source is not a file path, you must provide output_path or set save=False.
         :param remove_existing_ev: If True, remove any existing ExceptionalValue elements before processing.
+        :param save: If True (default), save the recovered XML to output_path. Set to False to skip saving.
         :return: Modified XML ElementTree with ExceptionalValue elements inserted.
+        :raises ValueError: If save=True but output_path cannot be determined.
+
+        Example usage:
+            # Default: saves to 'count_error_example-ev.xml' in same directory
+            validator.validate_with_recovery('count_error_example.xml')
+
+            # Custom output path
+            validator.validate_with_recovery('input.xml', output_path='/path/to/recovered.xml')
+
+            # Don't save, just return the tree
+            tree = validator.validate_with_recovery('input.xml', save=False)
         """
+        # Track the original file path for default output naming
+        original_file_path = None
+        if isinstance(xml_source, (str, Path)):
+            original_file_path = Path(xml_source)
+
         # Parse the XML if it's a path
         if isinstance(xml_source, (str, Path)):
             tree = ET.parse(str(xml_source))
@@ -109,6 +133,10 @@ class SDC4Validator:
             # Map error to ExceptionalValue type
             ev_type = self.error_mapper.map_error(error)
 
+            # Skip if error mapper returned None (structural/metadata element)
+            if ev_type is None:
+                continue
+
             # Get the XPath to the error location
             xpath = error.path
 
@@ -125,6 +153,27 @@ class SDC4Validator:
                     # Log or handle insertion failure
                     # For now, we'll just continue
                     pass
+
+        # Save the recovered XML if requested
+        if save:
+            # Determine output path
+            if output_path is None:
+                if original_file_path is None:
+                    raise ValueError(
+                        "Cannot determine output path: xml_source is not a file path. "
+                        "Either provide output_path parameter or set save=False."
+                    )
+                # Default naming: {original_filename}-ev.xml
+                output_path = original_file_path.parent / f"{original_file_path.stem}-ev{original_file_path.suffix}"
+            else:
+                output_path = Path(output_path)
+
+            # Ensure parent directory exists
+            output_path.parent.mkdir(parents=True, exist_ok=True)
+
+            # Save with formatting
+            ET.indent(tree, space='    ')
+            tree.write(str(output_path), encoding='UTF-8', xml_declaration=True)
 
         return tree
 
@@ -151,6 +200,11 @@ class SDC4Validator:
         for error in self.schema.iter_errors(tree):
             # Map error to ExceptionalValue type
             ev_type = self.error_mapper.map_error(error)
+
+            # Skip if error mapper returned None (structural/metadata element)
+            # These errors cannot be recovered with ExceptionalValue
+            if ev_type is None:
+                continue
 
             # Generate summary
             summary = self.error_mapper.get_error_summary(error, ev_type)

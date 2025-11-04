@@ -4,11 +4,14 @@ CHANGELOG
 
 `v4.0.4`_ (2025-11-04)
 ======================
-**Selective ExceptionalValue Tagging**
+**Selective ExceptionalValue Tagging & Configurable Output**
 
 * **CRITICAL CLARIFICATION**: ExceptionalValue tagging applies **only to data-bearing elements**
 * **Fixed**: Structural and metadata elements now properly fail validation instead of being tagged
 * **Breaking Change**: Validation errors in structural elements (label, vtb, vte, tr, modified, etc.) now cause validation failure as intended by SDC4 spec
+* **NEW**: Configurable output file paths with user-friendly naming convention
+* **NEW**: Automatic file saving with {original_filename}-ev.xml naming
+* **NEW**: Inline validation error comments in ExceptionalValue elements
 * **Data-Bearing Elements** that receive ExceptionalValue tags:
 
   * xdstring-value, xdcount-value, xdquantity-value
@@ -30,11 +33,36 @@ CHANGELOG
 * Updated InstanceModifier.insert_exceptional_value() to check element type before tagging
 * Added DATA_BEARING_ELEMENTS and STRUCTURAL_ELEMENTS constants
 * Added element name extraction from XPath in both ErrorMapper and InstanceModifier
-* Enhanced SDC4 README.md with selective tagging documentation and examples
+* Fixed Clark notation XPath parsing for namespace-aware element location
+* Fixed parent element insertion (ExceptionalValue inserted into parent, not child)
+* Added output_path parameter to validate_with_recovery()
+* Added save parameter to validate_with_recovery() (default: True)
+* Default output naming: saves to same directory as input with -ev suffix
+* Automatic XML formatting with 4-space indentation
+* Enhanced SDC4 README.md with selective tagging and output configuration documentation
+
+**New API:**
+
+.. code-block:: python
+
+    from sdcvalidator.sdc4 import SDC4Validator
+
+    validator = SDC4Validator('schema.xsd')
+
+    # Default: saves to 'input-ev.xml' in same directory
+    validator.validate_with_recovery('input.xml')
+
+    # Custom output path
+    validator.validate_with_recovery('input.xml', output_path='/custom/path.xml')
+
+    # Skip saving (in-memory only)
+    tree = validator.validate_with_recovery('input.xml', save=False)
 
 **Migration Guide:**
 
 If your code relies on structural elements being tagged with ExceptionalValue, you will need to update your validation logic. Structural elements must now be valid for the XML instance to pass validation.
+
+The validate_with_recovery() method now saves recovered XML automatically. Use save=False if you want the old behavior of only returning the tree without saving.
 
 ----
 

@@ -141,13 +141,47 @@ from sdcvalidator.sdc4 import SDC4Validator
 validator = SDC4Validator('sdc4/example/dm-jsi5yxnvzsmsisgn2bvelkni.xsd')
 
 # Validate and insert ExceptionalValue elements
+# By default, saves to 'my_instance-ev.xml' in the same directory
 recovered_tree = validator.validate_with_recovery('my_instance.xml')
+```
 
-# Save recovered XML
-validator.save_recovered_xml(
-    output_path='my_instance_recovered.xml',
-    xml_source='my_instance.xml'
+### Output File Configuration
+
+The recovered XML with ExceptionalValue tags is automatically saved using a clear naming convention:
+
+```python
+from sdcvalidator.sdc4 import SDC4Validator
+
+validator = SDC4Validator('my_schema.xsd')
+
+# Default: Saves to 'count_error_example-ev.xml' in same directory as input
+validator.validate_with_recovery('count_error_example.xml')
+
+# Custom output path: Save to specific location
+validator.validate_with_recovery(
+    'my_instance.xml',
+    output_path='/path/to/custom-output.xml'
 )
+
+# Skip saving: Just return the tree for in-memory processing
+tree = validator.validate_with_recovery('my_instance.xml', save=False)
+```
+
+**Naming Convention**: `{original_filename}-ev.xml`
+
+This makes it easy to identify recovered files in a directory:
+- `count_error_example.xml` → `count_error_example-ev.xml`
+- `patient_data.xml` → `patient_data-ev.xml`
+- `lab_results.xml` → `lab_results-ev.xml`
+
+**Example:**
+```bash
+# Directory listing shows both original and recovered files
+$ ls -1
+count_error_example.xml
+count_error_example-ev.xml    # ← Recovered version with ExceptionalValue tags
+lat_error_example.xml
+vtb_error_example.xml
 ```
 
 ### Generate Validation Report

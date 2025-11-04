@@ -111,12 +111,9 @@ class ErrorMapper:
             # Don't map to ExceptionalValue - let validation fail
             return None
 
-        # Only map to ExceptionalValue if it's a data-bearing element
-        if element_name and element_name not in DATA_BEARING_ELEMENTS:
-            # Unknown element type - be conservative and fail validation
-            return None
-
-        # Element is data-bearing - map to appropriate ExceptionalValue
+        # For SDC4 data-bearing elements or unknown elements, map to appropriate ExceptionalValue
+        # Note: We're permissive here - only STRUCTURAL_ELEMENTS fail validation
+        # This allows the system to work with custom element names and future SDC versions
         for condition, ev_type in self._rules:
             if condition(error):
                 return ev_type
@@ -277,14 +274,25 @@ class ErrorMapper:
         return any(re.search(pattern, reason) for pattern in patterns)
 
     def get_error_summary(self, error: XMLSchemaValidationError,
-                          ev_type: ExceptionalValueType) -> Dict[str, str]:
+                          ev_type: Optional[ExceptionalValueType]) -> Dict[str, str]:
         """
         Generate a summary of the error mapping.
 
         :param error: The validation error.
-        :param ev_type: The mapped ExceptionalValueType.
+        :param ev_type: The mapped ExceptionalValueType, or None for structural elements.
         :return: A dictionary with error details.
         """
+        if ev_type is None:
+            # Structural/metadata element error - no ExceptionalValue
+            return {
+                'xpath': error.path or 'unknown',
+                'error_type': type(error).__name__,
+                'reason': error.reason or 'No reason provided',
+                'exceptional_value_type': None,
+                'exceptional_value_name': None,
+                'description': 'Structural/metadata element - validation fails',
+            }
+
         return {
             'xpath': error.path or 'unknown',
             'error_type': type(error).__name__,
