@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:sdc4="https://semanticdatacharter.com/ns/sdc4/"
+            targetNamespace="https://semanticdatacharter.com/ns/sdc4/"
+            elementFormDefault="qualified">
+
+    <!-- Invalid SDC4 schema using xsd:extension (violates SDC4 principles) -->
+
+    <!-- Base type from reference model -->
+    <xsd:complexType name="XdStringType">
+        <xsd:sequence>
+            <xsd:element name="label" type="xsd:string"/>
+            <xsd:element name="xdstring-value" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!-- Data model component using extension (NOT SDC4-compliant) -->
+    <xsd:complexType name="PatientNameExtended">
+        <xsd:complexContent>
+            <xsd:extension base="sdc4:XdStringType">
+                <!-- This adds new structural elements, violating SDC4 separation of structure/semantics -->
+                <xsd:sequence>
+                    <xsd:element name="nickname" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="title" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <!-- Root element -->
+    <xsd:element name="PatientExtended" type="sdc4:PatientNameExtended"/>
+
+</xsd:schema>

@@ -2,6 +2,24 @@
 CHANGELOG
 *********
 
+`v4.0.2`_ (2025-11-04)
+======================
+**SDCValidator Release**
+
+* Add SDC4 schema compliance validation to guarantee global interoperability
+* Add `validate_sdc4_schema_compliance()` function to check for forbidden xsd:extension elements
+* Add `assert_sdc4_schema_compliance()` convenience function for strict validation
+* Add `SDC4SchemaValidationError` exception for schema compliance violations
+* Add `check_sdc4_compliance` parameter to `SDC4Validator.__init__()` (default: True)
+* Validation only applies to SDC4 schemas (targetNamespace="https://semanticdatacharter.com/ns/sdc4/")
+* Non-SDC4 schemas are not subject to the xsd:extension restriction
+* SDC4 principle: Data models must use xsd:restriction only, never xsd:extension, to guarantee global interoperability and enforce separation of structure and semantics
+
+----
+
+Upstream xmlschema Changelog
+=============================
+
 `v4.2.0`_ (2025-10-14)
 ======================
 * Add arguments validation for schemas and validation methods (by validation contexts)

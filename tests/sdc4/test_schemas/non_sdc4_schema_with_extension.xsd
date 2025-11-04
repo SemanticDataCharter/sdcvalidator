@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:custom="http://example.com/custom"
+            targetNamespace="http://example.com/custom"
+            elementFormDefault="qualified">
+
+    <!-- Non-SDC4 schema using xsd:extension (this should pass validation) -->
+
+    <!-- Base type -->
+    <xsd:complexType name="PersonType">
+        <xsd:sequence>
+            <xsd:element name="name" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!-- Extended type (allowed in non-SDC4 schemas) -->
+    <xsd:complexType name="EmployeeType">
+        <xsd:complexContent>
+            <xsd:extension base="custom:PersonType">
+                <xsd:sequence>
+                    <xsd:element name="employeeId" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <!-- Root element -->
+    <xsd:element name="Employee" type="custom:EmployeeType"/>
+
+</xsd:schema>

@@ -19,6 +19,7 @@ from sdcvalidator.resources import XMLResource
 from .error_mapper import ErrorMapper
 from .instance_modifier import InstanceModifier
 from .constants import ExceptionalValueType
+from .schema_validator import validate_sdc4_schema_compliance, SDC4SchemaValidationError
 
 
 class SDC4Validator:
@@ -34,7 +35,8 @@ class SDC4Validator:
     def __init__(self, schema: Union[str, Path, XMLSchema11],
                  error_mapper: Optional[ErrorMapper] = None,
                  namespace_prefix: str = 'sdc4',
-                 validation: str = 'lax'):
+                 validation: str = 'lax',
+                 check_sdc4_compliance: bool = True):
         """
         Initialize the SDC4 validator.
 
@@ -42,7 +44,22 @@ class SDC4Validator:
         :param error_mapper: Optional custom error mapper (default: uses ErrorMapper with default rules).
         :param namespace_prefix: The XML namespace prefix to use for SDC4 elements (default: 'sdc4').
         :param validation: Schema validation mode: 'strict', 'lax', or 'skip' (default: 'lax').
+        :param check_sdc4_compliance: If True, validate that schema follows SDC4 principles (no xsd:extension).
+                                       Default: True. Set to False to skip compliance check.
+        :raises SDC4SchemaValidationError: If check_sdc4_compliance is True and schema violates SDC4 principles.
         """
+        # Check SDC4 compliance before loading schema (if requested and schema is a path)
+        if check_sdc4_compliance and isinstance(schema, (str, Path)):
+            is_valid, errors = validate_sdc4_schema_compliance(schema)
+            if not is_valid:
+                error_msg = (
+                    f"Schema violates SDC4 compliance:\n\n" +
+                    "\n".join(f"  ❌ {error}" for error in errors) +
+                    "\n\nSDC4 Principle: Data models must use xsd:restriction (not xsd:extension) "
+                    "to guarantee global interoperability and enforce separation of structure and semantics."
+                )
+                raise SDC4SchemaValidationError(error_msg)
+
         # Load schema if it's a path
         if isinstance(schema, (str, Path)):
             self.schema = XMLSchema11(str(schema), validation=validation)

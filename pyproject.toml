@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sdcvalidator"
-version = "4.0.1"
+version = "4.0.2"
 description = "SDC4 XML validation with ExceptionalValue recovery"
 readme = "README.md"
 license = "MIT"

@@ -23,6 +23,11 @@ from .constants import (
     ExceptionalValueType
 )
 from .error_mapper import ErrorMapper
+from .schema_validator import (
+    validate_sdc4_schema_compliance,
+    assert_sdc4_schema_compliance,
+    SDC4SchemaValidationError
+)
 
 __all__ = [
     'SDC4Validator',
@@ -32,6 +37,9 @@ __all__ = [
     'SDC4_META_NAMESPACE',
     'EXCEPTIONAL_VALUE_TYPES',
     'ExceptionalValueType',
+    'validate_sdc4_schema_compliance',
+    'assert_sdc4_schema_compliance',
+    'SDC4SchemaValidationError',
 ]
 
 __version__ = '1.0.0'
