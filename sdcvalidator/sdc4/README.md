@@ -64,6 +64,46 @@ schema = XMLSchema11(
 - **`validation='skip'`** - Skips schema validation entirely (use for debugging only)
 - **`validation='strict'`** (Default) - Stricter than XSD spec, may reject valid schemas
 
+### Selective ExceptionalValue Tagging
+
+The SDC4 "quarantine-and-tag" pattern applies **only to data-bearing elements**. Validation errors in structural or metadata elements result in validation failure.
+
+**Data-Bearing Elements** (receive ExceptionalValue tags):
+- `xdstring-value`, `xdcount-value`, `xdquantity-value`
+- `xdboolean-value`, `xdfile-value`, `xdlink-value`
+- `xdtemporal-value`, `xdordinal-value`, `xdratio-value`
+- `xdinterval-value`, `xdtoken-value`
+
+**Structural/Metadata Elements** (validation fails):
+- `label` - Component labels must be valid
+- `vtb`, `vte`, `tr`, `modified` - Temporal metadata must be valid dateTime
+- `act` - Audit/control/trust elements must conform to schema
+- `latitude`, `longitude` - Geographic coordinates must be valid
+- `normal-status`, `magnitude-status`, `accuracy_margin`, `precision_digits` - Quantified metadata
+
+**Example:**
+```python
+from sdcvalidator.sdc4 import validate_with_recovery
+
+# Invalid data value → Tagged with ExceptionalValue, validation succeeds
+xml_invalid_data = """
+<XdString>
+  <label>Name</label>
+  <xdstring-value>123</xdstring-value>  <!-- Invalid: fails maxLength constraint -->
+</XdString>
+"""
+# Result: xdstring-value tagged with INV ExceptionalValue, validation passes
+
+# Invalid structural element → Validation fails
+xml_invalid_label = """
+<XdString>
+  <label></label>  <!-- Invalid: empty label not allowed -->
+  <xdstring-value>John</xdstring-value>
+</XdString>
+"""
+# Result: Validation fails - structural elements must be correct
+```
+
 ## Features
 
 - **Automatic Error Classification**: Maps XML Schema validation errors to appropriate SDC4 ExceptionalValue types

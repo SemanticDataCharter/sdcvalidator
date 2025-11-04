@@ -14,7 +14,11 @@ from sdcvalidator.core.exceptions import (
     XMLSchemaDecodeError,
     XMLSchemaChildrenValidationError
 )
-from .constants import ExceptionalValueType
+from .constants import (
+    ExceptionalValueType,
+    DATA_BEARING_ELEMENTS,
+    STRUCTURAL_ELEMENTS
+)
 
 
 class ErrorMapper:
@@ -86,19 +90,71 @@ class ErrorMapper:
         """
         self._rules.append((condition, ev_type))
 
-    def map_error(self, error: XMLSchemaValidationError) -> ExceptionalValueType:
+    def map_error(self, error: XMLSchemaValidationError) -> Optional[ExceptionalValueType]:
         """
         Map a validation error to an ExceptionalValue type.
 
+        Only data-bearing elements (xdstring-value, xdcount-value, etc.) can receive
+        ExceptionalValue tags. Structural/metadata elements (label, vtb, vte, tr, etc.)
+        should fail validation.
+
         :param error: The XML Schema validation error.
-        :return: The appropriate ExceptionalValueType.
+        :return: The appropriate ExceptionalValueType, or None if this is a structural
+                 element that should fail validation.
+        :raises XMLSchemaValidationError: If the error occurs in a structural element.
         """
+        # Extract element name from the error path
+        element_name = self._extract_element_name(error.path)
+
+        # Check if this is a structural element - these should fail validation
+        if element_name and element_name in STRUCTURAL_ELEMENTS:
+            # Don't map to ExceptionalValue - let validation fail
+            return None
+
+        # Only map to ExceptionalValue if it's a data-bearing element
+        if element_name and element_name not in DATA_BEARING_ELEMENTS:
+            # Unknown element type - be conservative and fail validation
+            return None
+
+        # Element is data-bearing - map to appropriate ExceptionalValue
         for condition, ev_type in self._rules:
             if condition(error):
                 return ev_type
 
         # Should never reach here due to default rule, but just in case
         return ExceptionalValueType.NI
+
+    def _extract_element_name(self, xpath: Optional[str]) -> Optional[str]:
+        """
+        Extract the element name from an XPath expression.
+
+        Handles paths like:
+        - /DataModel/xdstring-value
+        - /ns:DataModel/ns:xdstring-value[1]
+        - //xdcount-value
+
+        :param xpath: The XPath expression from the validation error.
+        :return: The local element name (without namespace prefix), or None.
+        """
+        if not xpath:
+            return None
+
+        # Get the last path component
+        parts = xpath.strip('/').split('/')
+        if not parts:
+            return None
+
+        last_part = parts[-1]
+
+        # Remove namespace prefix (e.g., 'sdc4:xdstring-value' -> 'xdstring-value')
+        if ':' in last_part:
+            last_part = last_part.split(':')[-1]
+
+        # Remove predicates (e.g., 'xdstring-value[1]' -> 'xdstring-value')
+        if '[' in last_part:
+            last_part = last_part[:last_part.index('[')]
+
+        return last_part if last_part else None
 
     # =========================================================================
     # Error classification helper methods

@@ -107,6 +107,39 @@ EXCEPTIONAL_VALUE_TYPES: Dict[str, tuple] = {
 # XPath patterns for locating elements in SDC4 data model instances
 XDANY_TYPE_PATTERN = r"xd(?:string|count|quantity|boolean|file|link|temporal|ordinal|ratio|interval)-value"
 
+# Data-bearing elements that can receive ExceptionalValue tags
+# These are the actual data values - validation errors here use quarantine-and-tag pattern
+DATA_BEARING_ELEMENTS = {
+    'xdstring-value',
+    'xdcount-value',
+    'xdquantity-value',
+    'xdboolean-value',
+    'xdfile-value',
+    'xdlink-value',
+    'xdtemporal-value',
+    'xdordinal-value',
+    'xdratio-value',
+    'xdinterval-value',
+    'xdtoken-value',
+}
+
+# Structural/metadata elements that should FAIL validation (not use ExceptionalValue)
+# These include labels, temporal metadata, and other structural elements
+STRUCTURAL_ELEMENTS = {
+    'label',           # Component labels
+    'act',             # Audit/control/trust
+    'vtb',             # Valid time begin
+    'vte',             # Valid time end
+    'tr',              # Transaction time
+    'modified',        # Modification timestamp
+    'latitude',        # Geographic coordinate
+    'longitude',       # Geographic coordinate
+    'normal-status',   # Quantified metadata
+    'magnitude-status',# Quantified metadata
+    'accuracy_margin', # Quantified metadata
+    'precision_digits',# Quantified metadata
+}
+
 # Element sequence position for ExceptionalValue in XdAnyType
 # Per SDC4 schema: label, act, ExceptionalValue, vtb, vte, tr, modified, latitude, longitude, ...
 EXCEPTIONAL_VALUE_INSERT_AFTER = ['label', 'act']

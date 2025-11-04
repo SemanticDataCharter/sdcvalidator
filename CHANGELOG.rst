@@ -2,6 +2,42 @@
 CHANGELOG
 *********
 
+`v4.0.4`_ (2025-11-04)
+======================
+**Selective ExceptionalValue Tagging**
+
+* **CRITICAL CLARIFICATION**: ExceptionalValue tagging applies **only to data-bearing elements**
+* **Fixed**: Structural and metadata elements now properly fail validation instead of being tagged
+* **Breaking Change**: Validation errors in structural elements (label, vtb, vte, tr, modified, etc.) now cause validation failure as intended by SDC4 spec
+* **Data-Bearing Elements** that receive ExceptionalValue tags:
+
+  * xdstring-value, xdcount-value, xdquantity-value
+  * xdboolean-value, xdfile-value, xdlink-value
+  * xdtemporal-value, xdordinal-value, xdratio-value
+  * xdinterval-value, xdtoken-value
+
+* **Structural/Metadata Elements** that must be valid (validation fails if invalid):
+
+  * label - Component labels must be valid
+  * vtb, vte, tr, modified - Temporal metadata must be valid dateTime
+  * act - Audit/control/trust elements must conform to schema
+  * latitude, longitude - Geographic coordinates must be valid
+  * normal-status, magnitude-status, accuracy_margin, precision_digits - Quantified metadata
+
+**Changes:**
+
+* Updated ErrorMapper.map_error() to return None for structural element errors
+* Updated InstanceModifier.insert_exceptional_value() to check element type before tagging
+* Added DATA_BEARING_ELEMENTS and STRUCTURAL_ELEMENTS constants
+* Added element name extraction from XPath in both ErrorMapper and InstanceModifier
+* Enhanced SDC4 README.md with selective tagging documentation and examples
+
+**Migration Guide:**
+
+If your code relies on structural elements being tagged with ExceptionalValue, you will need to update your validation logic. Structural elements must now be valid for the XML instance to pass validation.
+
+----
+
 `v4.0.3`_ (2025-11-04)
 ======================
 **Critical Fix: Xerces/Saxon Gold Standard Compatibility**

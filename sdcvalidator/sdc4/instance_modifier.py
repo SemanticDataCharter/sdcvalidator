@@ -13,7 +13,9 @@ from .constants import (
     SDC4_NAMESPACE,
     ExceptionalValueType,
     EXCEPTIONAL_VALUE_INSERT_AFTER,
-    EXCEPTIONAL_VALUE_INSERT_BEFORE
+    EXCEPTIONAL_VALUE_INSERT_BEFORE,
+    DATA_BEARING_ELEMENTS,
+    STRUCTURAL_ELEMENTS
 )
 
 
@@ -43,12 +45,27 @@ class InstanceModifier:
         """
         Insert an ExceptionalValue element at the specified XPath location.
 
+        Only data-bearing elements (xdstring-value, xdcount-value, etc.) can receive
+        ExceptionalValue tags. Structural/metadata elements (label, vtb, vte, tr, etc.)
+        should not be tagged.
+
         :param root: The root element of the XML document.
         :param xpath: XPath to the element where the error occurred.
         :param ev_type: The ExceptionalValueType to insert.
         :param reason: Optional additional reason text.
-        :return: True if insertion was successful, False otherwise.
+        :return: True if insertion was successful, False if element should not be tagged.
         """
+        # Check if this element should receive ExceptionalValue tag
+        element_name = self._extract_element_name_from_xpath(xpath)
+
+        # Don't tag structural elements
+        if element_name and element_name in STRUCTURAL_ELEMENTS:
+            return False
+
+        # Only tag data-bearing elements
+        if element_name and element_name not in DATA_BEARING_ELEMENTS:
+            return False
+
         # Ensure namespace is registered
         self._register_namespace()
 
@@ -65,6 +82,33 @@ class InstanceModifier:
         target_elem.insert(insert_pos, ev_element)
 
         return True
+
+    def _extract_element_name_from_xpath(self, xpath: str) -> Optional[str]:
+        """
+        Extract the element name from an XPath expression.
+
+        :param xpath: The XPath expression.
+        :return: The local element name (without namespace prefix), or None.
+        """
+        if not xpath:
+            return None
+
+        # Get the last path component
+        parts = xpath.strip('/').split('/')
+        if not parts:
+            return None
+
+        last_part = parts[-1]
+
+        # Remove namespace prefix (e.g., 'sdc4:xdstring-value' -> 'xdstring-value')
+        if ':' in last_part:
+            last_part = last_part.split(':')[-1]
+
+        # Remove predicates (e.g., 'xdstring-value[1]' -> 'xdstring-value')
+        if '[' in last_part:
+            last_part = last_part[:last_part.index('[')]
+
+        return last_part if last_part else None
 
     def _register_namespace(self):
         """Register the SDC4 namespace with ElementTree."""
