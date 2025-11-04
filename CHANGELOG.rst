@@ -2,6 +2,42 @@
 CHANGELOG
 *********
 
+`v4.0.3`_ (2025-11-04)
+======================
+**Critical Fix: Xerces/Saxon Gold Standard Compatibility**
+
+* **CRITICAL FIX**: Use validation='lax' to match Xerces 1.1 and Saxon EE 1.1 behavior (gold standard validators)
+* **Documentation**: Add comprehensive SDC4 Quick Start guide with XMLSchema11 and uri_mapper examples
+* **Fixed**: sdcvalidator was rejecting valid XSD 1.1 schemas that pass Xerces and Saxon validation
+* **Fixed**: validation='strict' (default) was stricter than XSD spec, causing false rejections
+* **Recommendation**: Always use XMLSchema11 with validation='lax' for SDC4 schemas
+* **Breaking Fix**: This ensures SDC4 community can use standard-compliant schemas
+
+**Key Changes for SDC4 Users:**
+
+* Use `XMLSchema11` explicitly (XMLSchema is alias to XMLSchema10, will prune XSD 1.1 schemas)
+* Use `uri_mapper` parameter for offline validation (maps schema URLs to local files)
+* Use `validation='lax'` to match Xerces/Saxon behavior
+* See sdcvalidator/sdc4/README.md for complete Quick Start guide
+
+**Example:**
+
+.. code-block:: python
+
+    from sdcvalidator import XMLSchema11
+
+    uri_mapper = {
+        'https://semanticdatacharter.com/ns/sdc4/sdc4.xsd': '/path/to/sdc4.xsd'
+    }
+
+    schema = XMLSchema11(
+        'my_datamodel.xsd',
+        uri_mapper=uri_mapper,
+        validation='lax'  # Matches Xerces/Saxon
+    )
+
+----
+
 `v4.0.2`_ (2025-11-04)
 ======================
 **SDCValidator Release**

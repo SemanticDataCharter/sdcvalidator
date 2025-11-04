@@ -6,6 +6,64 @@ This module provides integration between the sdcvalidator library and the Semant
 
 The SDC4 module implements the **"quarantine-and-tag" pattern** where XML validation errors are captured and translated into SDC4 `ExceptionalValue` elements that are inserted into the XML instance document. Invalid values are preserved for auditing and data quality analysis.
 
+## Quick Start for SDC4 Users
+
+### Working with SDC4 Schemas (XSD 1.1)
+
+SDC4 schemas use XSD 1.1 features and declare `vc:minVersion="1.1"`. You **must** use `XMLSchema11` explicitly:
+
+```python
+from sdcvalidator import XMLSchema11
+
+# CORRECT: Use XMLSchema11 for SDC4 schemas
+schema = XMLSchema11('my_sdc4_schema.xsd')
+
+# WRONG: XMLSchema is an alias to XMLSchema10 and will fail
+# schema = XMLSchema('my_sdc4_schema.xsd')  # Don't do this!
+```
+
+### Offline Validation with Local Schemas
+
+For offline validation, use the `uri_mapper` parameter to resolve remote schema URLs to local files:
+
+```python
+from sdcvalidator import XMLSchema11
+
+# Map remote SDC4 schema URL to local file
+uri_mapper = {
+    'https://semanticdatacharter.com/ns/sdc4/sdc4.xsd': '/usr/local/share/sdc4/sdc4.xsd'
+}
+
+# Load your data model schema with URI mapping
+schema = XMLSchema11(
+    'my_datamodel.xsd',
+    uri_mapper=uri_mapper,
+    validation='lax'  # Matches Xerces/Saxon gold standard behavior
+)
+
+# Validate instances
+is_valid = schema.is_valid('my_instance.xml')
+```
+
+### Validation Modes
+
+SDC4 schemas are designed to work with **Xerces 1.1 and Saxon EE 1.1** (gold standard validators). Use `validation='lax'` to match their behavior:
+
+```python
+from sdcvalidator import XMLSchema11
+
+schema = XMLSchema11(
+    'schema.xsd',
+    uri_mapper=uri_mapper,
+    validation='lax'  # RECOMMENDED: Matches gold standard behavior
+)
+```
+
+**Validation Mode Guide:**
+- **`validation='lax'`** (Recommended) - Matches Xerces/Saxon behavior, loads schemas with warnings
+- **`validation='skip'`** - Skips schema validation entirely (use for debugging only)
+- **`validation='strict'`** (Default) - Stricter than XSD spec, may reject valid schemas
+
 ## Features
 
 - **Automatic Error Classification**: Maps XML Schema validation errors to appropriate SDC4 ExceptionalValue types
