@@ -1,0 +1,2 @@
+0f2c420d8b7172c83ea6fcf1b88720382f607e17f29c6d0806b5d4da80b0b094  dist/sdcvalidator-4.0.5-py3-none-any.whl
+a083a40cc43b58cc0eff64cf8139f7e0399490f2e19fff939ed68e490e4445ba  dist/sdcvalidator-4.0.5.tar.gz
