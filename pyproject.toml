@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sdcvalidator"
+version = "4.1.0"
+description = "SDC4 structural validator — thin wrapper over xmlschema with error classification"
+license = "Apache-2.0"
+requires-python = ">=3.10"
+readme = "README.md"
+authors = [
+    {name = "Semantic Data Charter Foundation"},
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Text Processing :: Markup :: XML",
+]
+dependencies = ["xmlschema>=3.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "pytest-cov"]
+
+[project.scripts]
+sdcvalidate = "sdcvalidator.cli:validate_main"
+sdcvalidator-xml2json = "sdcvalidator.cli:xml2json_main"
+sdcvalidator-json2xml = "sdcvalidator.cli:json2xml_main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

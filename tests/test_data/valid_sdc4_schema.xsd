@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:sdc4="https://semanticdatacharter.com/ns/sdc4/"
+            targetNamespace="https://semanticdatacharter.com/ns/sdc4/"
+            elementFormDefault="qualified">
+
+    <!-- Valid SDC4 schema using only xsd:restriction -->
+
+    <!-- Base type from reference model -->
+    <xsd:complexType name="XdStringType">
+        <xsd:sequence>
+            <xsd:element name="label" type="xsd:string"/>
+            <xsd:element name="xdstring-value" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!-- Data model component using restriction (SDC4-compliant) -->
+    <xsd:complexType name="PatientName">
+        <xsd:complexContent>
+            <xsd:restriction base="sdc4:XdStringType">
+                <xsd:sequence>
+                    <xsd:element name="label" type="xsd:string" fixed="Patient Name"/>
+                    <xsd:element name="xdstring-value">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:minLength value="1"/>
+                                <xsd:maxLength value="255"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <!-- Root element -->
+    <xsd:element name="Patient" type="sdc4:PatientName"/>
+
+</xsd:schema>
