@@ -10,6 +10,7 @@
 - Validates XML instances against SDC4 XSD schemas
 - Classifies errors into **structural** (Tier 1: reject) vs **semantic** (Tier 2: report)
 - Checks SDC4 schema compliance (no `xsd:extension` — only `xsd:restriction`)
+- **Strict validation by default** — catches invalid restriction derivations (wrong element names, type mismatches) at schema load time
 - Converts between XML and JSON using schema-aware conversion
 
 ## Install
@@ -31,7 +32,7 @@ pip install -e .
 ```python
 from sdcvalidator import SDC4Validator, ErrorTier
 
-# Validate an XML instance
+# Validate an XML instance (strict mode by default)
 validator = SDC4Validator("my_schema.xsd")
 result = validator.validate("my_instance.xml")
 
@@ -42,6 +43,19 @@ else:
         print(f"STRUCTURAL: {err.reason}")
     for err in result.semantic_errors:
         print(f"SEMANTIC: {err.reason}")
+```
+
+### Validation modes
+
+The `validation` parameter controls how strictly the XSD schema itself is checked when loaded:
+
+- **`'strict'`** (default) — Raises `XMLSchemaParseError` if the schema contains invalid restriction derivations (e.g., element names that don't match the base type). This is the recommended mode.
+- **`'lax'`** — Silently collects schema derivation errors without raising. Use only for pre-existing schemas known to have issues.
+- **`'skip'`** — Skips schema-level validation entirely.
+
+```python
+# Explicit lax mode for legacy schemas
+validator = SDC4Validator("legacy_schema.xsd", validation='lax')
 ```
 
 ### Schema compliance checking

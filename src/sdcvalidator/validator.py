@@ -52,7 +52,7 @@ class SDC4Validator:
         self,
         schema: Union[str, Path, XMLSchema11],
         check_sdc4_compliance: bool = True,
-        validation: str = 'lax',
+        validation: str = 'strict',
     ):
         """
         Initialize the SDC4 validator.
@@ -62,6 +62,9 @@ class SDC4Validator:
             check_sdc4_compliance: If True, validate schema follows SDC4
                 principles (no xsd:extension). Default: True.
             validation: Schema validation mode ('strict', 'lax', 'skip').
+                Default is 'strict' to catch invalid restriction derivations
+                (e.g. wrong element names, type mismatches). Lax mode silently
+                accepts these errors.
 
         Raises:
             SDC4SchemaValidationError: If compliance check fails.

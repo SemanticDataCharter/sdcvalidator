@@ -45,7 +45,9 @@ class TestSDC4Validator(unittest.TestCase):
             xml_path = Path(f.name)
 
         try:
-            validator = SDC4Validator(self.schema_path)
+            # Use lax for this pre-existing fixture (has restriction derivation
+            # issues under strict mode that are unrelated to this test's purpose)
+            validator = SDC4Validator(self.schema_path, validation='lax')
             result = validator.validate(xml_path)
 
             self.assertFalse(result.is_valid)
@@ -68,7 +70,7 @@ class TestSDC4Validator(unittest.TestCase):
             xml_path = Path(f.name)
 
         try:
-            validator = SDC4Validator(self.schema_path)
+            validator = SDC4Validator(self.schema_path, validation='lax')
             result = validator.validate(xml_path)
 
             self.assertFalse(result.is_valid)
@@ -110,7 +112,7 @@ class TestSDC4Validator(unittest.TestCase):
             xml_path = Path(f.name)
 
         try:
-            validator = SDC4Validator(self.schema_path)
+            validator = SDC4Validator(self.schema_path, validation='lax')
             result = validator.validate(xml_path)
 
             self.assertFalse(result.is_valid)
@@ -136,7 +138,7 @@ class TestSDC4Validator(unittest.TestCase):
             xml_path = Path(f.name)
 
         try:
-            validator = SDC4Validator(self.schema_path)
+            validator = SDC4Validator(self.schema_path, validation='lax')
             structural_errors = validator.validate_structure(xml_path)
             self.assertGreater(len(structural_errors), 0)
         finally:
@@ -160,7 +162,7 @@ class TestSDC4Validator(unittest.TestCase):
             xml_path = Path(f.name)
 
         try:
-            validator = SDC4Validator(self.schema_path)
+            validator = SDC4Validator(self.schema_path, validation='lax')
             structural_errors = validator.validate_structure(xml_path)
             self.assertEqual(len(structural_errors), 0)
         finally:
@@ -182,7 +184,7 @@ class TestSDC4Validator(unittest.TestCase):
             xml_path = Path(f.name)
 
         try:
-            validator = SDC4Validator(self.schema_path)
+            validator = SDC4Validator(self.schema_path, validation='lax')
             report = validator.validate_and_report(xml_path)
 
             self.assertFalse(report['valid'])
@@ -205,6 +207,150 @@ class TestSDC4Validator(unittest.TestCase):
         )
         self.assertFalse(result2.is_valid)
         self.assertEqual(result2.error_count, 3)
+
+
+class TestStrictModeDefault(unittest.TestCase):
+    """Tests that strict mode is the default and catches invalid restrictions."""
+
+    def test_default_validation_is_strict(self):
+        """SDC4Validator defaults to validation='strict'."""
+        # valid_sdc4_schema.xsd is self-contained (no sdc4.xsd include)
+        # and has correct restriction derivation — should load fine in strict mode
+        schema_path = Path(__file__).parent / 'test_data' / 'valid_sdc4_schema.xsd'
+        validator = SDC4Validator(schema_path)
+        assert validator is not None
+        assert validator.schema is not None
+
+    def test_strict_mode_catches_invalid_restriction(self):
+        """Strict mode rejects schemas with invalid restriction derivations."""
+        # A schema where the restriction's element sequence doesn't match
+        # the base type — strict mode should raise during schema loading
+        bad_schema = '''\
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:sdc4="https://semanticdatacharter.com/ns/sdc4/"
+            targetNamespace="https://semanticdatacharter.com/ns/sdc4/"
+            elementFormDefault="qualified">
+
+    <xsd:complexType name="BaseType">
+        <xsd:sequence>
+            <xsd:element name="label" type="xsd:string"/>
+            <xsd:element name="value" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="BadRestriction">
+        <xsd:complexContent>
+            <xsd:restriction base="sdc4:BaseType">
+                <xsd:sequence>
+                    <xsd:element name="label" type="xsd:string"/>
+                    <xsd:element name="wrong-name" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+</xsd:schema>
+'''
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.xsd', delete=False) as f:
+            f.write(bad_schema)
+            schema_path = Path(f.name)
+
+        try:
+            from xmlschema.validators.exceptions import XMLSchemaParseError
+            with self.assertRaises(XMLSchemaParseError):
+                SDC4Validator(schema_path, check_sdc4_compliance=False, validation='strict')
+        finally:
+            schema_path.unlink()
+
+    def test_lax_mode_silently_accepts_invalid_restriction(self):
+        """Lax mode silently accepts the same invalid restriction (demonstrating the bug)."""
+        bad_schema = '''\
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:sdc4="https://semanticdatacharter.com/ns/sdc4/"
+            targetNamespace="https://semanticdatacharter.com/ns/sdc4/"
+            elementFormDefault="qualified">
+
+    <xsd:complexType name="BaseType">
+        <xsd:sequence>
+            <xsd:element name="label" type="xsd:string"/>
+            <xsd:element name="value" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="BadRestriction">
+        <xsd:complexContent>
+            <xsd:restriction base="sdc4:BaseType">
+                <xsd:sequence>
+                    <xsd:element name="label" type="xsd:string"/>
+                    <xsd:element name="wrong-name" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+</xsd:schema>
+'''
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.xsd', delete=False) as f:
+            f.write(bad_schema)
+            schema_path = Path(f.name)
+
+        try:
+            # Lax mode accepts this — which is the bug strict mode fixes
+            validator = SDC4Validator(
+                schema_path, check_sdc4_compliance=False, validation='lax'
+            )
+            self.assertIsNotNone(validator)
+        finally:
+            schema_path.unlink()
+
+    def test_valid_restriction_passes_strict(self):
+        """A correct restriction passes strict mode validation."""
+        good_schema = '''\
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:sdc4="https://semanticdatacharter.com/ns/sdc4/"
+            targetNamespace="https://semanticdatacharter.com/ns/sdc4/"
+            elementFormDefault="qualified">
+
+    <xsd:complexType name="BaseType">
+        <xsd:sequence>
+            <xsd:element name="label" type="xsd:string"/>
+            <xsd:element name="value" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="GoodRestriction">
+        <xsd:complexContent>
+            <xsd:restriction base="sdc4:BaseType">
+                <xsd:sequence>
+                    <xsd:element name="label" type="xsd:string" fixed="Test"/>
+                    <xsd:element name="value">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="100"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+</xsd:schema>
+'''
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.xsd', delete=False) as f:
+            f.write(good_schema)
+            schema_path = Path(f.name)
+
+        try:
+            validator = SDC4Validator(
+                schema_path, check_sdc4_compliance=False, validation='strict'
+            )
+            self.assertIsNotNone(validator)
+        finally:
+            schema_path.unlink()
 
 
 if __name__ == '__main__':
