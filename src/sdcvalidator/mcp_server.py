@@ -36,7 +36,7 @@ from sdcvalidator.schema_checker import validate_sdc4_schema_compliance
 JSONRPC_VERSION = "2.0"
 MCP_PROTOCOL_VERSION = "2024-11-05"
 SERVER_NAME = "sdcvalidator"
-SERVER_VERSION = "4.2.0"
+SERVER_VERSION = "4.2.1"
 
 # Validator cache: schema_path -> SDC4Validator
 _validators: dict[str, SDC4Validator] = {}

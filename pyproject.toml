@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sdcvalidator"
-version = "4.2.0"
+version = "4.2.1"
 description = "SDC4 structural validator — thin wrapper over xmlschema with error classification"
 license = "Apache-2.0"
 requires-python = ">=3.10"
