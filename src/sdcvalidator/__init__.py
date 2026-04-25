@@ -13,7 +13,7 @@ sdcvalidator — SDC4 structural validator.
 Thin wrapper over xmlschema with two-tier error classification.
 """
 
-__version__ = "4.1.0"
+__version__ = "4.2.0"
 
 from .validator import SDC4Validator, ValidationResult
 from .error_classifier import ErrorClassifier
