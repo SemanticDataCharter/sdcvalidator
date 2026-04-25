@@ -30,6 +30,7 @@ dev = ["pytest>=7.0", "pytest-cov"]
 sdcvalidate = "sdcvalidator.cli:validate_main"
 sdcvalidator-xml2json = "sdcvalidator.cli:xml2json_main"
 sdcvalidator-json2xml = "sdcvalidator.cli:json2xml_main"
+sdcvalidator-mcp = "sdcvalidator.mcp_server:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
