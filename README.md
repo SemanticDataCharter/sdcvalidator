@@ -122,6 +122,24 @@ sdcvalidator-xml2json instance.xml -o output.json
 sdcvalidator-json2xml data.json schema.xsd -o output.xml
 ```
 
+## MCP Server
+
+`sdcvalidator` ships a stdio MCP (Model Context Protocol) server so any MCP-capable agent can validate SDC4 data without importing the Python library. It implements JSON-RPC 2.0 directly over stdio — no external MCP SDK dependency.
+
+```bash
+sdcvalidator-mcp serve --mcp
+```
+
+### Tools
+
+| Tool | Purpose |
+|------|---------|
+| `validate_instance` | Validate an XML instance against its SDC4 XSD schema. Returns pass/fail with error count and classified errors. |
+| `validate_and_report` | Validate an instance and return a detailed report with two-tier (structural vs semantic) error classification. |
+| `check_schema_compliance` | Check whether an XSD schema follows SDC4 principles (restriction only, no `xsd:extension`). Does not validate instances. |
+
+`validate_instance` and `validate_and_report` take `schema_path` and `instance_path`, plus an optional `check_compliance` boolean (default `true`). `check_schema_compliance` takes `schema_path` only.
+
 ## Two-Tier Error Classification
 
 | Tier | Type | Examples | Action |
@@ -134,6 +152,10 @@ sdcvalidator-json2xml data.json schema.xsd -o output.xml
 SDC4 data models must use `xsd:restriction` only — never `xsd:extension`. This enforces separation of structure (reference model) and semantics (data models), guaranteeing global interoperability.
 
 The validator checks this by default and rejects schemas that violate this principle.
+
+## Status
+
+Production-ready. Available on [PyPI](https://pypi.org/project/sdcvalidator/) under Apache 2.0.
 
 ## License
 
