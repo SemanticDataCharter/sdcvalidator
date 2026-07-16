@@ -24,6 +24,8 @@ from xml.etree import ElementTree as ET
 from dataclasses import dataclass, field
 
 from xmlschema import XMLSchema11, XMLResource
+
+from .xsd11_restriction import build_xsd11_schema
 from xmlschema.validators.exceptions import XMLSchemaValidationError
 
 from .error_classifier import ErrorClassifier
@@ -100,7 +102,10 @@ class SDC4Validator:
                 raise SDC4SchemaValidationError(error_msg)
 
         if isinstance(schema, (str, Path)):
-            self.schema = XMLSchema11(str(schema), validation=validation)
+            # build_xsd11_schema preserves strict validation for every case except
+            # the valid XSD 1.1 substitution-group restriction that xmlschema
+            # false-rejects at build time (see xsd11_restriction).
+            self.schema = build_xsd11_schema(str(schema), validation=validation)
         else:
             self.schema = schema
 
