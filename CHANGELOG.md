@@ -4,6 +4,39 @@ All notable changes to `sdcvalidator` are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/), and this project adheres to
 semantic versioning.
 
+## [4.4.0]
+
+### Added
+- **XSD 1.1 substitution-group restriction support.** SDC4 data models restrict a
+  content model that references an abstract substitution-group head (`sdc4:Item`)
+  down to the specific member elements a model defines (for example a cluster's
+  `label?, Item*` restricted to `label?, ms-A?, ms-B?`). This is valid under
+  [XSD 1.1 Part 1 §3.4.6.4](https://www.w3.org/TR/xmlschema11-1/#derivation-ok-restriction),
+  which replaced the removed XSD 1.0 particle name-matching rule (`NameAndTypeOK`),
+  and is accepted by the Apache Xerces-J XML Schema 1.1 reference build. `xmlschema`
+  still applies the removed rule and rejects the construct at build time; this
+  release recognises that specific false positive so valid schemas build.
+  - `build_xsd11_schema(source, validation='strict')` — builds strict as before,
+    and only when a build fails solely on this false positive does it return a lax
+    build. Any genuine error stays fatal; `lax`/`skip` pass through unchanged.
+  - `is_substitution_group_restriction_false_positive(error)` — a structural
+    (not message-only) recogniser: every element in the derived content model must
+    either match a base element by name or be a member of a substitution group
+    whose head is in the base content model, with compatible occurrences.
+  - See `SDCRM/docs/VALIDATORS.md` for the specification citations and processor
+    behaviour.
+
+### Changed
+- `SDC4Validator` and the `converters` helpers now build schemas through
+  `build_xsd11_schema` instead of calling `XMLSchema11` directly.
+
+### Note
+- Strict validation is preserved for every case except this one valid construct:
+  restricting to a non-member element, or widening occurrences, remains fatal, and
+  a lax-built schema still enforces the restriction during instance validation
+  (valid members accepted, non-members rejected). Behaviour matches the Xerces-J
+  1.1 reference implementation.
+
 ## [4.3.0]
 
 ### Added

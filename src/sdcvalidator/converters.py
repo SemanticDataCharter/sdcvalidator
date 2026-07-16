@@ -18,6 +18,8 @@ from xml.etree import ElementTree as ET
 
 from xmlschema import XMLSchema11
 
+from .xsd11_restriction import build_xsd11_schema
+
 
 def xml_to_json(
     xml_path: Union[str, Path],
@@ -43,7 +45,7 @@ def xml_to_json(
     if schema_path is None:
         raise ValueError("schema_path is required for xml_to_json conversion")
 
-    schema = XMLSchema11(str(schema_path))
+    schema = build_xsd11_schema(str(schema_path))
     return schema.to_dict(str(xml_path))
 
 
@@ -73,7 +75,7 @@ def json_to_xml(
         elif isinstance(json_data, str):
             json_data = json.loads(json_data)
 
-    schema = XMLSchema11(str(schema_path))
+    schema = build_xsd11_schema(str(schema_path))
     element = schema.encode(json_data)
 
     output_path = Path(output_path)

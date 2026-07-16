@@ -14,7 +14,7 @@ Thin wrapper over xmlschema with two-tier error classification and the SDC4
 "quarantine-and-tag" recovery pattern (ISO 21090 ExceptionalValues).
 """
 
-__version__ = "4.3.0"
+__version__ = "4.4.0"
 
 # etree_tostring is re-exported from xmlschema so callers can serialize the
 # ElementTree returned by validate_with_recovery() without importing xmlschema
