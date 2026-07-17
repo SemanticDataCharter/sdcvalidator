@@ -14,7 +14,7 @@ Thin wrapper over xmlschema with two-tier error classification and the SDC4
 "quarantine-and-tag" recovery pattern (ISO 21090 ExceptionalValues).
 """
 
-__version__ = "4.4.0"
+__version__ = "4.4.1"
 
 # etree_tostring is re-exported from xmlschema so callers can serialize the
 # ElementTree returned by validate_with_recovery() without importing xmlschema
@@ -43,8 +43,14 @@ from .schema_checker import (
     assert_sdc4_schema_compliance,
     SDC4SchemaValidationError,
 )
+from .xsd11_restriction import (
+    build_xsd11_schema,
+    is_substitution_group_restriction_false_positive,
+)
 
-# Intentionally NOT exporting XMLSchema11 — SDCStudio's fallback import handles this.
+# Intentionally NOT exporting XMLSchema11 — callers that need a schema builder
+# should use build_xsd11_schema, which is a drop-in for XMLSchema11(...) and
+# accepts the valid XSD 1.1 substitution-group restriction xmlschema false-rejects.
 
 __all__ = [
     "__version__",
@@ -62,4 +68,6 @@ __all__ = [
     "validate_sdc4_schema_compliance",
     "assert_sdc4_schema_compliance",
     "SDC4SchemaValidationError",
+    "build_xsd11_schema",
+    "is_substitution_group_restriction_false_positive",
 ]

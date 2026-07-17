@@ -134,10 +134,14 @@ def is_substitution_group_restriction_false_positive(error) -> bool:
 
 
 def build_xsd11_schema(
-    source: Union[str, Path, "XMLSchema11"], validation: str = "strict"
+    source: Union[str, Path, "XMLSchema11"], validation: str = "strict", **kwargs
 ) -> XMLSchema11:
     """Build an ``XMLSchema11`` while tolerating only the known-valid XSD 1.1
     substitution-group restriction that xmlschema false-rejects.
+
+    A drop-in for the ``XMLSchema11(source, validation=..., **kwargs)`` constructor:
+    extra keyword arguments (``uri_mapper``, ``base_url``, ``locations``, ...) are
+    forwarded unchanged to ``XMLSchema11``.
 
     Strict mode is preserved for every other case: a clean schema builds once in
     strict mode; a schema that fails strict only because of the substitution-group
@@ -149,14 +153,14 @@ def build_xsd11_schema(
     build-time check is bypassed.
     """
     if validation != "strict":
-        return XMLSchema11(source, validation=validation)
+        return XMLSchema11(source, validation=validation, **kwargs)
 
     try:
-        return XMLSchema11(source, validation="strict")
+        return XMLSchema11(source, validation="strict", **kwargs)
     except XMLSchemaParseError as strict_error:
         if not is_substitution_group_restriction_false_positive(strict_error):
             raise
-        schema = XMLSchema11(source, validation="lax")
+        schema = XMLSchema11(source, validation="lax", **kwargs)
         genuine = [
             e for e in schema.all_errors
             if not is_substitution_group_restriction_false_positive(e)

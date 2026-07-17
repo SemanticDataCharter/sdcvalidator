@@ -4,6 +4,20 @@ All notable changes to `sdcvalidator` are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/), and this project adheres to
 semantic versioning.
 
+## [4.4.1]
+
+### Changed
+- `build_xsd11_schema(source, validation='strict', **kwargs)` now forwards extra
+  keyword arguments (`uri_mapper`, `base_url`, `locations`, ...) to `XMLSchema11`,
+  making it a true drop-in for the `XMLSchema11(...)` constructor. This lets
+  consumers (SDCStudio, the VaaS resolver) that pass `uri_mapper`/`base_url`
+  replace their direct `XMLSchema11(...)` builds with `build_xsd11_schema(...)`.
+
+### Added
+- `build_xsd11_schema` and `is_substitution_group_restriction_false_positive` are
+  now exported from the package top level (`from sdcvalidator import ...`), not
+  only from the `sdcvalidator.xsd11_restriction` submodule.
+
 ## [4.4.0]
 
 ### Added

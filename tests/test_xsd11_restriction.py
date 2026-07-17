@@ -202,3 +202,26 @@ def test_recognizer_ignores_non_restriction_errors():
     class Other(Exception):
         message = "something else entirely"
     assert is_substitution_group_restriction_false_positive(Other()) is False
+
+
+def test_kwargs_are_forwarded(tmp_path):
+    """Extra keyword arguments (uri_mapper, base_url, ...) reach XMLSchema11."""
+    path = _write(tmp_path, "valid.xsd", ABSTRACT_HEAD_RM.format(derived=VALID_DERIVED))
+    called = {}
+
+    def uri_mapper(uri):
+        called["hit"] = True
+        return uri
+
+    schema = build_xsd11_schema(path, uri_mapper=uri_mapper)
+    assert "root" in schema.elements
+    # An unsupported kwarg must surface as an error, proving passthrough.
+    with pytest.raises(TypeError):
+        build_xsd11_schema(path, not_a_real_kwarg=123)
+
+
+def test_public_exports():
+    """The builder and recognizer are importable from the package top level."""
+    import sdcvalidator
+    assert hasattr(sdcvalidator, "build_xsd11_schema")
+    assert hasattr(sdcvalidator, "is_substitution_group_restriction_false_positive")
