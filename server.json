@@ -1,0 +1,20 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.SemanticDataCharter/sdcvalidator",
+  "description": "SDC4 structural validator (thin wrapper over xmlschema) with ExceptionalValue recovery: validates XML instances against SDC4 XSD, classifies structural (reject) vs semantic (report) errors, and enforces restriction-only schemas.",
+  "repository": {
+    "url": "https://github.com/SemanticDataCharter/sdcvalidator",
+    "source": "github"
+  },
+  "version": "4.5.0",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "registryBaseUrl": "https://pypi.org",
+      "identifier": "sdcvalidator",
+      "version": "4.5.0",
+      "runtimeHint": "uvx",
+      "transport": { "type": "stdio" }
+    }
+  ]
+}
