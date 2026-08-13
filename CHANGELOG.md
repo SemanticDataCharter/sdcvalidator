@@ -4,6 +4,17 @@ All notable changes to `sdcvalidator` are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/), and this project adheres to
 semantic versioning.
 
+## [4.5.0] - 2026-08-13
+
+### Added
+
+- **`sdcvalidator` console-script entry point** mapping to the MCP server
+  (`sdcvalidator.mcp_server:main`), so `uvx sdcvalidator` launches the stdio MCP
+  server directly. The existing `sdcvalidator-mcp` entry point is retained.
+- **MCP registry publishing metadata.** Added a `server.json` (official MCP
+  registry format, schema `2025-12-11`) and an `mcp-name` ownership marker in the
+  README so the package can be published to the official MCP registry.
+
 ## [4.4.1]
 
 ### Changed

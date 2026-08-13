@@ -1,5 +1,7 @@
 # sdcvalidator
 
+<!-- mcp-name: io.github.SemanticDataCharter/sdcvalidator -->
+
 **SDC4 structural validator** — a thin wrapper over [xmlschema](https://pypi.org/project/xmlschema/) with two-tier error classification.
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
