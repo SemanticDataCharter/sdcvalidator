@@ -6,6 +6,22 @@ semantic versioning.
 
 ## [Unreleased]
 
+## [4.5.2] - 2026-09-16
+
+### Fixed
+
+- **The MCP server no longer exits on malformed input (VSL rollout R9).** A
+  JSON value that was not an object, or `params` that was not one, raised
+  `AttributeError` and ended the process. Every shape the protocol does not
+  allow is answered with JSON-RPC `-32600` (`-32602` for tool `arguments`
+  that are not an object) and the loop keeps reading.
+
+### Added
+
+- `SECURITY.md`: reporting, supported versions, and the MCP server's threat
+  model.
+
+
 ## [4.5.1] - 2026-09-16
 
 ### Fixed
