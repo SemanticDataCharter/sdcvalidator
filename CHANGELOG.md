@@ -4,6 +4,35 @@ All notable changes to `sdcvalidator` are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/), and this project adheres to
 semantic versioning.
 
+## [Unreleased]
+
+## [4.5.1] - 2026-09-16
+
+### Fixed
+
+- **★ Instances that fill a type through `xsi:type` now validate.** Every
+  input was normalised into a stdlib ElementTree, which resolves prefixes to
+  Clark notation and discards the declarations. A prefixed QName appearing as
+  content, which is what `xsi:type="sdc4:XdOrdinalType"` is, could then not be
+  resolved and xmlschema raised `XMLSchemaKeyError` instead of validating. The
+  SDC4 reference model declares `sdc4:XdOrdinal` and its siblings abstract, so
+  every reference-model-valid instance that carries a workflow state failed.
+  The prefix map is now read from a path or an `XMLResource` source and handed
+  to xmlschema. A bare `ET.Element` has already lost its declarations; pass the
+  path or an `XMLResource` for such instances.
+
+### Changed
+
+- **Package metadata corrected following a public footprint review (8 September 2026).**
+  - PyPI author changed from "Semantic Data Charter Foundation" to **Axius SDC, Inc.**
+    No such foundation exists as a legal entity, and a for-profit publishing under a
+    Foundation byline reads as open-source-washing in procurement review.
+  - `Development Status` classifier raised from `4 - Beta` to
+    `5 - Production/Stable`, resolving a contradiction with the README, which
+    said "Production-ready." Both statements were public.
+
+  Neither change affects the API or behaviour. Both appear on PyPI at the next release.
+
 ## [4.5.0] - 2026-08-13
 
 ### Added
