@@ -6,6 +6,19 @@ semantic versioning.
 
 ## [Unreleased]
 
+### Fixed
+
+- **★ Instances that fill a type through `xsi:type` now validate.** Every
+  input was normalised into a stdlib ElementTree, which resolves prefixes to
+  Clark notation and discards the declarations. A prefixed QName appearing as
+  content, which is what `xsi:type="sdc4:XdOrdinalType"` is, could then not be
+  resolved and xmlschema raised `XMLSchemaKeyError` instead of validating. The
+  SDC4 reference model declares `sdc4:XdOrdinal` and its siblings abstract, so
+  every reference-model-valid instance that carries a workflow state failed.
+  The prefix map is now read from a path or an `XMLResource` source and handed
+  to xmlschema. A bare `ET.Element` has already lost its declarations; pass the
+  path or an `XMLResource` for such instances.
+
 ### Changed
 
 - **Package metadata corrected following a public footprint review (8 September 2026).**

@@ -136,6 +136,51 @@ class SDC4Validator:
         else:
             raise TypeError(f"Unsupported xml_source type: {type(xml_source)}")
 
+    def _namespaces(
+        self, xml_source: Union[str, Path, ET.Element, XMLResource]
+    ) -> Optional[Dict[str, str]]:
+        """
+        The prefix map declared in the source, or None when it is not known.
+
+        ``_to_tree`` normalises every source into a stdlib ElementTree, which
+        resolves prefixes to Clark notation and discards the declarations. A
+        prefixed QName that appears as *content* rather than as a tag, which
+        is what ``xsi:type="sdc4:XdOrdinalType"`` is, can then no longer be
+        resolved and xmlschema raises ``XMLSchemaKeyError`` instead of
+        validating. The reference model relies on ``xsi:type`` wherever an
+        abstract element is filled by a concrete type, so an instance that is
+        valid against the reference model failed here before 4.5.1.
+
+        A path or an XMLResource still carries the declarations, so they are
+        read back and handed to xmlschema. A bare ``ET.Element`` has already
+        lost them; callers validating such an instance should pass the path
+        or an ``XMLResource`` instead.
+        """
+        if isinstance(xml_source, XMLResource):
+            return xml_source.get_namespaces(root_only=False)
+        if isinstance(xml_source, (str, Path)):
+            return XMLResource(str(xml_source)).get_namespaces(root_only=False)
+        return None
+
+    def _schema_errors(
+        self,
+        tree: ET.ElementTree,
+        xml_source: Union[str, Path, ET.Element, XMLResource],
+    ) -> Iterator[XMLSchemaValidationError]:
+        """
+        xmlschema's errors over ``tree``, with the source's prefix map.
+
+        The map is for resolving prefixed QNames in content during validation.
+        It is removed from each error afterwards so ``error.path`` keeps its
+        Clark form (``/{uri}local/...``): the recovery step locates elements by
+        that form, and every report has always carried it.
+        """
+        namespaces = self._namespaces(xml_source)
+        for error in self.schema.iter_errors(tree, namespaces=namespaces):
+            error.namespaces = None
+            error._path = None
+            yield error
+
     # ------------------------------------------------------------------ #
     # Classification-only validation (no modification)
     # ------------------------------------------------------------------ #
@@ -150,7 +195,7 @@ class SDC4Validator:
             ValidationResult with is_valid, structural_errors, semantic_errors.
         """
         tree = self._to_tree(xml_source)
-        errors = list(self.schema.iter_errors(tree))
+        errors = list(self._schema_errors(tree, xml_source))
 
         classified = self.classifier.classify_all(errors)
 
@@ -170,7 +215,7 @@ class SDC4Validator:
             List of structural errors. Empty list means structure is valid.
         """
         tree = self._to_tree(xml_source)
-        errors = list(self.schema.iter_errors(tree))
+        errors = list(self._schema_errors(tree, xml_source))
         return [e for e in errors if self.classifier.is_structural_error(e)]
 
     def iter_errors(
@@ -183,7 +228,7 @@ class SDC4Validator:
             List of error summary dictionaries (structural and semantic).
         """
         tree = self._to_tree(xml_source)
-        errors = list(self.schema.iter_errors(tree))
+        errors = list(self._schema_errors(tree, xml_source))
         return [self.classifier.get_error_summary(e) for e in errors]
 
     def iter_errors_with_mapping(
@@ -198,7 +243,7 @@ class SDC4Validator:
             Dictionaries containing error details and the mapped EV type.
         """
         tree = self._to_tree(xml_source)
-        for error in self.schema.iter_errors(tree):
+        for error in self._schema_errors(tree, xml_source):
             ev_type = self.error_mapper.map_error(error)
             if ev_type is None:
                 continue
@@ -286,7 +331,7 @@ class SDC4Validator:
         if remove_existing_ev:
             self.instance_modifier.remove_existing_exceptional_values(root)
 
-        errors = list(self.schema.iter_errors(tree))
+        errors = list(self._schema_errors(tree, xml_source))
 
         structural_errors = []
         semantic_errors = []
