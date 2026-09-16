@@ -6,6 +6,8 @@ semantic versioning.
 
 ## [Unreleased]
 
+## [4.5.1] - 2026-09-16
+
 ### Fixed
 
 - **★ Instances that fill a type through `xsi:type` now validate.** Every
