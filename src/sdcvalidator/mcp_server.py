@@ -36,7 +36,7 @@ from sdcvalidator.schema_checker import validate_sdc4_schema_compliance
 JSONRPC_VERSION = "2.0"
 MCP_PROTOCOL_VERSION = "2024-11-05"
 SERVER_NAME = "sdcvalidator"
-SERVER_VERSION = "4.5.1"
+SERVER_VERSION = "4.5.2"
 
 # Validator cache: schema_path -> SDC4Validator
 _validators: dict[str, SDC4Validator] = {}
@@ -201,10 +201,24 @@ def _jsonrpc_error(id: Any, code: int, message: str, data: Any = None) -> dict:
     return {"jsonrpc": JSONRPC_VERSION, "id": id, "error": error}
 
 
-def _handle_request(request: dict) -> dict | None:
-    method = request.get("method", "")
-    params = request.get("params", {})
+def _handle_request(request) -> dict | None:
+    # ★ Attacker-reachable input over stdio with no authentication. A JSON
+    # value that is not an object, or an object whose params is not one,
+    # used to raise AttributeError and kill the server (VSL rollout R9).
+    # Every shape the protocol does not allow is answered with -32600.
+    if not isinstance(request, dict):
+        return _jsonrpc_error(None, -32600, "Invalid Request: a JSON-RPC request is an object")
     req_id = request.get("id")
+    if not isinstance(req_id, (str, int, type(None))):
+        return _jsonrpc_error(None, -32600, "Invalid Request: id must be a string, a number or null")
+    method = request.get("method", "")
+    if not isinstance(method, str):
+        return _jsonrpc_error(req_id, -32600, "Invalid Request: method must be a string")
+    params = request.get("params", {})
+    if params is None:
+        params = {}
+    if not isinstance(params, dict):
+        return _jsonrpc_error(req_id, -32600, "Invalid Request: params must be an object")
 
     if method == "initialize":
         result = {
@@ -228,6 +242,12 @@ def _handle_request(request: dict) -> dict | None:
     elif method == "tools/call":
         tool_name = params.get("name", "")
         tool_args = params.get("arguments", {})
+        if tool_args is None:
+            tool_args = {}
+        if not isinstance(tool_name, str) or not isinstance(tool_args, dict):
+            return _jsonrpc_error(
+                req_id, -32602, "Invalid params: name must be a string and arguments an object"
+            )
 
         handler = TOOL_HANDLERS.get(tool_name)
         if handler is None:

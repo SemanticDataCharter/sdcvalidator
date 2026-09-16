@@ -137,3 +137,55 @@ class TestConsistentSerialization:
             assert content[0]["type"] == "text"
             parsed = json.loads(content[0]["text"])
             assert parsed is not None
+
+class TestMalformedRequestsDoNotKillTheServer:
+    """
+    VSL rollout inventory R9. Six inputs that are valid JSON but not a
+    JSON-RPC request raised AttributeError in _handle_request and ended the
+    process. Each is now answered with -32600 (or -32602 for bad tool params)
+    and the loop keeps reading.
+    """
+
+    @pytest.mark.parametrize("payload", [[], ["tools/list"], "tools/list", 7, None, True])
+    def test_a_non_object_request_is_invalid_request(self, payload):
+        response = _handle_request(payload)
+        assert response["error"]["code"] == -32600
+        assert response["id"] is None
+
+    @pytest.mark.parametrize("params", [[], "x", 3, True])
+    def test_non_object_params_are_invalid_request(self, params):
+        response = _handle_request({"jsonrpc": "2.0", "id": 1, "method": "tools/list", "params": params})
+        assert response["error"]["code"] == -32600
+        assert response["id"] == 1
+
+    def test_null_params_are_treated_as_empty(self):
+        response = _handle_request({"jsonrpc": "2.0", "id": 1, "method": "tools/list", "params": None})
+        assert "result" in response
+
+    def test_a_non_string_method_is_invalid_request(self):
+        response = _handle_request({"jsonrpc": "2.0", "id": 1, "method": ["tools/list"]})
+        assert response["error"]["code"] == -32600
+
+    @pytest.mark.parametrize("arguments", [[], "x", 3])
+    def test_non_object_tool_arguments_are_invalid_params(self, arguments):
+        response = _handle_request({
+            "jsonrpc": "2.0", "id": 1, "method": "tools/call",
+            "params": {"name": list(TOOL_HANDLERS)[0], "arguments": arguments},
+        })
+        assert response["error"]["code"] == -32602
+
+    def test_the_stdio_loop_survives_every_one_of_them(self, monkeypatch, capsys):
+        import io
+        import sys
+
+        from sdcvalidator.mcp_server import run_stdio
+
+        lines = ["[]", "\"tools/list\"", "7", "null",
+                 json.dumps({"jsonrpc": "2.0", "id": 1, "method": "tools/list", "params": []}),
+                 json.dumps({"jsonrpc": "2.0", "id": 2, "method": "ping"})]
+        monkeypatch.setattr(sys, "stdin", io.StringIO("\n".join(lines) + "\n"))
+        run_stdio()
+        out = [json.loads(l) for l in capsys.readouterr().out.strip().splitlines()]
+        assert len(out) == 6
+        assert [o.get("error", {}).get("code") for o in out[:5]] == [-32600] * 5
+        assert out[5] == {"jsonrpc": "2.0", "id": 2, "result": {}}
