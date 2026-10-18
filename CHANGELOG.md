@@ -6,6 +6,20 @@ semantic versioning.
 
 ## [Unreleased]
 
+## [4.5.3] - 2026-10-17
+
+### Fixed
+
+- **The MCP registry entry starts the server (#15).** `server.json` declared
+  the package with no `packageArguments`, so a registry client that ran
+  `uvx sdcvalidator` reached `main()` with no arguments, which printed the
+  CLI help and exited; only `sdcvalidator-mcp serve --mcp` started a server.
+  `server.json` now passes `mcp`, and the console script starts the stdio
+  server with no arguments, with `mcp`, or with `serve --mcp` (kept for
+  existing client configurations). `tests/test_registry_launch.py` starts
+  the server each way and checks that `server.json` names the released
+  version.
+
 ## [4.5.2] - 2026-09-16
 
 ### Fixed
