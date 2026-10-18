@@ -8,9 +8,9 @@ hand-written configuration and the pre-4.5.3 configuration do, and check that
 ``server.json`` names the released version.
 """
 import json
+import re
 import subprocess
 import sys
-import tomllib
 from pathlib import Path
 
 import pytest
@@ -71,7 +71,8 @@ def test_server_json_declares_the_mcp_launch():
 
 
 def test_server_json_names_the_released_version():
-    pyproject = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))["project"]["version"]
+    # A regex, not tomllib: the test matrix includes Python 3.10.
+    pyproject = re.search(r'^version = "([^"]+)"', (ROOT / "pyproject.toml").read_text(encoding="utf-8"), re.M).group(1)
     assert SERVER_JSON["version"] == pyproject
     assert SERVER_JSON["packages"][0]["version"] == pyproject
     assert sdcvalidator.__version__ == pyproject
