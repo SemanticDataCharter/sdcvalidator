@@ -36,7 +36,7 @@ from sdcvalidator.schema_checker import validate_sdc4_schema_compliance
 JSONRPC_VERSION = "2.0"
 MCP_PROTOCOL_VERSION = "2024-11-05"
 SERVER_NAME = "sdcvalidator"
-SERVER_VERSION = "4.5.2"
+SERVER_VERSION = "4.5.3"
 
 # Validator cache: schema_path -> SDC4Validator
 _validators: dict[str, SDC4Validator] = {}
@@ -290,22 +290,37 @@ def run_stdio() -> None:
             sys.stdout.flush()
 
 
-def main() -> None:
-    """Entry point for the sdcvalidator MCP server."""
+def main(argv: list[str] | None = None) -> None:
+    """Entry point of the ``sdcvalidator`` and ``sdcvalidator-mcp`` console scripts.
+
+    Three spellings start the stdio server: no arguments at all (what an MCP
+    registry client runs: ``uvx sdcvalidator``), ``mcp`` (the spelling the other
+    Semantic Data Charter servers use) and ``serve --mcp`` (kept for existing
+    client configurations). Until 4.5.3 the bare command printed this help and
+    exited, so the registry entry never started a server (issue #15).
+    """
     import argparse
 
     parser = argparse.ArgumentParser(
-        prog="sdcvalidator-mcp",
-        description="SDC4 structural validator - MCP server",
+        prog="sdcvalidator",
+        description="SDC4 structural validator - MCP stdio server",
+        epilog="With no command the MCP server starts, reading JSON-RPC on stdin.",
     )
     subparsers = parser.add_subparsers(dest="command")
 
+    subparsers.add_parser("mcp", help="Run the MCP stdio server")
     serve_parser = subparsers.add_parser("serve", help="Start the validation server")
     serve_parser.add_argument("--mcp", action="store_true", help="Run as MCP stdio server")
 
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
-    if args.command == "serve" and args.mcp:
+    if args.command is None or args.command == "mcp" or (args.command == "serve" and args.mcp):
+        if args.command is None and sys.stdin.isatty():
+            sys.stderr.write(
+                "sdcvalidator: MCP server reading JSON-RPC 2.0 on stdin "
+                "(sdcvalidator --help for options, Ctrl-D to stop)\n"
+            )
+            sys.stderr.flush()
         run_stdio()
     else:
         parser.print_help()

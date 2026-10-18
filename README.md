@@ -129,8 +129,12 @@ sdcvalidator-json2xml data.json schema.xsd -o output.xml
 `sdcvalidator` ships a stdio MCP (Model Context Protocol) server so any MCP-capable agent can validate SDC4 data without importing the Python library. It implements JSON-RPC 2.0 directly over stdio — no external MCP SDK dependency.
 
 ```bash
-sdcvalidator-mcp serve --mcp
+sdcvalidator            # what an MCP registry client runs (uvx sdcvalidator)
+sdcvalidator mcp        # the same, spelled like the other Semantic Data Charter servers
+sdcvalidator-mcp serve --mcp   # still works for existing client configurations
 ```
+
+A client configuration needs only `"command": "uvx", "args": ["sdcvalidator"]`.
 
 ### Tools
 
