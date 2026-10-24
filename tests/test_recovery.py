@@ -72,7 +72,7 @@ class TestSDC4Recovery(unittest.TestCase):
                 <label>Adult Population</label>
                 <xdcount-value>not_a_number</xdcount-value>
                 <xdcount-units>
-                    <label>Count Units</label>
+                    <label>Adult Population_units</label>
                     <xdstring-value>people</xdstring-value>
                 </xdcount-units>
             </sdc4:ms-q1ey1sf5otsa97e76kb06hco>

@@ -6,6 +6,31 @@ semantic versioning.
 
 ## [Unreleased]
 
+## [4.6.0] - 2026-10-24
+
+### Added
+
+- **`SDC4Validator.recover()`** returns a `RecoveryResult`: the recovered tree, a `Recovery` for each value covered
+  (the element's path, the ISO 21090 code and name, the reason it failed, and whether the ExceptionalValue was
+  inserted now or was already in the record), and the errors no ExceptionalValue covers (`unrecoverable`). The reason
+  a value failed is data here, not only an XML comment. `Recovery`, `RecoveryResult` and `SDC4UnrecoverableError` are
+  exported.
+
+### Changed
+
+- **ExceptionalValues already in a record are kept.** `validate_with_recovery()` and `save_recovered_xml()` now
+  default to `remove_existing_ev=False`. Those written where the record was made (Asked and Refused, Masked, Not
+  Asked) are data: removing them, then re-inserting only for values that failed, lost why a value was missing whenever
+  any other value in the record failed. A value whose element already carries one is covered by it, and recovery
+  never inserts a second ExceptionalValue into one value. Pass `remove_existing_ev=True` for the old behavior.
+- **An error recovery cannot cover is raised, not skipped.** `validate_with_recovery()` raises
+  `SDC4UnrecoverableError` (with the errors) where it used to log a warning and return the record as recovered, with an
+  invalid value nobody had marked. A caller that catches exceptions and keeps the original XML, as the SDCStudio
+  generated-application templates do, now fails safe. The existing recovery test had such an error (a units label
+  that does not match its fixed value) and passed only because it was skipped; its instance is corrected.
+
+Found while building `sdc-mapper`, which reports every Exceptional Value a record carries and needs them kept.
+
 ## [4.5.3] - 2026-10-17
 
 ### Fixed
