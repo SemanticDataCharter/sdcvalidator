@@ -82,6 +82,32 @@ tier = classifier.classify(some_xmlschema_error)
 # ErrorTier.STRUCTURAL or ErrorTier.SEMANTIC
 ```
 
+### Exceptional Value recovery
+
+A semantic (Tier 2) error does not have to reject a record. Recovery keeps the value and inserts an ISO 21090
+ExceptionalValue beside it (Invalid, for a value that fails its type, pattern, range or enumeration), so the record
+says which value is unusable and why, and the rest of it stays usable.
+
+```python
+from sdcvalidator import SDC4Validator, SDC4UnrecoverableError
+
+v = SDC4Validator("dm-xxxx.xsd", validation="lax")
+result = v.recover("record.xml")         # RecoveryResult; the source is never mutated
+for r in result.recoveries:              # Recovery: path, code ("INV"), name, reason, inserted
+    print(r.code, r.reason, r.path)
+if not result.ok:                        # an error no ExceptionalValue covers
+    print(result.unrecoverable)
+
+tree = v.validate_with_recovery("record.xml", save=False)   # raises SDC4UnrecoverableError instead
+```
+
+- An ExceptionalValue the record already carries (a refusal, a masked field, written where the record was made) is
+  kept, and covers its value; recovery never inserts a second one. `remove_existing_ev=True` removes them first.
+- An error recovery cannot cover is returned in `unrecoverable` by `recover()`, and raised as
+  `SDC4UnrecoverableError` by `validate_with_recovery()`; it is never skipped.
+- Structural (Tier 1) errors raise `SDC4StructuralValidationError`.
+- Pass an `XMLResource` when the record carries prefixed QNames in content (`xsi:type="sdc4:..."`).
+
 ### XML/JSON conversion
 
 ```python
@@ -151,7 +177,7 @@ A client configuration needs only `"command": "uvx", "args": ["sdcvalidator"]`.
 | Tier | Type | Examples | Action |
 |------|------|----------|--------|
 | 1 | Structural | Unknown elements, cardinality violations, wrong nesting | **Reject** |
-| 2 | Semantic | Type errors, pattern violations, enumeration mismatches | **Report** |
+| 2 | Semantic | Type errors, pattern violations, enumeration mismatches | **Report**, or recover with an ExceptionalValue |
 
 ## SDC4 Schema Compliance
 

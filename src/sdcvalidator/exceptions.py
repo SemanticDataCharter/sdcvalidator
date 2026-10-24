@@ -61,3 +61,30 @@ class SDC4StructuralValidationError(Exception):
     def error_count(self) -> int:
         """Return the number of structural errors."""
         return len(self.errors)
+
+
+class SDC4UnrecoverableError(Exception):
+    """
+    Raised by `validate_with_recovery` when a semantic (Tier 2) error cannot be
+    covered by an ExceptionalValue: no ExceptionalValue maps to it, or the
+    element it names cannot be found (4.6.0).
+
+    Before 4.6.0 such an error was logged and skipped, and the record came back
+    as recovered with an invalid value nobody had marked. `SDC4Validator.recover()`
+    returns these errors in `RecoveryResult.unrecoverable` instead of raising.
+    """
+
+    def __init__(self, errors: List['XMLSchemaValidationError'], message: str = None):
+        self.errors = errors
+        if message is None:
+            lines = ["Recovery could not cover every error:"]
+            for i, error in enumerate(errors, 1):
+                lines.append(f"  {i}. {error.reason or error}")
+                if error.path:
+                    lines.append(f"     at: {error.path}")
+            message = "\n".join(lines)
+        super().__init__(message)
+
+    @property
+    def error_count(self) -> int:
+        return len(self.errors)

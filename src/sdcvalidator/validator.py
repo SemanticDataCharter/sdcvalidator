@@ -31,7 +31,8 @@ from xmlschema.validators.exceptions import XMLSchemaValidationError
 from .error_classifier import ErrorClassifier
 from .error_mapper import ErrorMapper
 from .instance_modifier import InstanceModifier
-from .exceptions import SDC4StructuralValidationError
+from .exceptions import SDC4StructuralValidationError, SDC4UnrecoverableError
+from .constants import EXCEPTIONAL_VALUE_CODES, ExceptionalValueType
 from .schema_checker import (
     validate_sdc4_schema_compliance,
     SDC4SchemaValidationError
@@ -50,6 +51,33 @@ class ValidationResult:
     @property
     def error_count(self) -> int:
         return len(self.structural_errors) + len(self.semantic_errors)
+
+
+@dataclass
+class Recovery:
+    """One value an ExceptionalValue covers after recovery."""
+    path: str              # the Clark-form path of the element whose value failed (as xmlschema reports it)
+    code: str              # the ISO 21090 code: "INV"
+    name: str              # its name: "Invalid"
+    reason: str            # what failed, from the validator: the constraint, the pattern, the type
+    inserted: bool         # True if recovery inserted the ExceptionalValue; False if the record already carried one
+
+
+@dataclass
+class RecoveryResult:
+    """What `SDC4Validator.recover()` did: the recovered tree, each value it covered, and each error it could not."""
+    tree: ET.ElementTree
+    recoveries: List[Recovery] = field(default_factory=list)
+    unrecoverable: List[XMLSchemaValidationError] = field(default_factory=list)
+
+    @property
+    def ok(self) -> bool:
+        """True when every error is covered by an ExceptionalValue."""
+        return not self.unrecoverable
+
+    @property
+    def inserted(self) -> List[Recovery]:
+        return [r for r in self.recoveries if r.inserted]
 
 
 class SDC4Validator:
@@ -296,18 +324,91 @@ class SDC4Validator:
     # ExceptionalValue recovery (quarantine-and-tag)
     # ------------------------------------------------------------------ #
 
+    def recover(
+        self,
+        xml_source: Union[str, Path, ET.Element, XMLResource],
+        remove_existing_ev: bool = False,
+    ) -> RecoveryResult:
+        """
+        Validate an XML instance and cover each semantic error with an ExceptionalValue.
+
+        Tier 1 (structural) errors cause a hard reject (SDC4StructuralValidationError).
+        Tier 2 (semantic) errors are quarantined: the value stays in the record and an
+        ExceptionalValue is inserted beside it, once per value. A value whose element
+        already carries an ExceptionalValue (one written where the record was made: a
+        refusal, a masked field) is covered by it; nothing is inserted and nothing is
+        removed. An error that cannot be covered (no ExceptionalValue maps to it, or
+        the element cannot be found) is returned in `unrecoverable`, never skipped.
+
+        Args:
+            xml_source: A path, an Element, or an XMLResource (use an XMLResource when
+                the instance carries prefixed QNames in content, such as xsi:type).
+            remove_existing_ev: Remove every ExceptionalValue already in the record
+                first. Off by default since 4.6.0: those written at the source are
+                data, and removing them loses why a value is missing.
+
+        Returns:
+            RecoveryResult: the recovered tree (a copy; the source is never mutated),
+            the recoveries, and the unrecoverable errors.
+
+        Raises:
+            SDC4StructuralValidationError: If structural (Tier 1) errors are present.
+        """
+        tree = self._to_tree(xml_source)
+        root = copy.deepcopy(tree.getroot())
+        tree = ET.ElementTree(root)
+
+        if remove_existing_ev:
+            self.instance_modifier.remove_existing_exceptional_values(root)
+
+        errors = list(self._schema_errors(tree, xml_source))
+        structural = [e for e in errors if self.error_mapper.is_structural_error(e)]
+        if structural:
+            raise SDC4StructuralValidationError(structural)
+
+        result = RecoveryResult(tree=tree)
+        covered: Dict[int, Recovery] = {}
+        for error in errors:
+            ev_type = self.error_mapper.map_error(error)
+            reason = " ".join((error.reason or error.message or "").split())
+            target = self.instance_modifier._find_element_by_xpath(root, error.path) if error.path else None
+            parent = self.instance_modifier._find_parent_element(root, target) if target is not None else None
+            if ev_type is None or parent is None:
+                result.unrecoverable.append(error)
+                continue
+            if id(parent) in covered:          # a second failure in a value already covered
+                continue
+            existing = next((c for c in parent if isinstance(c.tag, str)
+                             and c.tag.rsplit("}", 1)[-1] in EXCEPTIONAL_VALUE_CODES), None)
+            if existing is not None:
+                code = existing.tag.rsplit("}", 1)[-1]
+                rec = Recovery(path=error.path, code=code, name=ExceptionalValueType.from_code(code).ev_name,
+                               reason=reason, inserted=False)
+            elif self.instance_modifier.insert_exceptional_value(
+                    root=root, xpath=error.path, ev_type=ev_type, reason=error.reason):
+                rec = Recovery(path=error.path, code=ev_type.code, name=ev_type.ev_name, reason=reason, inserted=True)
+            else:
+                result.unrecoverable.append(error)
+                continue
+            covered[id(parent)] = rec
+            result.recoveries.append(rec)
+        return result
+
     def validate_with_recovery(
         self,
         xml_source: Union[str, Path, ET.Element, XMLResource],
         output_path: Optional[Union[str, Path]] = None,
-        remove_existing_ev: bool = True,
+        remove_existing_ev: bool = False,
         save: bool = True,
     ) -> ET.ElementTree:
         """
         Validate an XML instance and insert ExceptionalValue elements for errors.
 
         Tier 1 (structural) errors cause a hard reject (SDC4StructuralValidationError).
-        Tier 2 (semantic) errors are quarantined with ExceptionalValue tags.
+        Tier 2 (semantic) errors are quarantined with ExceptionalValue tags (see
+        `recover()`, which also returns what was covered and why). An error that
+        cannot be covered raises SDC4UnrecoverableError rather than returning a
+        record with an invalid value nobody marked (4.6.0).
 
         The recovered XML is saved unless save=False. When saving and no
         output_path is given, defaults to '{stem}-ev{suffix}' beside the input.
@@ -317,52 +418,14 @@ class SDC4Validator:
 
         Raises:
             SDC4StructuralValidationError: If structural (Tier 1) errors are present.
+            SDC4UnrecoverableError: If a semantic error cannot be covered.
             ValueError: If save=True but output_path cannot be determined.
         """
-        original_file_path = None
-        if isinstance(xml_source, (str, Path)):
-            original_file_path = Path(xml_source)
-
-        tree = self._to_tree(xml_source)
-        # Work on a deep copy so the caller's source is never mutated.
-        root = copy.deepcopy(tree.getroot())
-        tree = ET.ElementTree(root)
-
-        if remove_existing_ev:
-            self.instance_modifier.remove_existing_exceptional_values(root)
-
-        errors = list(self._schema_errors(tree, xml_source))
-
-        structural_errors = []
-        semantic_errors = []
-        for error in errors:
-            if self.error_mapper.is_structural_error(error):
-                structural_errors.append(error)
-            else:
-                semantic_errors.append(error)
-
-        # Tier 1: hard reject.
-        if structural_errors:
-            raise SDC4StructuralValidationError(structural_errors)
-
-        # Tier 2: quarantine-and-tag.
-        for error in semantic_errors:
-            ev_type = self.error_mapper.map_error(error)
-            if ev_type is None:
-                continue
-            xpath = error.path
-            if xpath:
-                success = self.instance_modifier.insert_exceptional_value(
-                    root=root,
-                    xpath=xpath,
-                    ev_type=ev_type,
-                    reason=error.reason,
-                )
-                if not success:
-                    logger.warning(
-                        "Failed to insert ExceptionalValue at xpath '%s': %s",
-                        xpath, error.reason,
-                    )
+        original_file_path = Path(xml_source) if isinstance(xml_source, (str, Path)) else None
+        result = self.recover(xml_source, remove_existing_ev=remove_existing_ev)
+        if result.unrecoverable:
+            raise SDC4UnrecoverableError(result.unrecoverable)
+        tree = result.tree
 
         if save:
             if output_path is None:
@@ -396,7 +459,7 @@ class SDC4Validator:
         self,
         output_path: Union[str, Path],
         xml_source: Union[str, Path, ET.Element, XMLResource],
-        remove_existing_ev: bool = True,
+        remove_existing_ev: bool = False,
         encoding: str = 'UTF-8',
         xml_declaration: bool = True,
     ):

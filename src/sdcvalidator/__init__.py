@@ -14,7 +14,7 @@ Thin wrapper over xmlschema with two-tier error classification and the SDC4
 "quarantine-and-tag" recovery pattern (ISO 21090 ExceptionalValues).
 """
 
-__version__ = "4.5.3"
+__version__ = "4.6.0"
 
 # etree_tostring is re-exported from xmlschema so callers can serialize the
 # ElementTree returned by validate_with_recovery() without importing xmlschema
@@ -27,12 +27,14 @@ except ImportError:  # pragma: no cover - fallback for older layouts
 from .validator import (
     SDC4Validator,
     ValidationResult,
+    Recovery,
+    RecoveryResult,
     validate_with_recovery,
 )
 from .error_classifier import ErrorClassifier
 from .error_mapper import ErrorMapper
 from .instance_modifier import InstanceModifier
-from .exceptions import SDC4StructuralValidationError
+from .exceptions import SDC4StructuralValidationError, SDC4UnrecoverableError
 from .constants import (
     ErrorTier,
     ExceptionalValueType,
@@ -56,6 +58,9 @@ __all__ = [
     "__version__",
     "SDC4Validator",
     "ValidationResult",
+    "Recovery",
+    "RecoveryResult",
+    "SDC4UnrecoverableError",
     "ErrorClassifier",
     "ErrorMapper",
     "InstanceModifier",
