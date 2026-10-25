@@ -6,6 +6,11 @@ semantic versioning.
 
 ## [Unreleased]
 
+## [4.6.1] - 2026-10-25
+
+### Security
+- Rebuilt with pip 26.2.2 pinned by hash in CI and the release job (the eMudhra/emSign CA compromise: pip before 26.2.2 trusts the compromised root through its vendored certifi). No change to the package.
+
 ## [4.6.0] - 2026-10-24
 
 ### Added
