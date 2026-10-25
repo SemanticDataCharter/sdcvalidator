@@ -6,13 +6,13 @@
     "url": "https://github.com/SemanticDataCharter/sdcvalidator",
     "source": "github"
   },
-  "version": "4.6.0",
+  "version": "4.6.1",
   "packages": [
     {
       "registryType": "pypi",
       "registryBaseUrl": "https://pypi.org",
       "identifier": "sdcvalidator",
-      "version": "4.6.0",
+      "version": "4.6.1",
       "runtimeHint": "uvx",
       "transport": {
         "type": "stdio"
