@@ -1,0 +1,1005 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdc4:dm-kuntv2wlkw54h7nxe0kqhvi2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdc4="https://semanticdatacharter.com/ns/sdc4/" xsi:schemaLocation="https://semanticdatacharter.com/ns/sdc4/ https://semanticdatacharter.com/dmlib/dm-kuntv2wlkw54h7nxe0kqhvi2.xsd">
+  <dm-label>Order Response</dm-label>
+  <dm-language>en-US</dm-language>
+  <dm-encoding>utf-8</dm-encoding>
+  <creation_timestamp>2026-06-09T11:55:00</creation_timestamp>
+  <instance_id>p3shtoq8icsod4bb9aahbkku</instance_id>
+  <instance_version>1</instance_version>
+  <current-state>OrderProcessing</current-state>
+  <sdc4:ms-xrtq55a6zyrnr068ja610u3n>
+    <label>Order Response Governed Record</label>
+    <sdc4:ms-t2tvd3wylxrstdeu5aw6gkw1>
+      <label>Audit Event</label>
+      <sdc4:ms-hpkc8xrccpwc3shm4ubm5o47>
+        <sdc4:ms-dkc2ccj5te35z9gd4bu1blcq>
+          <label>Audit Agent Reference</label>
+          <xdstring-value>urn:halvorsen:order-system:4.1.5</xdstring-value>
+        </sdc4:ms-dkc2ccj5te35z9gd4bu1blcq>
+      </sdc4:ms-hpkc8xrccpwc3shm4ubm5o47>
+      <sdc4:ms-ynnnvgi8748h2d01z2gf4z8x>
+        <sdc4:ms-gcjyjrnp0wsfoelcp4m05c67>
+          <label>Audit Entity Reference</label>
+          <xdstring-value>urn:kestrel:order:KM-PO-2026-000002:ubl</xdstring-value>
+        </sdc4:ms-gcjyjrnp0wsfoelcp4m05c67>
+      </sdc4:ms-ynnnvgi8748h2d01z2gf4z8x>
+      <sdc4:ms-uf11uwd9s5x5t9bw98z9dr5l>
+        <sdc4:ms-fjhgr5fyqxt2crmg2cb5c513>
+          <label>Audit Event Identifier</label>
+          <xdstring-value>urn:halvorsen-demo:audit:00000013</xdstring-value>
+        </sdc4:ms-fjhgr5fyqxt2crmg2cb5c513>
+      </sdc4:ms-uf11uwd9s5x5t9bw98z9dr5l>
+      <sdc4:ms-jwpkqjchavj885uwt5v1jgid>
+        <sdc4:ms-sndpbhm3xbd6qtbyxmvh3i0e>
+          <label>Data Subject Reference</label>
+          <xdstring-value>urn:order:HF-OR-2026-000002</xdstring-value>
+        </sdc4:ms-sndpbhm3xbd6qtbyxmvh3i0e>
+      </sdc4:ms-jwpkqjchavj885uwt5v1jgid>
+      <sdc4:ms-yec6svv50u9d1tz9rp6kmv3v>
+        <sdc4:ms-h3kdbvdtyalpvik97saaf0an>
+          <label>System Identifier</label>
+          <xdstring-value>urn:halvorsen:order-system:4.1.5</xdstring-value>
+        </sdc4:ms-h3kdbvdtyalpvik97saaf0an>
+      </sdc4:ms-yec6svv50u9d1tz9rp6kmv3v>
+      <sdc4:ms-r6x55vvha5ci3rl1o29adk03>
+        <sdc4:ms-ujir739mf1g8ajeczs9nzh9m>
+          <label>System Location Name</label>
+          <xdstring-value>Chicago, Illinois</xdstring-value>
+        </sdc4:ms-ujir739mf1g8ajeczs9nzh9m>
+      </sdc4:ms-r6x55vvha5ci3rl1o29adk03>
+      <sdc4:ms-lcsns9hrrzcg74jlit8srxgp>
+        <sdc4:ms-ce1c8sydkov8bkv4dgdmwe5x>
+          <label>Audit Event Action</label>
+          <xdtoken-value>C</xdtoken-value>
+        </sdc4:ms-ce1c8sydkov8bkv4dgdmwe5x>
+      </sdc4:ms-lcsns9hrrzcg74jlit8srxgp>
+      <sdc4:ms-wu8f1x11e6ihbltdd6w20rg5>
+        <sdc4:ms-rpz1czz06jhpahmfz30rblvp>
+          <label>Audit Event Outcome</label>
+          <xdtoken-value>0</xdtoken-value>
+        </sdc4:ms-rpz1czz06jhpahmfz30rblvp>
+      </sdc4:ms-wu8f1x11e6ihbltdd6w20rg5>
+      <sdc4:ms-kce8557jd9vg6ei59m7o1kc2>
+        <sdc4:ms-vbctgmdcwps5b3r3l6sboa6y>
+          <label>Confidentiality</label>
+          <xdtoken-value>N</xdtoken-value>
+        </sdc4:ms-vbctgmdcwps5b3r3l6sboa6y>
+      </sdc4:ms-kce8557jd9vg6ei59m7o1kc2>
+      <sdc4:ms-vgvl7vcmbiz2z7zn9v7ayc04>
+        <sdc4:ms-jujsdur1igws8orw6tvvlqco>
+          <label>Provenance Agent Type</label>
+          <xdtoken-value>author</xdtoken-value>
+        </sdc4:ms-jujsdur1igws8orw6tvvlqco>
+      </sdc4:ms-vgvl7vcmbiz2z7zn9v7ayc04>
+      <sdc4:ms-xcmayroyt4krhroimfb3e859>
+        <sdc4:ms-d1evlz8yvdlwt6ia9fjq4pgj>
+          <label>Purpose of Use</label>
+          <xdtoken-value>HOPERAT</xdtoken-value>
+        </sdc4:ms-d1evlz8yvdlwt6ia9fjq4pgj>
+      </sdc4:ms-xcmayroyt4krhroimfb3e859>
+      <sdc4:ms-r5fply6fvzhg90zybxgdx5cb>
+        <sdc4:ms-uwiosm2q9ym3ewr4de910s70>
+          <label>Audit Recorded At</label>
+          <xdtemporal-datetime>2026-06-09T11:55:00</xdtemporal-datetime>
+        </sdc4:ms-uwiosm2q9ym3ewr4de910s70>
+      </sdc4:ms-r5fply6fvzhg90zybxgdx5cb>
+    </sdc4:ms-t2tvd3wylxrstdeu5aw6gkw1>
+    <sdc4:ms-r7soe9xhvta7hbfqe07d36zs>
+      <label>Order Response</label>
+      <sdc4:ms-nylve3b8ss572vh8zso2u4l7>
+        <label>Buyer Customer Party</label>
+        <sdc4:ms-asbbdn0eof6713wx4y2e90c2>
+          <label>Customer Party</label>
+          <sdc4:ms-useph7s4ienfhwerqx2thedj>
+            <label>Party</label>
+            <sdc4:ms-kibeh8vp79shumcdyj8xzqw1>
+              <label>Party Contact</label>
+              <sdc4:ms-d2xwhnb2vqzxw70jcizj9csx>
+                <label>Contact Point</label>
+                <sdc4:ms-rr45vpoto55jhvob6vtzsz27>
+                  <sdc4:ms-q922mqaon3yn5zlwf2bszf28>
+                    <label>Email Address</label>
+                    <xdstring-value>grocery.buying@kestrelmercantile.example</xdstring-value>
+                  </sdc4:ms-q922mqaon3yn5zlwf2bszf28>
+                </sdc4:ms-rr45vpoto55jhvob6vtzsz27>
+                <sdc4:ms-f2caqwqmsl0fnkscaz4uhrya>
+                  <sdc4:ms-zpfwg52r88j6jdypj7rg71ke>
+                    <label>Phone Number</label>
+                    <xdstring-value>+1 312 555 0188</xdstring-value>
+                  </sdc4:ms-zpfwg52r88j6jdypj7rg71ke>
+                </sdc4:ms-f2caqwqmsl0fnkscaz4uhrya>
+              </sdc4:ms-d2xwhnb2vqzxw70jcizj9csx>
+              <sdc4:ms-pie59rwktjnrs9ryzkukigx3>
+                <sdc4:ms-bkw6awwe7kp01kowlwbgn21b>
+                  <label>Contact Department</label>
+                  <xdstring-value>Merchandising</xdstring-value>
+                </sdc4:ms-bkw6awwe7kp01kowlwbgn21b>
+              </sdc4:ms-pie59rwktjnrs9ryzkukigx3>
+              <sdc4:ms-ko9sky98bffl3rypvh072rwt>
+                <sdc4:ms-fp533gyfb6yatp6jgpg2emb2>
+                  <label>Contact Name</label>
+                  <xdstring-value>Grocery buying office</xdstring-value>
+                </sdc4:ms-fp533gyfb6yatp6jgpg2emb2>
+              </sdc4:ms-ko9sky98bffl3rypvh072rwt>
+            </sdc4:ms-kibeh8vp79shumcdyj8xzqw1>
+            <sdc4:ms-z0gdpy67iot29gdc2zq2v1jj>
+              <label>Party Identification</label>
+              <sdc4:ms-f6wumzzw4wb7itpz4lfmzifi>
+                <sdc4:ms-iwxh8exsn4qb6eyetfbwqvmj>
+                  <label>Party Identification Value</label>
+                  <xdstring-value>0000002000015</xdstring-value>
+                </sdc4:ms-iwxh8exsn4qb6eyetfbwqvmj>
+              </sdc4:ms-f6wumzzw4wb7itpz4lfmzifi>
+              <sdc4:ms-ldm5kmibox484imu15oomg42>
+                <sdc4:ms-c9v9nkkg6b8sixoaf55vyjrn>
+                  <label>Party Identification Scheme</label>
+                  <xdtoken-value>Global Location Number (GS1)</xdtoken-value>
+                </sdc4:ms-c9v9nkkg6b8sixoaf55vyjrn>
+              </sdc4:ms-ldm5kmibox484imu15oomg42>
+            </sdc4:ms-z0gdpy67iot29gdc2zq2v1jj>
+            <sdc4:ms-cslzdtawth1xxjjslf1975qt>
+              <label>Party Legal Entity</label>
+              <sdc4:ms-xhhp4as6f4zy16ga4dhs95lq>
+                <sdc4:ms-axizk9c3k82w84p1t1wkwayu>
+                  <label>Company ID</label>
+                  <xdstring-value>IL-77-5590012</xdstring-value>
+                </sdc4:ms-axizk9c3k82w84p1t1wkwayu>
+              </sdc4:ms-xhhp4as6f4zy16ga4dhs95lq>
+              <sdc4:ms-ke7bgbzgqairvtht2ahpqbv4>
+                <sdc4:ms-ev7lhh4t59tt8ot0tfoaztb6>
+                  <label>Registration Name</label>
+                  <xdstring-value>Kestrel Mercantile, Inc.</xdstring-value>
+                </sdc4:ms-ev7lhh4t59tt8ot0tfoaztb6>
+              </sdc4:ms-ke7bgbzgqairvtht2ahpqbv4>
+            </sdc4:ms-cslzdtawth1xxjjslf1975qt>
+            <sdc4:ms-jqgvof35d7y83wkfcgiic5em>
+              <label>US Address</label>
+              <sdc4:ms-x4vy9z1ejuarhvnhcyc8cy8c>
+                <sdc4:ms-ncxxt7wgs7soxw7kbmapxvg3>
+                  <label>Address (Line 1)</label>
+                  <xdstring-value>1200 West Fulton Market</xdstring-value>
+                </sdc4:ms-ncxxt7wgs7soxw7kbmapxvg3>
+              </sdc4:ms-x4vy9z1ejuarhvnhcyc8cy8c>
+              <sdc4:ms-fnh39fyrub04naiw1csr9rcu>
+                <sdc4:ms-sexw93x5276zwsn1qx15htpv>
+                  <label>Address (Line 2)</label>
+                  <xdstring-value>Suite 400</xdstring-value>
+                </sdc4:ms-sexw93x5276zwsn1qx15htpv>
+              </sdc4:ms-fnh39fyrub04naiw1csr9rcu>
+              <sdc4:ms-r81s8h0fj8tb56kdwj0az7bu>
+                <sdc4:ms-toysvef93azt57fgh8rwpd4b>
+                  <label>City Name</label>
+                  <xdstring-value>Chicago</xdstring-value>
+                </sdc4:ms-toysvef93azt57fgh8rwpd4b>
+              </sdc4:ms-r81s8h0fj8tb56kdwj0az7bu>
+              <sdc4:ms-vtl0hnkbu6vi871qrq2arr72>
+                <sdc4:ms-cjzq0xnrm0uu8p1h51koheoz>
+                  <label>US ZIP Code</label>
+                  <xdstring-value>60607</xdstring-value>
+                </sdc4:ms-cjzq0xnrm0uu8p1h51koheoz>
+              </sdc4:ms-vtl0hnkbu6vi871qrq2arr72>
+              <sdc4:ms-x8d5ltgmjarqw07qli8ocwcu>
+                <sdc4:ms-b25dj42zxhm19pih328ga8pl>
+                  <label>Address Use</label>
+                  <xdtoken-value>work</xdtoken-value>
+                </sdc4:ms-b25dj42zxhm19pih328ga8pl>
+              </sdc4:ms-x8d5ltgmjarqw07qli8ocwcu>
+              <sdc4:ms-zyd1bdzhksql5z05sfip0m78>
+                <sdc4:ms-f2jicaigehz7xmwcp1gm5gh0>
+                  <label>Country Code ISO 3166</label>
+                  <xdtoken-value>US</xdtoken-value>
+                </sdc4:ms-f2jicaigehz7xmwcp1gm5gh0>
+              </sdc4:ms-zyd1bdzhksql5z05sfip0m78>
+              <sdc4:ms-zs08zf3rl2m68qsuso4cq5jx>
+                <sdc4:ms-k9tqm489kilg33mx4cibyto6>
+                  <label>US State Code</label>
+                  <xdtoken-value>IL</xdtoken-value>
+                </sdc4:ms-k9tqm489kilg33mx4cibyto6>
+              </sdc4:ms-zs08zf3rl2m68qsuso4cq5jx>
+            </sdc4:ms-jqgvof35d7y83wkfcgiic5em>
+            <sdc4:ms-o7k32jjcoq56jts8buzz4gxd>
+              <sdc4:ms-fpb149j9um0l676icmhyp56d>
+                <label>Endpoint ID</label>
+                <xdstring-value>0000002000015</xdstring-value>
+              </sdc4:ms-fpb149j9um0l676icmhyp56d>
+            </sdc4:ms-o7k32jjcoq56jts8buzz4gxd>
+            <sdc4:ms-mpweekufi4296o2qdi0wfd9a>
+              <sdc4:ms-xcn8r67fg7soty17homzok44>
+                <label>Organization Name</label>
+                <xdstring-value>Kestrel Mercantile, Inc.</xdstring-value>
+              </sdc4:ms-xcn8r67fg7soty17homzok44>
+            </sdc4:ms-mpweekufi4296o2qdi0wfd9a>
+          </sdc4:ms-useph7s4ienfhwerqx2thedj>
+          <sdc4:ms-vxq98yo8545y4x4jjam1lebt>
+            <sdc4:ms-nhvx21mf5ac81670xyrpwbaz>
+              <label>Supplier Assigned Account ID</label>
+              <xdstring-value>HF-CUST-00417</xdstring-value>
+            </sdc4:ms-nhvx21mf5ac81670xyrpwbaz>
+          </sdc4:ms-vxq98yo8545y4x4jjam1lebt>
+        </sdc4:ms-asbbdn0eof6713wx4y2e90c2>
+      </sdc4:ms-nylve3b8ss572vh8zso2u4l7>
+      <sdc4:ms-t2n35sdg0xy8ria7ixcb464z>
+        <label>Contract</label>
+        <sdc4:ms-ecbrot5hf4phkputnnjlnx82>
+          <sdc4:ms-ksr1tl7okjcyf18nprakncw7>
+            <label>Contract ID</label>
+            <xdstring-value>KM-HF-SA-2025-01</xdstring-value>
+          </sdc4:ms-ksr1tl7okjcyf18nprakncw7>
+        </sdc4:ms-ecbrot5hf4phkputnnjlnx82>
+      </sdc4:ms-t2n35sdg0xy8ria7ixcb464z>
+      <sdc4:ms-sy3rqkwaui6b7gfjbqxb15wt>
+        <label>Delivery</label>
+        <sdc4:ms-p4s8c066xzhex2ibiy6nwv4r>
+          <label>Delivery Location</label>
+          <sdc4:ms-jqgvof35d7y83wkfcgiic5em>
+            <label>US Address</label>
+            <sdc4:ms-x4vy9z1ejuarhvnhcyc8cy8c>
+              <sdc4:ms-ncxxt7wgs7soxw7kbmapxvg3>
+                <label>Address (Line 1)</label>
+                <xdstring-value>2900 Channahon Road</xdstring-value>
+              </sdc4:ms-ncxxt7wgs7soxw7kbmapxvg3>
+            </sdc4:ms-x4vy9z1ejuarhvnhcyc8cy8c>
+            <sdc4:ms-r81s8h0fj8tb56kdwj0az7bu>
+              <sdc4:ms-toysvef93azt57fgh8rwpd4b>
+                <label>City Name</label>
+                <xdstring-value>Joliet</xdstring-value>
+              </sdc4:ms-toysvef93azt57fgh8rwpd4b>
+            </sdc4:ms-r81s8h0fj8tb56kdwj0az7bu>
+            <sdc4:ms-vtl0hnkbu6vi871qrq2arr72>
+              <sdc4:ms-cjzq0xnrm0uu8p1h51koheoz>
+                <label>US ZIP Code</label>
+                <xdstring-value>60436</xdstring-value>
+              </sdc4:ms-cjzq0xnrm0uu8p1h51koheoz>
+            </sdc4:ms-vtl0hnkbu6vi871qrq2arr72>
+            <sdc4:ms-zyd1bdzhksql5z05sfip0m78>
+              <sdc4:ms-f2jicaigehz7xmwcp1gm5gh0>
+                <label>Country Code ISO 3166</label>
+                <xdtoken-value>US</xdtoken-value>
+              </sdc4:ms-f2jicaigehz7xmwcp1gm5gh0>
+            </sdc4:ms-zyd1bdzhksql5z05sfip0m78>
+            <sdc4:ms-zs08zf3rl2m68qsuso4cq5jx>
+              <sdc4:ms-k9tqm489kilg33mx4cibyto6>
+                <label>US State Code</label>
+                <xdtoken-value>IL</xdtoken-value>
+              </sdc4:ms-k9tqm489kilg33mx4cibyto6>
+            </sdc4:ms-zs08zf3rl2m68qsuso4cq5jx>
+          </sdc4:ms-jqgvof35d7y83wkfcgiic5em>
+          <sdc4:ms-ssorswtsz2g7zfvoob75ksza>
+            <sdc4:ms-lpixlk20bads9j3ggtte22px>
+              <label>Delivery Location ID</label>
+              <xdstring-value>0000002000022</xdstring-value>
+            </sdc4:ms-lpixlk20bads9j3ggtte22px>
+          </sdc4:ms-ssorswtsz2g7zfvoob75ksza>
+          <sdc4:ms-nwwuwlyygva4raa115o48vjo>
+            <sdc4:ms-ude1r385xvd2002r5h851vwk>
+              <label>Delivery Location Name</label>
+              <xdstring-value>Kestrel Mercantile DC 2 (Joliet)</xdstring-value>
+            </sdc4:ms-ude1r385xvd2002r5h851vwk>
+          </sdc4:ms-nwwuwlyygva4raa115o48vjo>
+        </sdc4:ms-p4s8c066xzhex2ibiy6nwv4r>
+        <sdc4:ms-oyxla2t2d4hxnbqwhchvjcyf>
+          <label>Requested Delivery Period</label>
+          <sdc4:ms-ru9u47yxhe337pslpxm6cflx>
+            <label>Date Range</label>
+            <sdc4:ms-jvr16i2xcvgkoeu0fb0foyf9>
+              <sdc4:ms-moo2lije2b05ylq8q4t52lcb>
+                <label>Date Range End</label>
+                <xdtemporal-date>2026-06-24</xdtemporal-date>
+              </sdc4:ms-moo2lije2b05ylq8q4t52lcb>
+            </sdc4:ms-jvr16i2xcvgkoeu0fb0foyf9>
+            <sdc4:ms-qmsn5fmk6j41d2nvl7h4dsqr>
+              <sdc4:ms-bcyjfdwobh9q60umle1amw0w>
+                <label>Date Range Start</label>
+                <xdtemporal-date>2026-06-21</xdtemporal-date>
+              </sdc4:ms-bcyjfdwobh9q60umle1amw0w>
+            </sdc4:ms-qmsn5fmk6j41d2nvl7h4dsqr>
+          </sdc4:ms-ru9u47yxhe337pslpxm6cflx>
+        </sdc4:ms-oyxla2t2d4hxnbqwhchvjcyf>
+        <sdc4:ms-smz7muy7l3ffwcgvd0zcmedu>
+          <sdc4:ms-xxnvc50tm2l6hqejitd5lalh>
+            <label>Delivery ID</label>
+            <xdstring-value>KM-PO-2026-000002-D1</xdstring-value>
+          </sdc4:ms-xxnvc50tm2l6hqejitd5lalh>
+        </sdc4:ms-smz7muy7l3ffwcgvd0zcmedu>
+        <sdc4:ms-die5dtjctbn0x6me70fhtxmq>
+          <sdc4:ms-z180eu0o81qv2cfgjejo5unw>
+            <label>Latest Delivery Date</label>
+            <xdtemporal-date>2026-06-24</xdtemporal-date>
+          </sdc4:ms-z180eu0o81qv2cfgjejo5unw>
+        </sdc4:ms-die5dtjctbn0x6me70fhtxmq>
+      </sdc4:ms-sy3rqkwaui6b7gfjbqxb15wt>
+      <sdc4:ms-u9i76tpl2wkhlbncvcayuo1r>
+        <label>Delivery Terms</label>
+        <sdc4:ms-niieu8fdv2i2qh4y90bo6twd>
+          <sdc4:ms-w8xglen3ypxximnzzjzsvm5u>
+            <label>Delivery Terms Code</label>
+            <xdtoken-value>DAP</xdtoken-value>
+          </sdc4:ms-w8xglen3ypxximnzzjzsvm5u>
+        </sdc4:ms-niieu8fdv2i2qh4y90bo6twd>
+      </sdc4:ms-u9i76tpl2wkhlbncvcayuo1r>
+      <sdc4:ms-aqajprszm8ykn1u919442rpw>
+        <label>Legal Monetary Total</label>
+        <sdc4:ms-ewlm2n408m8kxmwzhf5d1he2>
+          <sdc4:ms-zoqvpnsbbfcs2ma5ah6srf27>
+            <label>Line Extension Total Amount</label>
+            <xdquantity-value>465.60</xdquantity-value>
+            <xdquantity-units>
+              <label>Currency</label>
+              <xdstring-value>USD</xdstring-value>
+            </xdquantity-units>
+          </sdc4:ms-zoqvpnsbbfcs2ma5ah6srf27>
+        </sdc4:ms-ewlm2n408m8kxmwzhf5d1he2>
+        <sdc4:ms-aj0uh7ma0349wlymsxkateh7>
+          <sdc4:ms-axifzu4nt8m8n4qpfn838yy8>
+            <label>Payable Amount</label>
+            <xdquantity-value>465.60</xdquantity-value>
+            <xdquantity-units>
+              <label>Currency</label>
+              <xdstring-value>USD</xdstring-value>
+            </xdquantity-units>
+          </sdc4:ms-axifzu4nt8m8n4qpfn838yy8>
+        </sdc4:ms-aj0uh7ma0349wlymsxkateh7>
+        <sdc4:ms-k2unnu8h69lwm1kqedhalhu5>
+          <sdc4:ms-fddz3gxz8pjvgxmymmma54jp>
+            <label>Tax Exclusive Amount</label>
+            <xdquantity-value>465.60</xdquantity-value>
+            <xdquantity-units>
+              <label>Currency</label>
+              <xdstring-value>USD</xdstring-value>
+            </xdquantity-units>
+          </sdc4:ms-fddz3gxz8pjvgxmymmma54jp>
+        </sdc4:ms-k2unnu8h69lwm1kqedhalhu5>
+        <sdc4:ms-rm74febcvxr2pr0j5u5yvaow>
+          <sdc4:ms-oqk5mad2efz8sg444h8pis0e>
+            <label>Tax Inclusive Amount</label>
+            <xdquantity-value>465.60</xdquantity-value>
+            <xdquantity-units>
+              <label>Currency</label>
+              <xdstring-value>USD</xdstring-value>
+            </xdquantity-units>
+          </sdc4:ms-oqk5mad2efz8sg444h8pis0e>
+        </sdc4:ms-rm74febcvxr2pr0j5u5yvaow>
+      </sdc4:ms-aqajprszm8ykn1u919442rpw>
+      <sdc4:ms-zj2hjn6wx3dfa0h5vlzeexhw>
+        <label>Order Reference</label>
+        <sdc4:ms-xabobrcq23y1c3c52z7lox5x>
+          <sdc4:ms-wa674d96vzd8um4nwbtjrorz>
+            <label>Document UUID</label>
+            <xdstring-value>ba6a462e-ea6f-4d4a-8fbf-cedd9aa8bd04</xdstring-value>
+          </sdc4:ms-wa674d96vzd8um4nwbtjrorz>
+        </sdc4:ms-xabobrcq23y1c3c52z7lox5x>
+        <sdc4:ms-jt0sjviikpk1shux6xsq839c>
+          <sdc4:ms-wtnd4hzyrntlwtp4z3l1gcpr>
+            <label>Order ID</label>
+            <xdstring-value>KM-PO-2026-000002</xdstring-value>
+          </sdc4:ms-wtnd4hzyrntlwtp4z3l1gcpr>
+        </sdc4:ms-jt0sjviikpk1shux6xsq839c>
+        <sdc4:ms-yawjqsq0umyk2jmfxbnb4w19>
+          <sdc4:ms-mllhwxhu0zvxhwt32em2t821>
+            <label>Sales Order ID</label>
+            <xdstring-value>HF-SO-000002</xdstring-value>
+          </sdc4:ms-mllhwxhu0zvxhwt32em2t821>
+        </sdc4:ms-yawjqsq0umyk2jmfxbnb4w19>
+        <sdc4:ms-nrof7p2oc3pzwuimxznlbh1f>
+          <sdc4:ms-q9k20amngqerxvhpvhwn9t3q>
+            <label>Order Type</label>
+            <xdtoken-value>Standard order</xdtoken-value>
+          </sdc4:ms-q9k20amngqerxvhpvhwn9t3q>
+        </sdc4:ms-nrof7p2oc3pzwuimxznlbh1f>
+        <sdc4:ms-s7avc24uiao7vsqvjoc2xxq0>
+          <sdc4:ms-tkd16hhh9wbn0qya2ykm0552>
+            <label>Issue Date</label>
+            <xdtemporal-date>2026-06-08</xdtemporal-date>
+          </sdc4:ms-tkd16hhh9wbn0qya2ykm0552>
+        </sdc4:ms-s7avc24uiao7vsqvjoc2xxq0>
+      </sdc4:ms-zj2hjn6wx3dfa0h5vlzeexhw>
+      <sdc4:ms-vhhb40dovh00vbt3hd2pdm7t>
+        <label>Order Response Document</label>
+        <sdc4:ms-vklnguncdmefv6i3ekmxnxzr>
+          <label>Response Shipment Totals</label>
+          <sdc4:ms-u55pzilj4jczsq0sgme542hb>
+            <sdc4:ms-bk057bvi0rdknn8tafl680mj>
+              <label>Total Packages Quantity</label>
+              <xdcount-value>12</xdcount-value>
+              <xdcount-units>
+                <label>Items</label>
+                <xdstring-value>items</xdstring-value>
+              </xdcount-units>
+            </sdc4:ms-bk057bvi0rdknn8tafl680mj>
+          </sdc4:ms-u55pzilj4jczsq0sgme542hb>
+          <sdc4:ms-g0lxjuhy60re6o189v2xazac>
+            <sdc4:ms-o5jsdb587p1t99lla4ugy5zn>
+              <label>Gross Volume</label>
+              <xdquantity-value>61.200</xdquantity-value>
+              <xdquantity-units>
+                <label>Volume/Liquid Capacity (SI - Metric)</label>
+                <xdstring-value>L</xdstring-value>
+              </xdquantity-units>
+            </sdc4:ms-o5jsdb587p1t99lla4ugy5zn>
+          </sdc4:ms-g0lxjuhy60re6o189v2xazac>
+          <sdc4:ms-f88jm29gknu3ub7tkxng4tc3>
+            <sdc4:ms-bd9ce3tw67ska7itn2u4oquz>
+              <label>Gross Weight</label>
+              <xdquantity-value>55.20</xdquantity-value>
+              <xdquantity-units>
+                <label>Mass/Weight (SI - Metric)</label>
+                <xdstring-value>kg</xdstring-value>
+              </xdquantity-units>
+            </sdc4:ms-bd9ce3tw67ska7itn2u4oquz>
+          </sdc4:ms-f88jm29gknu3ub7tkxng4tc3>
+        </sdc4:ms-vklnguncdmefv6i3ekmxnxzr>
+        <sdc4:ms-kq1axd3psm1tsnz26dtvpzb3>
+          <sdc4:ms-nsv2eblxq8s0vk28ue2vh1fl>
+            <label>Copy Indicator</label>
+            <false-value>false</false-value>
+          </sdc4:ms-nsv2eblxq8s0vk28ue2vh1fl>
+        </sdc4:ms-kq1axd3psm1tsnz26dtvpzb3>
+        <sdc4:ms-tay54i23iwjwys7423871w2t>
+          <sdc4:ms-t5chn8kls2yywx7fs8x9hngr>
+            <label>Customer Reference</label>
+            <xdstring-value>KM-BUY-119</xdstring-value>
+          </sdc4:ms-t5chn8kls2yywx7fs8x9hngr>
+        </sdc4:ms-tay54i23iwjwys7423871w2t>
+        <sdc4:ms-haiqjii7v81fewii6c47rrig>
+          <sdc4:ms-rgnvj03kjtej1s8brdeil4kq>
+            <label>Customization ID</label>
+            <xdstring-value>https://axius-sdc.com/library/business/order-response-governed-record</xdstring-value>
+          </sdc4:ms-rgnvj03kjtej1s8brdeil4kq>
+        </sdc4:ms-haiqjii7v81fewii6c47rrig>
+        <sdc4:ms-sl8a87bqrctj0rrfmrs0gtp0>
+          <sdc4:ms-xywkj11p7u8jhjaiim3h3gyp>
+            <label>Document Currency</label>
+            <xdstring-value>USD</xdstring-value>
+          </sdc4:ms-xywkj11p7u8jhjaiim3h3gyp>
+        </sdc4:ms-sl8a87bqrctj0rrfmrs0gtp0>
+        <sdc4:ms-xabobrcq23y1c3c52z7lox5x>
+          <sdc4:ms-wa674d96vzd8um4nwbtjrorz>
+            <label>Document UUID</label>
+            <xdstring-value>dc246f79-3f3b-4607-a1b1-bd44f91aa3bd</xdstring-value>
+          </sdc4:ms-wa674d96vzd8um4nwbtjrorz>
+        </sdc4:ms-xabobrcq23y1c3c52z7lox5x>
+        <sdc4:ms-zx7b1v29xxujdzvvaa5b1qka>
+          <sdc4:ms-loizsryf14xil5dlvr5uyg19>
+            <label>Order Response ID</label>
+            <xdstring-value>HF-OR-2026-000002</xdstring-value>
+          </sdc4:ms-loizsryf14xil5dlvr5uyg19>
+        </sdc4:ms-zx7b1v29xxujdzvvaa5b1qka>
+        <sdc4:ms-v3muwa45bsb1zv8ymshfzae0>
+          <sdc4:ms-ato2r6lpk92i9e5djcwrna74>
+            <label>Profile ID</label>
+            <xdstring-value>urn:axius-sdc:business-documents:profile:order-only:1</xdstring-value>
+          </sdc4:ms-ato2r6lpk92i9e5djcwrna74>
+        </sdc4:ms-v3muwa45bsb1zv8ymshfzae0>
+        <sdc4:ms-yawjqsq0umyk2jmfxbnb4w19>
+          <sdc4:ms-mllhwxhu0zvxhwt32em2t821>
+            <label>Sales Order ID</label>
+            <xdstring-value>HF-SO-000002</xdstring-value>
+          </sdc4:ms-mllhwxhu0zvxhwt32em2t821>
+        </sdc4:ms-yawjqsq0umyk2jmfxbnb4w19>
+        <sdc4:ms-tn1sbi0vbjvrlyhl1faun9wu>
+          <sdc4:ms-zvkk8ztob9gmrvvkzyibyrzk>
+            <label>Note</label>
+            <xdstring-value>Chilled lines ship Tuesday and Thursday; the appointment is confirmed with the distribution center.</xdstring-value>
+          </sdc4:ms-zvkk8ztob9gmrvvkzyibyrzk>
+        </sdc4:ms-tn1sbi0vbjvrlyhl1faun9wu>
+        <sdc4:ms-wgpi8mr2ja4o6d87boj2xfei>
+          <sdc4:ms-rcwi6p3nngcq918vqofqzfpo>
+            <label>Order Response Type</label>
+            <xdtoken-value>Accepted</xdtoken-value>
+          </sdc4:ms-rcwi6p3nngcq918vqofqzfpo>
+        </sdc4:ms-wgpi8mr2ja4o6d87boj2xfei>
+        <sdc4:ms-uhrr3e2qzx8yyt0rnnrtz4t9>
+          <sdc4:ms-c1c7iydc13os47ppwwtwsnum>
+            <label>Line Count</label>
+            <xdcount-value>1</xdcount-value>
+            <xdcount-units>
+              <label>Items</label>
+              <xdstring-value>items</xdstring-value>
+            </xdcount-units>
+          </sdc4:ms-c1c7iydc13os47ppwwtwsnum>
+        </sdc4:ms-uhrr3e2qzx8yyt0rnnrtz4t9>
+        <sdc4:ms-s7avc24uiao7vsqvjoc2xxq0>
+          <sdc4:ms-tkd16hhh9wbn0qya2ykm0552>
+            <label>Issue Date</label>
+            <xdtemporal-date>2026-06-09</xdtemporal-date>
+          </sdc4:ms-tkd16hhh9wbn0qya2ykm0552>
+        </sdc4:ms-s7avc24uiao7vsqvjoc2xxq0>
+        <sdc4:ms-q1u1nttzsb9blnszjdzpgd78>
+          <sdc4:ms-oybfzltffyfioix1zdblxcp3>
+            <label>Issue Time</label>
+            <xdtemporal-time>11:13:00</xdtemporal-time>
+          </sdc4:ms-oybfzltffyfioix1zdblxcp3>
+        </sdc4:ms-q1u1nttzsb9blnszjdzpgd78>
+      </sdc4:ms-vhhb40dovh00vbt3hd2pdm7t>
+      <sdc4:ms-ojau628z7qk3f2s5evurj8e9>
+        <label>Order Response Lines</label>
+        <sdc4:ms-nglr0jwlj7gwxt5cdgzlz3zg>
+          <label>Order Response Line 1</label>
+          <sdc4:ms-lnq6529u1d0mz8l3vezcb1ub>
+            <label>Order Response Line</label>
+            <sdc4:ms-i5sv0xn9ai9nl21xtd1j4kc6>
+              <label>Line Item</label>
+              <sdc4:ms-g1mdkay36qkfgmtv4lvsqe4x>
+                <label>Item</label>
+                <sdc4:ms-q597i0tjhythg66t0hrgzuny>
+                  <label>Seller's Item Identification</label>
+                  <sdc4:ms-cqqaghmjayj4vo9qv1xv2ezv>
+                    <label>Item Identification</label>
+                    <sdc4:ms-tqc6djid52nj8j3efiw52q94>
+                      <sdc4:ms-db1bt3xlh3m1jpvnmesx480v>
+                        <label>Item Identification Value</label>
+                        <xdstring-value>HF-3001</xdstring-value>
+                      </sdc4:ms-db1bt3xlh3m1jpvnmesx480v>
+                    </sdc4:ms-tqc6djid52nj8j3efiw52q94>
+                    <sdc4:ms-vl5ouc8p84o6b1mfd3fqvrr2>
+                      <sdc4:ms-k84kh4trdynaoi242c268lat>
+                        <label>Item Identification Scheme</label>
+                        <xdtoken-value>Seller's item number</xdtoken-value>
+                      </sdc4:ms-k84kh4trdynaoi242c268lat>
+                    </sdc4:ms-vl5ouc8p84o6b1mfd3fqvrr2>
+                  </sdc4:ms-cqqaghmjayj4vo9qv1xv2ezv>
+                </sdc4:ms-q597i0tjhythg66t0hrgzuny>
+                <sdc4:ms-y4wy0qhkvx503a4llnzx1fg2>
+                  <label>Standard Item Identification</label>
+                  <sdc4:ms-cqqaghmjayj4vo9qv1xv2ezv>
+                    <label>Item Identification</label>
+                    <sdc4:ms-tqc6djid52nj8j3efiw52q94>
+                      <sdc4:ms-db1bt3xlh3m1jpvnmesx480v>
+                        <label>Item Identification Value</label>
+                        <xdstring-value>10000001000051</xdstring-value>
+                      </sdc4:ms-db1bt3xlh3m1jpvnmesx480v>
+                    </sdc4:ms-tqc6djid52nj8j3efiw52q94>
+                    <sdc4:ms-vl5ouc8p84o6b1mfd3fqvrr2>
+                      <sdc4:ms-k84kh4trdynaoi242c268lat>
+                        <label>Item Identification Scheme</label>
+                        <xdtoken-value>Global Trade Item Number (GS1)</xdtoken-value>
+                      </sdc4:ms-k84kh4trdynaoi242c268lat>
+                    </sdc4:ms-vl5ouc8p84o6b1mfd3fqvrr2>
+                  </sdc4:ms-cqqaghmjayj4vo9qv1xv2ezv>
+                </sdc4:ms-y4wy0qhkvx503a4llnzx1fg2>
+                <sdc4:ms-wt0e63gbiuwlnp8i57tlxz9i>
+                  <sdc4:ms-iz74r6dn6ud4wqb2jsr8b82y>
+                    <label>Item Name</label>
+                    <xdstring-value>Halvorsen Brown Cheese 500 g</xdstring-value>
+                  </sdc4:ms-iz74r6dn6ud4wqb2jsr8b82y>
+                </sdc4:ms-wt0e63gbiuwlnp8i57tlxz9i>
+              </sdc4:ms-g1mdkay36qkfgmtv4lvsqe4x>
+              <sdc4:ms-cfyo90kf2i12yi4q6tfz096p>
+                <label>Price</label>
+                <sdc4:ms-f3mjcwiptd801n8nf434qqxm>
+                  <sdc4:ms-n2bk18wxzh5oggb19qgrbo3t>
+                    <label>Price Type</label>
+                    <xdtoken-value>Contract price</xdtoken-value>
+                  </sdc4:ms-n2bk18wxzh5oggb19qgrbo3t>
+                </sdc4:ms-f3mjcwiptd801n8nf434qqxm>
+                <sdc4:ms-bg61jdtt3gfwgptnh8l4n2qh>
+                  <sdc4:ms-ivmsm0wfok9g4chzb0gryzqy>
+                    <label>Base Quantity</label>
+                    <xdquantity-value>1</xdquantity-value>
+                    <xdquantity-units>
+                      <label>Trade Units</label>
+                      <xdstring-value>CS</xdstring-value>
+                    </xdquantity-units>
+                  </sdc4:ms-ivmsm0wfok9g4chzb0gryzqy>
+                </sdc4:ms-bg61jdtt3gfwgptnh8l4n2qh>
+                <sdc4:ms-s141aty6wckrzmyirh5i0n2h>
+                  <sdc4:ms-xmhraye8g23oss82ihfmwjkd>
+                    <label>Price Amount</label>
+                    <xdquantity-value>38.8000</xdquantity-value>
+                    <xdquantity-units>
+                      <label>Currency</label>
+                      <xdstring-value>USD</xdstring-value>
+                    </xdquantity-units>
+                  </sdc4:ms-xmhraye8g23oss82ihfmwjkd>
+                </sdc4:ms-s141aty6wckrzmyirh5i0n2h>
+              </sdc4:ms-cfyo90kf2i12yi4q6tfz096p>
+              <sdc4:ms-sy20cw9fbqms6s27gbtlihuz>
+                <sdc4:ms-qnymhn26y7zfy7jav1pi3dqi>
+                  <label>Line ID</label>
+                  <xdstring-value>1</xdstring-value>
+                </sdc4:ms-qnymhn26y7zfy7jav1pi3dqi>
+              </sdc4:ms-sy20cw9fbqms6s27gbtlihuz>
+              <sdc4:ms-wgwl9zc7dlwq1i9c74z2c0ck>
+                <sdc4:ms-q2fgdapi4r5d406rbiuuwomp>
+                  <label>Line Extension Amount</label>
+                  <xdquantity-value>465.60</xdquantity-value>
+                  <xdquantity-units>
+                    <label>Currency</label>
+                    <xdstring-value>USD</xdstring-value>
+                  </xdquantity-units>
+                </sdc4:ms-q2fgdapi4r5d406rbiuuwomp>
+              </sdc4:ms-wgwl9zc7dlwq1i9c74z2c0ck>
+              <sdc4:ms-gvarkkhn5l68fdd2zl0jv9l5>
+                <sdc4:ms-kjfl2j8dmaf5qork8urd6763>
+                  <label>Ordered Quantity</label>
+                  <xdquantity-value>12</xdquantity-value>
+                  <xdquantity-units>
+                    <label>Trade Units</label>
+                    <xdstring-value>CS</xdstring-value>
+                  </xdquantity-units>
+                </sdc4:ms-kjfl2j8dmaf5qork8urd6763>
+              </sdc4:ms-gvarkkhn5l68fdd2zl0jv9l5>
+            </sdc4:ms-i5sv0xn9ai9nl21xtd1j4kc6>
+            <sdc4:ms-c3qfzlybvce95akizb8gcbtw>
+              <label>Order Line Reference</label>
+              <sdc4:ms-sy20cw9fbqms6s27gbtlihuz>
+                <sdc4:ms-qnymhn26y7zfy7jav1pi3dqi>
+                  <label>Line ID</label>
+                  <xdstring-value>1</xdstring-value>
+                </sdc4:ms-qnymhn26y7zfy7jav1pi3dqi>
+              </sdc4:ms-sy20cw9fbqms6s27gbtlihuz>
+              <sdc4:ms-y3yfc0wa2uhywxg9h4ehus1z>
+                <sdc4:ms-vzzejwis0nptpcqf5t5rb9sl>
+                  <label>Sales Order Line ID</label>
+                  <xdstring-value>HF-SO-000002-1</xdstring-value>
+                </sdc4:ms-vzzejwis0nptpcqf5t5rb9sl>
+              </sdc4:ms-y3yfc0wa2uhywxg9h4ehus1z>
+              <sdc4:ms-f4e2el4je70wv8vjqg50cery>
+                <sdc4:ms-sb5gat3jakjg1j6m78nq79in>
+                  <label>Line Status</label>
+                  <xdtoken-value>No status</xdtoken-value>
+                </sdc4:ms-sb5gat3jakjg1j6m78nq79in>
+              </sdc4:ms-f4e2el4je70wv8vjqg50cery>
+            </sdc4:ms-c3qfzlybvce95akizb8gcbtw>
+            <sdc4:ms-m557zc1se8u23n0rdspf7z2k>
+              <sdc4:ms-nejwaecesr3f3a819lab9ut9>
+                <label>Line Response</label>
+                <xdtoken-value>Accepted</xdtoken-value>
+              </sdc4:ms-nejwaecesr3f3a819lab9ut9>
+            </sdc4:ms-m557zc1se8u23n0rdspf7z2k>
+          </sdc4:ms-lnq6529u1d0mz8l3vezcb1ub>
+        </sdc4:ms-nglr0jwlj7gwxt5cdgzlz3zg>
+      </sdc4:ms-ojau628z7qk3f2s5evurj8e9>
+      <sdc4:ms-pnpbq6767i7i05afp648yhdd>
+        <label>Payment Means Instruction</label>
+        <sdc4:ms-eypy118xrs2j6i6a9x7ox6x1>
+          <sdc4:ms-pv15bnowaxjtczx4wx4vit4d>
+            <label>Payment Means</label>
+            <xdtoken-value>Automated clearing house credit</xdtoken-value>
+          </sdc4:ms-pv15bnowaxjtczx4wx4vit4d>
+        </sdc4:ms-eypy118xrs2j6i6a9x7ox6x1>
+        <sdc4:ms-vft2wpeny3khc2whtji4qve5>
+          <sdc4:ms-iw79shpxfxnmiueutlhubpr2>
+            <label>Payment Due Date</label>
+            <xdtemporal-date>2026-07-08</xdtemporal-date>
+          </sdc4:ms-iw79shpxfxnmiueutlhubpr2>
+        </sdc4:ms-vft2wpeny3khc2whtji4qve5>
+      </sdc4:ms-pnpbq6767i7i05afp648yhdd>
+      <sdc4:ms-jje6lh4symzgvm04292t44o2>
+        <label>Payment Terms</label>
+        <sdc4:ms-anqkfbafiy7an37fug3a2n2p>
+          <sdc4:ms-q439xnetx63djdu56tw5e0jm>
+            <label>Payment Terms ID</label>
+            <xdstring-value>NET30-2/10</xdstring-value>
+          </sdc4:ms-q439xnetx63djdu56tw5e0jm>
+        </sdc4:ms-anqkfbafiy7an37fug3a2n2p>
+        <sdc4:ms-wb1hkrbvvn000c63be4x9ww4>
+          <sdc4:ms-ng30ck36wgei6bmx79qxy3xm>
+            <label>Settlement Discount Percent</label>
+            <xdquantity-value>2.0000</xdquantity-value>
+            <xdquantity-units>
+              <label>Percentage</label>
+              <xdstring-value>%</xdstring-value>
+            </xdquantity-units>
+          </sdc4:ms-ng30ck36wgei6bmx79qxy3xm>
+        </sdc4:ms-wb1hkrbvvn000c63be4x9ww4>
+        <sdc4:ms-vft2wpeny3khc2whtji4qve5>
+          <sdc4:ms-iw79shpxfxnmiueutlhubpr2>
+            <label>Payment Due Date</label>
+            <xdtemporal-date>2026-07-08</xdtemporal-date>
+          </sdc4:ms-iw79shpxfxnmiueutlhubpr2>
+        </sdc4:ms-vft2wpeny3khc2whtji4qve5>
+      </sdc4:ms-jje6lh4symzgvm04292t44o2>
+      <sdc4:ms-xkkk5vyegpy4xdig8vnabstc>
+        <label>Seller Supplier Party</label>
+        <sdc4:ms-utcj07ovkb7ntkbq8ix0ro4l>
+          <label>Supplier Party</label>
+          <sdc4:ms-useph7s4ienfhwerqx2thedj>
+            <label>Party</label>
+            <sdc4:ms-kibeh8vp79shumcdyj8xzqw1>
+              <label>Party Contact</label>
+              <sdc4:ms-d2xwhnb2vqzxw70jcizj9csx>
+                <label>Contact Point</label>
+                <sdc4:ms-rr45vpoto55jhvob6vtzsz27>
+                  <sdc4:ms-q922mqaon3yn5zlwf2bszf28>
+                    <label>Email Address</label>
+                    <xdstring-value>orders@halvorsenfoods.example</xdstring-value>
+                  </sdc4:ms-q922mqaon3yn5zlwf2bszf28>
+                </sdc4:ms-rr45vpoto55jhvob6vtzsz27>
+                <sdc4:ms-f2caqwqmsl0fnkscaz4uhrya>
+                  <sdc4:ms-zpfwg52r88j6jdypj7rg71ke>
+                    <label>Phone Number</label>
+                    <xdstring-value>+1 218 555 0140</xdstring-value>
+                  </sdc4:ms-zpfwg52r88j6jdypj7rg71ke>
+                </sdc4:ms-f2caqwqmsl0fnkscaz4uhrya>
+              </sdc4:ms-d2xwhnb2vqzxw70jcizj9csx>
+              <sdc4:ms-pie59rwktjnrs9ryzkukigx3>
+                <sdc4:ms-bkw6awwe7kp01kowlwbgn21b>
+                  <label>Contact Department</label>
+                  <xdstring-value>Customer service</xdstring-value>
+                </sdc4:ms-bkw6awwe7kp01kowlwbgn21b>
+              </sdc4:ms-pie59rwktjnrs9ryzkukigx3>
+              <sdc4:ms-ko9sky98bffl3rypvh072rwt>
+                <sdc4:ms-fp533gyfb6yatp6jgpg2emb2>
+                  <label>Contact Name</label>
+                  <xdstring-value>Order desk</xdstring-value>
+                </sdc4:ms-fp533gyfb6yatp6jgpg2emb2>
+              </sdc4:ms-ko9sky98bffl3rypvh072rwt>
+            </sdc4:ms-kibeh8vp79shumcdyj8xzqw1>
+            <sdc4:ms-z0gdpy67iot29gdc2zq2v1jj>
+              <label>Party Identification</label>
+              <sdc4:ms-f6wumzzw4wb7itpz4lfmzifi>
+                <sdc4:ms-iwxh8exsn4qb6eyetfbwqvmj>
+                  <label>Party Identification Value</label>
+                  <xdstring-value>0000001000016</xdstring-value>
+                </sdc4:ms-iwxh8exsn4qb6eyetfbwqvmj>
+              </sdc4:ms-f6wumzzw4wb7itpz4lfmzifi>
+              <sdc4:ms-ldm5kmibox484imu15oomg42>
+                <sdc4:ms-c9v9nkkg6b8sixoaf55vyjrn>
+                  <label>Party Identification Scheme</label>
+                  <xdtoken-value>Global Location Number (GS1)</xdtoken-value>
+                </sdc4:ms-c9v9nkkg6b8sixoaf55vyjrn>
+              </sdc4:ms-ldm5kmibox484imu15oomg42>
+            </sdc4:ms-z0gdpy67iot29gdc2zq2v1jj>
+            <sdc4:ms-cslzdtawth1xxjjslf1975qt>
+              <label>Party Legal Entity</label>
+              <sdc4:ms-xhhp4as6f4zy16ga4dhs95lq>
+                <sdc4:ms-axizk9c3k82w84p1t1wkwayu>
+                  <label>Company ID</label>
+                  <xdstring-value>MN-41-2207731</xdstring-value>
+                </sdc4:ms-axizk9c3k82w84p1t1wkwayu>
+              </sdc4:ms-xhhp4as6f4zy16ga4dhs95lq>
+              <sdc4:ms-ke7bgbzgqairvtht2ahpqbv4>
+                <sdc4:ms-ev7lhh4t59tt8ot0tfoaztb6>
+                  <label>Registration Name</label>
+                  <xdstring-value>Halvorsen Foods, Inc.</xdstring-value>
+                </sdc4:ms-ev7lhh4t59tt8ot0tfoaztb6>
+              </sdc4:ms-ke7bgbzgqairvtht2ahpqbv4>
+            </sdc4:ms-cslzdtawth1xxjjslf1975qt>
+            <sdc4:ms-jqgvof35d7y83wkfcgiic5em>
+              <label>US Address</label>
+              <sdc4:ms-x4vy9z1ejuarhvnhcyc8cy8c>
+                <sdc4:ms-ncxxt7wgs7soxw7kbmapxvg3>
+                  <label>Address (Line 1)</label>
+                  <xdstring-value>400 Mill Street</xdstring-value>
+                </sdc4:ms-ncxxt7wgs7soxw7kbmapxvg3>
+              </sdc4:ms-x4vy9z1ejuarhvnhcyc8cy8c>
+              <sdc4:ms-r81s8h0fj8tb56kdwj0az7bu>
+                <sdc4:ms-toysvef93azt57fgh8rwpd4b>
+                  <label>City Name</label>
+                  <xdstring-value>Duluth</xdstring-value>
+                </sdc4:ms-toysvef93azt57fgh8rwpd4b>
+              </sdc4:ms-r81s8h0fj8tb56kdwj0az7bu>
+              <sdc4:ms-vtl0hnkbu6vi871qrq2arr72>
+                <sdc4:ms-cjzq0xnrm0uu8p1h51koheoz>
+                  <label>US ZIP Code</label>
+                  <xdstring-value>55802</xdstring-value>
+                </sdc4:ms-cjzq0xnrm0uu8p1h51koheoz>
+              </sdc4:ms-vtl0hnkbu6vi871qrq2arr72>
+              <sdc4:ms-x8d5ltgmjarqw07qli8ocwcu>
+                <sdc4:ms-b25dj42zxhm19pih328ga8pl>
+                  <label>Address Use</label>
+                  <xdtoken-value>work</xdtoken-value>
+                </sdc4:ms-b25dj42zxhm19pih328ga8pl>
+              </sdc4:ms-x8d5ltgmjarqw07qli8ocwcu>
+              <sdc4:ms-zyd1bdzhksql5z05sfip0m78>
+                <sdc4:ms-f2jicaigehz7xmwcp1gm5gh0>
+                  <label>Country Code ISO 3166</label>
+                  <xdtoken-value>US</xdtoken-value>
+                </sdc4:ms-f2jicaigehz7xmwcp1gm5gh0>
+              </sdc4:ms-zyd1bdzhksql5z05sfip0m78>
+              <sdc4:ms-zs08zf3rl2m68qsuso4cq5jx>
+                <sdc4:ms-k9tqm489kilg33mx4cibyto6>
+                  <label>US State Code</label>
+                  <xdtoken-value>MN</xdtoken-value>
+                </sdc4:ms-k9tqm489kilg33mx4cibyto6>
+              </sdc4:ms-zs08zf3rl2m68qsuso4cq5jx>
+            </sdc4:ms-jqgvof35d7y83wkfcgiic5em>
+            <sdc4:ms-o7k32jjcoq56jts8buzz4gxd>
+              <sdc4:ms-fpb149j9um0l676icmhyp56d>
+                <label>Endpoint ID</label>
+                <xdstring-value>0000001000016</xdstring-value>
+              </sdc4:ms-fpb149j9um0l676icmhyp56d>
+            </sdc4:ms-o7k32jjcoq56jts8buzz4gxd>
+            <sdc4:ms-mpweekufi4296o2qdi0wfd9a>
+              <sdc4:ms-xcn8r67fg7soty17homzok44>
+                <label>Organization Name</label>
+                <xdstring-value>Halvorsen Foods, Inc.</xdstring-value>
+              </sdc4:ms-xcn8r67fg7soty17homzok44>
+            </sdc4:ms-mpweekufi4296o2qdi0wfd9a>
+          </sdc4:ms-useph7s4ienfhwerqx2thedj>
+          <sdc4:ms-v8os8mvqm7xtuix2azpc61nq>
+            <sdc4:ms-ybdlctks32zkkteycr5y1eq8>
+              <label>Customer Assigned Account ID</label>
+              <xdstring-value>KM-VEND-2291</xdstring-value>
+            </sdc4:ms-ybdlctks32zkkteycr5y1eq8>
+          </sdc4:ms-v8os8mvqm7xtuix2azpc61nq>
+        </sdc4:ms-utcj07ovkb7ntkbq8ix0ro4l>
+      </sdc4:ms-xkkk5vyegpy4xdig8vnabstc>
+      <sdc4:ms-snnio8mhwvlz69ovrfn9v36d>
+        <label>Transaction Conditions</label>
+        <sdc4:ms-q5oaekcd1jsb544uqqz63fze>
+          <sdc4:ms-y349y9g9h4zaz72yq8x6i0q2>
+            <label>Transaction Conditions Description</label>
+            <xdstring-value>Halvorsen Foods standard terms of sale, 2025 edition, as referenced in the supply agreement.</xdstring-value>
+          </sdc4:ms-y349y9g9h4zaz72yq8x6i0q2>
+        </sdc4:ms-q5oaekcd1jsb544uqqz63fze>
+        <sdc4:ms-tyqsob9f5eghg4j0e4895eqa>
+          <sdc4:ms-nqmc7j875x6f7todzxu519ls>
+            <label>Transaction Conditions ID</label>
+            <xdstring-value>HF-TERMS-2025</xdstring-value>
+          </sdc4:ms-nqmc7j875x6f7todzxu519ls>
+        </sdc4:ms-tyqsob9f5eghg4j0e4895eqa>
+      </sdc4:ms-snnio8mhwvlz69ovrfn9v36d>
+    </sdc4:ms-r7soe9xhvta7hbfqe07d36zs>
+    <sdc4:ms-vmikfu0irht9fmq7q02t3oqs>
+      <label>PROV Activity</label>
+      <sdc4:ms-vycps7awt38y25jhnrr4okxt>
+        <sdc4:ms-hhusuzzig19rs46ngz23k5g7>
+          <label>Activity Description</label>
+          <xdstring-value>Order Response HF-OR-2026-000002 generated as a governed record by the Halvorsen Foods order system from KM-PO-2026-000002.xml.</xdstring-value>
+        </sdc4:ms-hhusuzzig19rs46ngz23k5g7>
+      </sdc4:ms-vycps7awt38y25jhnrr4okxt>
+      <sdc4:ms-o9p6k7c9ie20j5du0jmd3749>
+        <sdc4:ms-wr06h54xqqw2q9id8i9673jy>
+          <label>Activity Identifier</label>
+          <xdstring-value>urn:halvorsen-demo:activity:00000013</xdstring-value>
+        </sdc4:ms-wr06h54xqqw2q9id8i9673jy>
+      </sdc4:ms-o9p6k7c9ie20j5du0jmd3749>
+      <sdc4:ms-o0qu77y6w4lwvu2qhms3ilbw>
+        <sdc4:ms-r6hkunjm2q0hlxiknlc9ljix>
+          <label>Activity Label</label>
+          <xdstring-value>Generated the Order Response HF-OR-2026-000002</xdstring-value>
+        </sdc4:ms-r6hkunjm2q0hlxiknlc9ljix>
+      </sdc4:ms-o0qu77y6w4lwvu2qhms3ilbw>
+      <sdc4:ms-qeu9jq1owxxh2woqo1f7m8jk>
+        <sdc4:ms-jjzmhdxvbt97pq81iwqubtxk>
+          <label>Activity Type</label>
+          <xdstring-value>RecordGeneration</xdstring-value>
+        </sdc4:ms-jjzmhdxvbt97pq81iwqubtxk>
+      </sdc4:ms-qeu9jq1owxxh2woqo1f7m8jk>
+      <sdc4:ms-mjj6mlhqgzcprfwuwnhu5npz>
+        <sdc4:ms-t0whhrqtnb54te4mk48i1ooj>
+          <label>Used Entity Reference</label>
+          <xdstring-value>urn:kestrel:order:KM-PO-2026-000002:ubl</xdstring-value>
+        </sdc4:ms-t0whhrqtnb54te4mk48i1ooj>
+      </sdc4:ms-mjj6mlhqgzcprfwuwnhu5npz>
+      <sdc4:ms-in4ct2aoguzdvzg4mlsmsxfd>
+        <sdc4:ms-r48alj7hc3797qfjnf2uj71n>
+          <label>Was Associated With Reference</label>
+          <xdstring-value>urn:halvorsen:order-system:4.1.5</xdstring-value>
+        </sdc4:ms-r48alj7hc3797qfjnf2uj71n>
+      </sdc4:ms-in4ct2aoguzdvzg4mlsmsxfd>
+      <sdc4:ms-q4rwxzoldz452g7rbii2an1h>
+        <sdc4:ms-wl6j4ekcmu4hvt2m12zw4zp8>
+          <label>Activity Status</label>
+          <xdtoken-value>ActivityCompleted</xdtoken-value>
+        </sdc4:ms-wl6j4ekcmu4hvt2m12zw4zp8>
+      </sdc4:ms-q4rwxzoldz452g7rbii2an1h>
+      <sdc4:ms-xiy4gn6vievei3614sso5vmk>
+        <sdc4:ms-a5scyosu6j84vz350mqyrzl2>
+          <label>Ended At</label>
+          <xdtemporal-datetime>2026-06-09T11:55:00</xdtemporal-datetime>
+        </sdc4:ms-a5scyosu6j84vz350mqyrzl2>
+      </sdc4:ms-xiy4gn6vievei3614sso5vmk>
+      <sdc4:ms-vzyuqpkegby4er3pw12gxw2c>
+        <sdc4:ms-sa4nl1kbpdr842fkucvfjkpq>
+          <label>Started At</label>
+          <xdtemporal-datetime>2026-06-09T11:55:00</xdtemporal-datetime>
+        </sdc4:ms-sa4nl1kbpdr842fkucvfjkpq>
+      </sdc4:ms-vzyuqpkegby4er3pw12gxw2c>
+    </sdc4:ms-vmikfu0irht9fmq7q02t3oqs>
+    <sdc4:ms-c179ilk2ns15cd5rzzdfd6f6>
+      <label>PROV Agent</label>
+      <sdc4:ms-qfmes86biux1nl7gbaowsgc4>
+        <sdc4:ms-w2ruemcfy35rw60jl1t9dew2>
+          <label>Agent Identifier</label>
+          <xdstring-value>urn:halvorsen:order-system:4.1.5</xdstring-value>
+        </sdc4:ms-w2ruemcfy35rw60jl1t9dew2>
+      </sdc4:ms-qfmes86biux1nl7gbaowsgc4>
+      <sdc4:ms-ljldab8e1bjizncv01akb0n5>
+        <sdc4:ms-xxe21o9ojzmy9wxxky1tnmog>
+          <label>Agent Name</label>
+          <xdstring-value>Halvorsen Foods order system</xdstring-value>
+        </sdc4:ms-xxe21o9ojzmy9wxxky1tnmog>
+      </sdc4:ms-ljldab8e1bjizncv01akb0n5>
+      <sdc4:ms-f6z431hl60ra8eqbrcyrsvji>
+        <sdc4:ms-eftvwi5byq6cdtd931qyxzw0>
+          <label>Agent Organization Name</label>
+          <xdstring-value>Kestrel Mercantile, Inc.</xdstring-value>
+        </sdc4:ms-eftvwi5byq6cdtd931qyxzw0>
+      </sdc4:ms-f6z431hl60ra8eqbrcyrsvji>
+      <sdc4:ms-cpaj0unbnudntl1brmdnuqhu>
+        <sdc4:ms-aa663ivutjf2fs4757t0bbzy>
+          <label>Software Name</label>
+          <xdstring-value>Halvorsen Foods order system</xdstring-value>
+        </sdc4:ms-aa663ivutjf2fs4757t0bbzy>
+      </sdc4:ms-cpaj0unbnudntl1brmdnuqhu>
+      <sdc4:ms-ebn1a6s1d1dy724l4y692qsl>
+        <sdc4:ms-x0lebwtobgaelj5pev3258sd>
+          <label>Software Version</label>
+          <xdstring-value>4.1.5</xdstring-value>
+        </sdc4:ms-x0lebwtobgaelj5pev3258sd>
+      </sdc4:ms-ebn1a6s1d1dy724l4y692qsl>
+      <sdc4:ms-y1u3ladafqtryhgyetpn5ild>
+        <sdc4:ms-i16vqj89it3db7d3c5qjko9p>
+          <label>PROV Agent Type</label>
+          <xdtoken-value>SoftwareAgent</xdtoken-value>
+        </sdc4:ms-i16vqj89it3db7d3c5qjko9p>
+      </sdc4:ms-y1u3ladafqtryhgyetpn5ild>
+    </sdc4:ms-c179ilk2ns15cd5rzzdfd6f6>
+    <sdc4:ms-q0ckidtsg1x3iav6nrt8fo0l>
+      <label>PROV Entity</label>
+      <sdc4:ms-wy38zv02dmcp5gjul57yejmk>
+        <sdc4:ms-abub2eah26yd2uzni3p9l58i>
+          <label>Entity Description</label>
+          <xdstring-value>The UBL 2.3 Order this response answers</xdstring-value>
+        </sdc4:ms-abub2eah26yd2uzni3p9l58i>
+      </sdc4:ms-wy38zv02dmcp5gjul57yejmk>
+      <sdc4:ms-gujvcggdotm3z1hmygdrey09>
+        <sdc4:ms-i1defiugxfdcwfb9rqv4p5tz>
+          <label>Entity Identifier</label>
+          <xdstring-value>urn:kestrel:order:KM-PO-2026-000002:ubl</xdstring-value>
+        </sdc4:ms-i1defiugxfdcwfb9rqv4p5tz>
+      </sdc4:ms-gujvcggdotm3z1hmygdrey09>
+      <sdc4:ms-s0xrd3gbobtgtexdxkxcor3l>
+        <sdc4:ms-m9minyaug6ypyzt52zfxlyyi>
+          <label>Entity Label</label>
+          <xdstring-value>KM-PO-2026-000002.xml</xdstring-value>
+        </sdc4:ms-m9minyaug6ypyzt52zfxlyyi>
+      </sdc4:ms-s0xrd3gbobtgtexdxkxcor3l>
+      <sdc4:ms-dlu1btnja2h37jfx3vj694rv>
+        <sdc4:ms-i4e2nod7ss9d4cumhn2pah8b>
+          <label>PROV Entity Type</label>
+          <xdtoken-value>Entity</xdtoken-value>
+        </sdc4:ms-i4e2nod7ss9d4cumhn2pah8b>
+      </sdc4:ms-dlu1btnja2h37jfx3vj694rv>
+    </sdc4:ms-q0ckidtsg1x3iav6nrt8fo0l>
+  </sdc4:ms-xrtq55a6zyrnr068ja610u3n>
+  <subject>
+    <label>Order Response</label>
+    <party-name>HF-OR-2026-000002</party-name>
+  </subject>
+  <provider>
+    <label>Seller</label>
+    <party-name>Halvorsen Foods, Inc.</party-name>
+  </provider>
+  <workflow>
+    <label>Order Workflow</label>
+  </workflow>
+  <sdc4:ms-vjsb1sede0row0dzz9hobson>
+    <label>Business Document Audit</label>
+    <system-id>
+      <label>Business Document Translator Identifier</label>
+      <xdstring-value>urn:halvorsen:order-system:4.1.5</xdstring-value>
+    </system-id>
+    <system-user>
+      <label>Business Document Translator User</label>
+    </system-user>
+    <location>
+      <label>Business Document Source</label>
+      <sdc4:ms-q0ckidtsg1x3iav6nrt8fo0l>
+        <label>PROV Entity</label>
+        <sdc4:ms-wy38zv02dmcp5gjul57yejmk>
+          <sdc4:ms-abub2eah26yd2uzni3p9l58i>
+            <label>Entity Description</label>
+            <xdstring-value>The UBL 2.3 Order this response answers</xdstring-value>
+          </sdc4:ms-abub2eah26yd2uzni3p9l58i>
+        </sdc4:ms-wy38zv02dmcp5gjul57yejmk>
+        <sdc4:ms-gujvcggdotm3z1hmygdrey09>
+          <sdc4:ms-i1defiugxfdcwfb9rqv4p5tz>
+            <label>Entity Identifier</label>
+            <xdstring-value>urn:kestrel:order:KM-PO-2026-000002:ubl</xdstring-value>
+          </sdc4:ms-i1defiugxfdcwfb9rqv4p5tz>
+        </sdc4:ms-gujvcggdotm3z1hmygdrey09>
+        <sdc4:ms-s0xrd3gbobtgtexdxkxcor3l>
+          <sdc4:ms-m9minyaug6ypyzt52zfxlyyi>
+            <label>Entity Label</label>
+            <xdstring-value>KM-PO-2026-000002.xml</xdstring-value>
+          </sdc4:ms-m9minyaug6ypyzt52zfxlyyi>
+        </sdc4:ms-s0xrd3gbobtgtexdxkxcor3l>
+      </sdc4:ms-q0ckidtsg1x3iav6nrt8fo0l>
+    </location>
+    <timestamp>2026-06-09T11:55:00</timestamp>
+  </sdc4:ms-vjsb1sede0row0dzz9hobson>
+</sdc4:dm-kuntv2wlkw54h7nxe0kqhvi2>

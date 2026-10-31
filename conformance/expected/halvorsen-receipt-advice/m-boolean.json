@@ -1,0 +1,22 @@
+{
+ "recover": {
+  "ok": true,
+  "recoveries": [
+   {
+    "code": "NI",
+    "inserted": true,
+    "path": "/{https://semanticdatacharter.com/ns/sdc4/}dm-tog0v0p1zit1xwpxysxwpf3d/{https://semanticdatacharter.com/ns/sdc4/}ms-oocnj5uo4fkqs2zgxc85657g/{https://semanticdatacharter.com/ns/sdc4/}ms-il8xc8x7botqkf7tje5szz03/{https://semanticdatacharter.com/ns/sdc4/}ms-pm67ictih5mq3sivwv25s6ma/{https://semanticdatacharter.com/ns/sdc4/}ms-a4k5ljjcy08nsbzfxt05ckww/{https://semanticdatacharter.com/ns/sdc4/}ms-nc1kwktzk7z1o8npt4tjj13r/{https://semanticdatacharter.com/ns/sdc4/}ms-rurja4rklziknr8co61a3rm6/{https://semanticdatacharter.com/ns/sdc4/}ms-k1l35vd96pzjt9zruk4mrr1y/{https://semanticdatacharter.com/ns/sdc4/}ms-wrnl8gyzup8j3i8s00oh9n8y/true-value"
+   }
+  ],
+  "unrecoverable": []
+ },
+ "recovered": "expected/halvorsen-receipt-advice/m-boolean.recovered.xml",
+ "semantic": [
+  {
+   "ev": "NI",
+   "path": "/{https://semanticdatacharter.com/ns/sdc4/}dm-tog0v0p1zit1xwpxysxwpf3d/{https://semanticdatacharter.com/ns/sdc4/}ms-oocnj5uo4fkqs2zgxc85657g/{https://semanticdatacharter.com/ns/sdc4/}ms-il8xc8x7botqkf7tje5szz03/{https://semanticdatacharter.com/ns/sdc4/}ms-pm67ictih5mq3sivwv25s6ma/{https://semanticdatacharter.com/ns/sdc4/}ms-a4k5ljjcy08nsbzfxt05ckww/{https://semanticdatacharter.com/ns/sdc4/}ms-nc1kwktzk7z1o8npt4tjj13r/{https://semanticdatacharter.com/ns/sdc4/}ms-rurja4rklziknr8co61a3rm6/{https://semanticdatacharter.com/ns/sdc4/}ms-k1l35vd96pzjt9zruk4mrr1y/{https://semanticdatacharter.com/ns/sdc4/}ms-wrnl8gyzup8j3i8s00oh9n8y/true-value"
+  }
+ ],
+ "structural": [],
+ "valid": false
+}

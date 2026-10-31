@@ -6,6 +6,15 @@ semantic versioning.
 
 ## [Unreleased]
 
+### Added
+
+- **A conformance suite** (`conformance/`): 120 cases over eight published business-document models,
+  each a real or deliberately broken Governed Data Record with sdcvalidator's expected result (verdict,
+  errors by path and tier, ExceptionalValue codes, recovery outcome, recovered record). Any other
+  implementation of SDC4 validation must reproduce it. `tests/test_conformance.py` fails when
+  sdcvalidator's own results change, so a change to what "valid" means is always deliberate. Not part
+  of the installed package.
+
 ## [4.6.1] - 2026-10-25
 
 ### Security
