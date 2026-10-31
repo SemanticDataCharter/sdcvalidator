@@ -6,6 +6,8 @@ semantic versioning.
 
 ## [Unreleased]
 
+## [4.6.2] - 2026-10-31
+
 ### Added
 
 - **A conformance suite** (`conformance/`): 120 cases over eight published business-document models,
