@@ -1,0 +1,726 @@
+{
+ "sdcvalidator": "4.6.2",
+ "reference_model": "reference/sdc4.xsd",
+ "cases": [
+  {
+   "id": "halvorsen-credit-note/ev-existing",
+   "model": "models/halvorsen-credit-note/dm-jkuyr38hydqaiwlq5vhp2rjr.xsd",
+   "record": "cases/halvorsen-credit-note/ev-existing.xml",
+   "expected": "expected/halvorsen-credit-note/ev-existing.json"
+  },
+  {
+   "id": "halvorsen-credit-note/m-boolean",
+   "model": "models/halvorsen-credit-note/dm-jkuyr38hydqaiwlq5vhp2rjr.xsd",
+   "record": "cases/halvorsen-credit-note/m-boolean.xml",
+   "expected": "expected/halvorsen-credit-note/m-boolean.json"
+  },
+  {
+   "id": "halvorsen-credit-note/m-count-type",
+   "model": "models/halvorsen-credit-note/dm-jkuyr38hydqaiwlq5vhp2rjr.xsd",
+   "record": "cases/halvorsen-credit-note/m-count-type.xml",
+   "expected": "expected/halvorsen-credit-note/m-count-type.json"
+  },
+  {
+   "id": "halvorsen-credit-note/m-date",
+   "model": "models/halvorsen-credit-note/dm-jkuyr38hydqaiwlq5vhp2rjr.xsd",
+   "record": "cases/halvorsen-credit-note/m-date.xml",
+   "expected": "expected/halvorsen-credit-note/m-date.json"
+  },
+  {
+   "id": "halvorsen-credit-note/m-datetime",
+   "model": "models/halvorsen-credit-note/dm-jkuyr38hydqaiwlq5vhp2rjr.xsd",
+   "record": "cases/halvorsen-credit-note/m-datetime.xml",
+   "expected": "expected/halvorsen-credit-note/m-datetime.json"
+  },
+  {
+   "id": "halvorsen-credit-note/m-quantity-type",
+   "model": "models/halvorsen-credit-note/dm-jkuyr38hydqaiwlq5vhp2rjr.xsd",
+   "record": "cases/halvorsen-credit-note/m-quantity-type.xml",
+   "expected": "expected/halvorsen-credit-note/m-quantity-type.json"
+  },
+  {
+   "id": "halvorsen-credit-note/m-string-empty",
+   "model": "models/halvorsen-credit-note/dm-jkuyr38hydqaiwlq5vhp2rjr.xsd",
+   "record": "cases/halvorsen-credit-note/m-string-empty.xml",
+   "expected": "expected/halvorsen-credit-note/m-string-empty.json"
+  },
+  {
+   "id": "halvorsen-credit-note/m-time",
+   "model": "models/halvorsen-credit-note/dm-jkuyr38hydqaiwlq5vhp2rjr.xsd",
+   "record": "cases/halvorsen-credit-note/m-time.xml",
+   "expected": "expected/halvorsen-credit-note/m-time.json"
+  },
+  {
+   "id": "halvorsen-credit-note/m-token",
+   "model": "models/halvorsen-credit-note/dm-jkuyr38hydqaiwlq5vhp2rjr.xsd",
+   "record": "cases/halvorsen-credit-note/m-token.xml",
+   "expected": "expected/halvorsen-credit-note/m-token.json"
+  },
+  {
+   "id": "halvorsen-credit-note/m-two-errors",
+   "model": "models/halvorsen-credit-note/dm-jkuyr38hydqaiwlq5vhp2rjr.xsd",
+   "record": "cases/halvorsen-credit-note/m-two-errors.xml",
+   "expected": "expected/halvorsen-credit-note/m-two-errors.json"
+  },
+  {
+   "id": "halvorsen-credit-note/s-duplicate-label",
+   "model": "models/halvorsen-credit-note/dm-jkuyr38hydqaiwlq5vhp2rjr.xsd",
+   "record": "cases/halvorsen-credit-note/s-duplicate-label.xml",
+   "expected": "expected/halvorsen-credit-note/s-duplicate-label.json"
+  },
+  {
+   "id": "halvorsen-credit-note/s-missing-label",
+   "model": "models/halvorsen-credit-note/dm-jkuyr38hydqaiwlq5vhp2rjr.xsd",
+   "record": "cases/halvorsen-credit-note/s-missing-label.xml",
+   "expected": "expected/halvorsen-credit-note/s-missing-label.json"
+  },
+  {
+   "id": "halvorsen-credit-note/s-unknown-element",
+   "model": "models/halvorsen-credit-note/dm-jkuyr38hydqaiwlq5vhp2rjr.xsd",
+   "record": "cases/halvorsen-credit-note/s-unknown-element.xml",
+   "expected": "expected/halvorsen-credit-note/s-unknown-element.json"
+  },
+  {
+   "id": "halvorsen-credit-note/valid-1",
+   "model": "models/halvorsen-credit-note/dm-jkuyr38hydqaiwlq5vhp2rjr.xsd",
+   "record": "cases/halvorsen-credit-note/valid-1.xml",
+   "expected": "expected/halvorsen-credit-note/valid-1.json"
+  },
+  {
+   "id": "halvorsen-credit-note/valid-2",
+   "model": "models/halvorsen-credit-note/dm-jkuyr38hydqaiwlq5vhp2rjr.xsd",
+   "record": "cases/halvorsen-credit-note/valid-2.xml",
+   "expected": "expected/halvorsen-credit-note/valid-2.json"
+  },
+  {
+   "id": "halvorsen-despatch-advice/ev-existing",
+   "model": "models/halvorsen-despatch-advice/dm-cacl4njrwanj15g3p3so8t6h.xsd",
+   "record": "cases/halvorsen-despatch-advice/ev-existing.xml",
+   "expected": "expected/halvorsen-despatch-advice/ev-existing.json"
+  },
+  {
+   "id": "halvorsen-despatch-advice/m-boolean",
+   "model": "models/halvorsen-despatch-advice/dm-cacl4njrwanj15g3p3so8t6h.xsd",
+   "record": "cases/halvorsen-despatch-advice/m-boolean.xml",
+   "expected": "expected/halvorsen-despatch-advice/m-boolean.json"
+  },
+  {
+   "id": "halvorsen-despatch-advice/m-count-type",
+   "model": "models/halvorsen-despatch-advice/dm-cacl4njrwanj15g3p3so8t6h.xsd",
+   "record": "cases/halvorsen-despatch-advice/m-count-type.xml",
+   "expected": "expected/halvorsen-despatch-advice/m-count-type.json"
+  },
+  {
+   "id": "halvorsen-despatch-advice/m-date",
+   "model": "models/halvorsen-despatch-advice/dm-cacl4njrwanj15g3p3so8t6h.xsd",
+   "record": "cases/halvorsen-despatch-advice/m-date.xml",
+   "expected": "expected/halvorsen-despatch-advice/m-date.json"
+  },
+  {
+   "id": "halvorsen-despatch-advice/m-datetime",
+   "model": "models/halvorsen-despatch-advice/dm-cacl4njrwanj15g3p3so8t6h.xsd",
+   "record": "cases/halvorsen-despatch-advice/m-datetime.xml",
+   "expected": "expected/halvorsen-despatch-advice/m-datetime.json"
+  },
+  {
+   "id": "halvorsen-despatch-advice/m-quantity-type",
+   "model": "models/halvorsen-despatch-advice/dm-cacl4njrwanj15g3p3so8t6h.xsd",
+   "record": "cases/halvorsen-despatch-advice/m-quantity-type.xml",
+   "expected": "expected/halvorsen-despatch-advice/m-quantity-type.json"
+  },
+  {
+   "id": "halvorsen-despatch-advice/m-string-empty",
+   "model": "models/halvorsen-despatch-advice/dm-cacl4njrwanj15g3p3so8t6h.xsd",
+   "record": "cases/halvorsen-despatch-advice/m-string-empty.xml",
+   "expected": "expected/halvorsen-despatch-advice/m-string-empty.json"
+  },
+  {
+   "id": "halvorsen-despatch-advice/m-time",
+   "model": "models/halvorsen-despatch-advice/dm-cacl4njrwanj15g3p3so8t6h.xsd",
+   "record": "cases/halvorsen-despatch-advice/m-time.xml",
+   "expected": "expected/halvorsen-despatch-advice/m-time.json"
+  },
+  {
+   "id": "halvorsen-despatch-advice/m-token",
+   "model": "models/halvorsen-despatch-advice/dm-cacl4njrwanj15g3p3so8t6h.xsd",
+   "record": "cases/halvorsen-despatch-advice/m-token.xml",
+   "expected": "expected/halvorsen-despatch-advice/m-token.json"
+  },
+  {
+   "id": "halvorsen-despatch-advice/m-two-errors",
+   "model": "models/halvorsen-despatch-advice/dm-cacl4njrwanj15g3p3so8t6h.xsd",
+   "record": "cases/halvorsen-despatch-advice/m-two-errors.xml",
+   "expected": "expected/halvorsen-despatch-advice/m-two-errors.json"
+  },
+  {
+   "id": "halvorsen-despatch-advice/s-duplicate-label",
+   "model": "models/halvorsen-despatch-advice/dm-cacl4njrwanj15g3p3so8t6h.xsd",
+   "record": "cases/halvorsen-despatch-advice/s-duplicate-label.xml",
+   "expected": "expected/halvorsen-despatch-advice/s-duplicate-label.json"
+  },
+  {
+   "id": "halvorsen-despatch-advice/s-missing-label",
+   "model": "models/halvorsen-despatch-advice/dm-cacl4njrwanj15g3p3so8t6h.xsd",
+   "record": "cases/halvorsen-despatch-advice/s-missing-label.xml",
+   "expected": "expected/halvorsen-despatch-advice/s-missing-label.json"
+  },
+  {
+   "id": "halvorsen-despatch-advice/s-unknown-element",
+   "model": "models/halvorsen-despatch-advice/dm-cacl4njrwanj15g3p3so8t6h.xsd",
+   "record": "cases/halvorsen-despatch-advice/s-unknown-element.xml",
+   "expected": "expected/halvorsen-despatch-advice/s-unknown-element.json"
+  },
+  {
+   "id": "halvorsen-despatch-advice/valid-1",
+   "model": "models/halvorsen-despatch-advice/dm-cacl4njrwanj15g3p3so8t6h.xsd",
+   "record": "cases/halvorsen-despatch-advice/valid-1.xml",
+   "expected": "expected/halvorsen-despatch-advice/valid-1.json"
+  },
+  {
+   "id": "halvorsen-despatch-advice/valid-2",
+   "model": "models/halvorsen-despatch-advice/dm-cacl4njrwanj15g3p3so8t6h.xsd",
+   "record": "cases/halvorsen-despatch-advice/valid-2.xml",
+   "expected": "expected/halvorsen-despatch-advice/valid-2.json"
+  },
+  {
+   "id": "halvorsen-invoice/ev-existing",
+   "model": "models/halvorsen-invoice/dm-u19w614300a8ot4a7qnn2o1c.xsd",
+   "record": "cases/halvorsen-invoice/ev-existing.xml",
+   "expected": "expected/halvorsen-invoice/ev-existing.json"
+  },
+  {
+   "id": "halvorsen-invoice/m-boolean",
+   "model": "models/halvorsen-invoice/dm-u19w614300a8ot4a7qnn2o1c.xsd",
+   "record": "cases/halvorsen-invoice/m-boolean.xml",
+   "expected": "expected/halvorsen-invoice/m-boolean.json"
+  },
+  {
+   "id": "halvorsen-invoice/m-count-type",
+   "model": "models/halvorsen-invoice/dm-u19w614300a8ot4a7qnn2o1c.xsd",
+   "record": "cases/halvorsen-invoice/m-count-type.xml",
+   "expected": "expected/halvorsen-invoice/m-count-type.json"
+  },
+  {
+   "id": "halvorsen-invoice/m-date",
+   "model": "models/halvorsen-invoice/dm-u19w614300a8ot4a7qnn2o1c.xsd",
+   "record": "cases/halvorsen-invoice/m-date.xml",
+   "expected": "expected/halvorsen-invoice/m-date.json"
+  },
+  {
+   "id": "halvorsen-invoice/m-datetime",
+   "model": "models/halvorsen-invoice/dm-u19w614300a8ot4a7qnn2o1c.xsd",
+   "record": "cases/halvorsen-invoice/m-datetime.xml",
+   "expected": "expected/halvorsen-invoice/m-datetime.json"
+  },
+  {
+   "id": "halvorsen-invoice/m-quantity-type",
+   "model": "models/halvorsen-invoice/dm-u19w614300a8ot4a7qnn2o1c.xsd",
+   "record": "cases/halvorsen-invoice/m-quantity-type.xml",
+   "expected": "expected/halvorsen-invoice/m-quantity-type.json"
+  },
+  {
+   "id": "halvorsen-invoice/m-string-empty",
+   "model": "models/halvorsen-invoice/dm-u19w614300a8ot4a7qnn2o1c.xsd",
+   "record": "cases/halvorsen-invoice/m-string-empty.xml",
+   "expected": "expected/halvorsen-invoice/m-string-empty.json"
+  },
+  {
+   "id": "halvorsen-invoice/m-time",
+   "model": "models/halvorsen-invoice/dm-u19w614300a8ot4a7qnn2o1c.xsd",
+   "record": "cases/halvorsen-invoice/m-time.xml",
+   "expected": "expected/halvorsen-invoice/m-time.json"
+  },
+  {
+   "id": "halvorsen-invoice/m-token",
+   "model": "models/halvorsen-invoice/dm-u19w614300a8ot4a7qnn2o1c.xsd",
+   "record": "cases/halvorsen-invoice/m-token.xml",
+   "expected": "expected/halvorsen-invoice/m-token.json"
+  },
+  {
+   "id": "halvorsen-invoice/m-two-errors",
+   "model": "models/halvorsen-invoice/dm-u19w614300a8ot4a7qnn2o1c.xsd",
+   "record": "cases/halvorsen-invoice/m-two-errors.xml",
+   "expected": "expected/halvorsen-invoice/m-two-errors.json"
+  },
+  {
+   "id": "halvorsen-invoice/s-duplicate-label",
+   "model": "models/halvorsen-invoice/dm-u19w614300a8ot4a7qnn2o1c.xsd",
+   "record": "cases/halvorsen-invoice/s-duplicate-label.xml",
+   "expected": "expected/halvorsen-invoice/s-duplicate-label.json"
+  },
+  {
+   "id": "halvorsen-invoice/s-missing-label",
+   "model": "models/halvorsen-invoice/dm-u19w614300a8ot4a7qnn2o1c.xsd",
+   "record": "cases/halvorsen-invoice/s-missing-label.xml",
+   "expected": "expected/halvorsen-invoice/s-missing-label.json"
+  },
+  {
+   "id": "halvorsen-invoice/s-unknown-element",
+   "model": "models/halvorsen-invoice/dm-u19w614300a8ot4a7qnn2o1c.xsd",
+   "record": "cases/halvorsen-invoice/s-unknown-element.xml",
+   "expected": "expected/halvorsen-invoice/s-unknown-element.json"
+  },
+  {
+   "id": "halvorsen-invoice/valid-1",
+   "model": "models/halvorsen-invoice/dm-u19w614300a8ot4a7qnn2o1c.xsd",
+   "record": "cases/halvorsen-invoice/valid-1.xml",
+   "expected": "expected/halvorsen-invoice/valid-1.json"
+  },
+  {
+   "id": "halvorsen-invoice/valid-2",
+   "model": "models/halvorsen-invoice/dm-u19w614300a8ot4a7qnn2o1c.xsd",
+   "record": "cases/halvorsen-invoice/valid-2.xml",
+   "expected": "expected/halvorsen-invoice/valid-2.json"
+  },
+  {
+   "id": "halvorsen-order/ev-existing",
+   "model": "models/halvorsen-order/dm-h8bttbt9afwzf9zs4jhae566.xsd",
+   "record": "cases/halvorsen-order/ev-existing.xml",
+   "expected": "expected/halvorsen-order/ev-existing.json"
+  },
+  {
+   "id": "halvorsen-order/m-boolean",
+   "model": "models/halvorsen-order/dm-h8bttbt9afwzf9zs4jhae566.xsd",
+   "record": "cases/halvorsen-order/m-boolean.xml",
+   "expected": "expected/halvorsen-order/m-boolean.json"
+  },
+  {
+   "id": "halvorsen-order/m-count-type",
+   "model": "models/halvorsen-order/dm-h8bttbt9afwzf9zs4jhae566.xsd",
+   "record": "cases/halvorsen-order/m-count-type.xml",
+   "expected": "expected/halvorsen-order/m-count-type.json"
+  },
+  {
+   "id": "halvorsen-order/m-date",
+   "model": "models/halvorsen-order/dm-h8bttbt9afwzf9zs4jhae566.xsd",
+   "record": "cases/halvorsen-order/m-date.xml",
+   "expected": "expected/halvorsen-order/m-date.json"
+  },
+  {
+   "id": "halvorsen-order/m-datetime",
+   "model": "models/halvorsen-order/dm-h8bttbt9afwzf9zs4jhae566.xsd",
+   "record": "cases/halvorsen-order/m-datetime.xml",
+   "expected": "expected/halvorsen-order/m-datetime.json"
+  },
+  {
+   "id": "halvorsen-order/m-quantity-type",
+   "model": "models/halvorsen-order/dm-h8bttbt9afwzf9zs4jhae566.xsd",
+   "record": "cases/halvorsen-order/m-quantity-type.xml",
+   "expected": "expected/halvorsen-order/m-quantity-type.json"
+  },
+  {
+   "id": "halvorsen-order/m-string-empty",
+   "model": "models/halvorsen-order/dm-h8bttbt9afwzf9zs4jhae566.xsd",
+   "record": "cases/halvorsen-order/m-string-empty.xml",
+   "expected": "expected/halvorsen-order/m-string-empty.json"
+  },
+  {
+   "id": "halvorsen-order/m-time",
+   "model": "models/halvorsen-order/dm-h8bttbt9afwzf9zs4jhae566.xsd",
+   "record": "cases/halvorsen-order/m-time.xml",
+   "expected": "expected/halvorsen-order/m-time.json"
+  },
+  {
+   "id": "halvorsen-order/m-token",
+   "model": "models/halvorsen-order/dm-h8bttbt9afwzf9zs4jhae566.xsd",
+   "record": "cases/halvorsen-order/m-token.xml",
+   "expected": "expected/halvorsen-order/m-token.json"
+  },
+  {
+   "id": "halvorsen-order/m-two-errors",
+   "model": "models/halvorsen-order/dm-h8bttbt9afwzf9zs4jhae566.xsd",
+   "record": "cases/halvorsen-order/m-two-errors.xml",
+   "expected": "expected/halvorsen-order/m-two-errors.json"
+  },
+  {
+   "id": "halvorsen-order/s-duplicate-label",
+   "model": "models/halvorsen-order/dm-h8bttbt9afwzf9zs4jhae566.xsd",
+   "record": "cases/halvorsen-order/s-duplicate-label.xml",
+   "expected": "expected/halvorsen-order/s-duplicate-label.json"
+  },
+  {
+   "id": "halvorsen-order/s-missing-label",
+   "model": "models/halvorsen-order/dm-h8bttbt9afwzf9zs4jhae566.xsd",
+   "record": "cases/halvorsen-order/s-missing-label.xml",
+   "expected": "expected/halvorsen-order/s-missing-label.json"
+  },
+  {
+   "id": "halvorsen-order/s-unknown-element",
+   "model": "models/halvorsen-order/dm-h8bttbt9afwzf9zs4jhae566.xsd",
+   "record": "cases/halvorsen-order/s-unknown-element.xml",
+   "expected": "expected/halvorsen-order/s-unknown-element.json"
+  },
+  {
+   "id": "halvorsen-order/valid-1",
+   "model": "models/halvorsen-order/dm-h8bttbt9afwzf9zs4jhae566.xsd",
+   "record": "cases/halvorsen-order/valid-1.xml",
+   "expected": "expected/halvorsen-order/valid-1.json"
+  },
+  {
+   "id": "halvorsen-order/valid-2",
+   "model": "models/halvorsen-order/dm-h8bttbt9afwzf9zs4jhae566.xsd",
+   "record": "cases/halvorsen-order/valid-2.xml",
+   "expected": "expected/halvorsen-order/valid-2.json"
+  },
+  {
+   "id": "halvorsen-order-response/ev-existing",
+   "model": "models/halvorsen-order-response/dm-kuntv2wlkw54h7nxe0kqhvi2.xsd",
+   "record": "cases/halvorsen-order-response/ev-existing.xml",
+   "expected": "expected/halvorsen-order-response/ev-existing.json"
+  },
+  {
+   "id": "halvorsen-order-response/m-boolean",
+   "model": "models/halvorsen-order-response/dm-kuntv2wlkw54h7nxe0kqhvi2.xsd",
+   "record": "cases/halvorsen-order-response/m-boolean.xml",
+   "expected": "expected/halvorsen-order-response/m-boolean.json"
+  },
+  {
+   "id": "halvorsen-order-response/m-count-type",
+   "model": "models/halvorsen-order-response/dm-kuntv2wlkw54h7nxe0kqhvi2.xsd",
+   "record": "cases/halvorsen-order-response/m-count-type.xml",
+   "expected": "expected/halvorsen-order-response/m-count-type.json"
+  },
+  {
+   "id": "halvorsen-order-response/m-date",
+   "model": "models/halvorsen-order-response/dm-kuntv2wlkw54h7nxe0kqhvi2.xsd",
+   "record": "cases/halvorsen-order-response/m-date.xml",
+   "expected": "expected/halvorsen-order-response/m-date.json"
+  },
+  {
+   "id": "halvorsen-order-response/m-datetime",
+   "model": "models/halvorsen-order-response/dm-kuntv2wlkw54h7nxe0kqhvi2.xsd",
+   "record": "cases/halvorsen-order-response/m-datetime.xml",
+   "expected": "expected/halvorsen-order-response/m-datetime.json"
+  },
+  {
+   "id": "halvorsen-order-response/m-quantity-type",
+   "model": "models/halvorsen-order-response/dm-kuntv2wlkw54h7nxe0kqhvi2.xsd",
+   "record": "cases/halvorsen-order-response/m-quantity-type.xml",
+   "expected": "expected/halvorsen-order-response/m-quantity-type.json"
+  },
+  {
+   "id": "halvorsen-order-response/m-string-empty",
+   "model": "models/halvorsen-order-response/dm-kuntv2wlkw54h7nxe0kqhvi2.xsd",
+   "record": "cases/halvorsen-order-response/m-string-empty.xml",
+   "expected": "expected/halvorsen-order-response/m-string-empty.json"
+  },
+  {
+   "id": "halvorsen-order-response/m-time",
+   "model": "models/halvorsen-order-response/dm-kuntv2wlkw54h7nxe0kqhvi2.xsd",
+   "record": "cases/halvorsen-order-response/m-time.xml",
+   "expected": "expected/halvorsen-order-response/m-time.json"
+  },
+  {
+   "id": "halvorsen-order-response/m-token",
+   "model": "models/halvorsen-order-response/dm-kuntv2wlkw54h7nxe0kqhvi2.xsd",
+   "record": "cases/halvorsen-order-response/m-token.xml",
+   "expected": "expected/halvorsen-order-response/m-token.json"
+  },
+  {
+   "id": "halvorsen-order-response/m-two-errors",
+   "model": "models/halvorsen-order-response/dm-kuntv2wlkw54h7nxe0kqhvi2.xsd",
+   "record": "cases/halvorsen-order-response/m-two-errors.xml",
+   "expected": "expected/halvorsen-order-response/m-two-errors.json"
+  },
+  {
+   "id": "halvorsen-order-response/s-duplicate-label",
+   "model": "models/halvorsen-order-response/dm-kuntv2wlkw54h7nxe0kqhvi2.xsd",
+   "record": "cases/halvorsen-order-response/s-duplicate-label.xml",
+   "expected": "expected/halvorsen-order-response/s-duplicate-label.json"
+  },
+  {
+   "id": "halvorsen-order-response/s-missing-label",
+   "model": "models/halvorsen-order-response/dm-kuntv2wlkw54h7nxe0kqhvi2.xsd",
+   "record": "cases/halvorsen-order-response/s-missing-label.xml",
+   "expected": "expected/halvorsen-order-response/s-missing-label.json"
+  },
+  {
+   "id": "halvorsen-order-response/s-unknown-element",
+   "model": "models/halvorsen-order-response/dm-kuntv2wlkw54h7nxe0kqhvi2.xsd",
+   "record": "cases/halvorsen-order-response/s-unknown-element.xml",
+   "expected": "expected/halvorsen-order-response/s-unknown-element.json"
+  },
+  {
+   "id": "halvorsen-order-response/valid-1",
+   "model": "models/halvorsen-order-response/dm-kuntv2wlkw54h7nxe0kqhvi2.xsd",
+   "record": "cases/halvorsen-order-response/valid-1.xml",
+   "expected": "expected/halvorsen-order-response/valid-1.json"
+  },
+  {
+   "id": "halvorsen-order-response/valid-2",
+   "model": "models/halvorsen-order-response/dm-kuntv2wlkw54h7nxe0kqhvi2.xsd",
+   "record": "cases/halvorsen-order-response/valid-2.xml",
+   "expected": "expected/halvorsen-order-response/valid-2.json"
+  },
+  {
+   "id": "halvorsen-receipt-advice/ev-existing",
+   "model": "models/halvorsen-receipt-advice/dm-tog0v0p1zit1xwpxysxwpf3d.xsd",
+   "record": "cases/halvorsen-receipt-advice/ev-existing.xml",
+   "expected": "expected/halvorsen-receipt-advice/ev-existing.json"
+  },
+  {
+   "id": "halvorsen-receipt-advice/m-boolean",
+   "model": "models/halvorsen-receipt-advice/dm-tog0v0p1zit1xwpxysxwpf3d.xsd",
+   "record": "cases/halvorsen-receipt-advice/m-boolean.xml",
+   "expected": "expected/halvorsen-receipt-advice/m-boolean.json"
+  },
+  {
+   "id": "halvorsen-receipt-advice/m-count-type",
+   "model": "models/halvorsen-receipt-advice/dm-tog0v0p1zit1xwpxysxwpf3d.xsd",
+   "record": "cases/halvorsen-receipt-advice/m-count-type.xml",
+   "expected": "expected/halvorsen-receipt-advice/m-count-type.json"
+  },
+  {
+   "id": "halvorsen-receipt-advice/m-date",
+   "model": "models/halvorsen-receipt-advice/dm-tog0v0p1zit1xwpxysxwpf3d.xsd",
+   "record": "cases/halvorsen-receipt-advice/m-date.xml",
+   "expected": "expected/halvorsen-receipt-advice/m-date.json"
+  },
+  {
+   "id": "halvorsen-receipt-advice/m-datetime",
+   "model": "models/halvorsen-receipt-advice/dm-tog0v0p1zit1xwpxysxwpf3d.xsd",
+   "record": "cases/halvorsen-receipt-advice/m-datetime.xml",
+   "expected": "expected/halvorsen-receipt-advice/m-datetime.json"
+  },
+  {
+   "id": "halvorsen-receipt-advice/m-quantity-type",
+   "model": "models/halvorsen-receipt-advice/dm-tog0v0p1zit1xwpxysxwpf3d.xsd",
+   "record": "cases/halvorsen-receipt-advice/m-quantity-type.xml",
+   "expected": "expected/halvorsen-receipt-advice/m-quantity-type.json"
+  },
+  {
+   "id": "halvorsen-receipt-advice/m-string-empty",
+   "model": "models/halvorsen-receipt-advice/dm-tog0v0p1zit1xwpxysxwpf3d.xsd",
+   "record": "cases/halvorsen-receipt-advice/m-string-empty.xml",
+   "expected": "expected/halvorsen-receipt-advice/m-string-empty.json"
+  },
+  {
+   "id": "halvorsen-receipt-advice/m-time",
+   "model": "models/halvorsen-receipt-advice/dm-tog0v0p1zit1xwpxysxwpf3d.xsd",
+   "record": "cases/halvorsen-receipt-advice/m-time.xml",
+   "expected": "expected/halvorsen-receipt-advice/m-time.json"
+  },
+  {
+   "id": "halvorsen-receipt-advice/m-token",
+   "model": "models/halvorsen-receipt-advice/dm-tog0v0p1zit1xwpxysxwpf3d.xsd",
+   "record": "cases/halvorsen-receipt-advice/m-token.xml",
+   "expected": "expected/halvorsen-receipt-advice/m-token.json"
+  },
+  {
+   "id": "halvorsen-receipt-advice/m-two-errors",
+   "model": "models/halvorsen-receipt-advice/dm-tog0v0p1zit1xwpxysxwpf3d.xsd",
+   "record": "cases/halvorsen-receipt-advice/m-two-errors.xml",
+   "expected": "expected/halvorsen-receipt-advice/m-two-errors.json"
+  },
+  {
+   "id": "halvorsen-receipt-advice/s-duplicate-label",
+   "model": "models/halvorsen-receipt-advice/dm-tog0v0p1zit1xwpxysxwpf3d.xsd",
+   "record": "cases/halvorsen-receipt-advice/s-duplicate-label.xml",
+   "expected": "expected/halvorsen-receipt-advice/s-duplicate-label.json"
+  },
+  {
+   "id": "halvorsen-receipt-advice/s-missing-label",
+   "model": "models/halvorsen-receipt-advice/dm-tog0v0p1zit1xwpxysxwpf3d.xsd",
+   "record": "cases/halvorsen-receipt-advice/s-missing-label.xml",
+   "expected": "expected/halvorsen-receipt-advice/s-missing-label.json"
+  },
+  {
+   "id": "halvorsen-receipt-advice/s-unknown-element",
+   "model": "models/halvorsen-receipt-advice/dm-tog0v0p1zit1xwpxysxwpf3d.xsd",
+   "record": "cases/halvorsen-receipt-advice/s-unknown-element.xml",
+   "expected": "expected/halvorsen-receipt-advice/s-unknown-element.json"
+  },
+  {
+   "id": "halvorsen-receipt-advice/valid-1",
+   "model": "models/halvorsen-receipt-advice/dm-tog0v0p1zit1xwpxysxwpf3d.xsd",
+   "record": "cases/halvorsen-receipt-advice/valid-1.xml",
+   "expected": "expected/halvorsen-receipt-advice/valid-1.json"
+  },
+  {
+   "id": "halvorsen-receipt-advice/valid-2",
+   "model": "models/halvorsen-receipt-advice/dm-tog0v0p1zit1xwpxysxwpf3d.xsd",
+   "record": "cases/halvorsen-receipt-advice/valid-2.xml",
+   "expected": "expected/halvorsen-receipt-advice/valid-2.json"
+  },
+  {
+   "id": "halvorsen-remittance-advice/ev-existing",
+   "model": "models/halvorsen-remittance-advice/dm-fgtbf38cj0bwxppxn69etcci.xsd",
+   "record": "cases/halvorsen-remittance-advice/ev-existing.xml",
+   "expected": "expected/halvorsen-remittance-advice/ev-existing.json"
+  },
+  {
+   "id": "halvorsen-remittance-advice/m-boolean",
+   "model": "models/halvorsen-remittance-advice/dm-fgtbf38cj0bwxppxn69etcci.xsd",
+   "record": "cases/halvorsen-remittance-advice/m-boolean.xml",
+   "expected": "expected/halvorsen-remittance-advice/m-boolean.json"
+  },
+  {
+   "id": "halvorsen-remittance-advice/m-count-type",
+   "model": "models/halvorsen-remittance-advice/dm-fgtbf38cj0bwxppxn69etcci.xsd",
+   "record": "cases/halvorsen-remittance-advice/m-count-type.xml",
+   "expected": "expected/halvorsen-remittance-advice/m-count-type.json"
+  },
+  {
+   "id": "halvorsen-remittance-advice/m-date",
+   "model": "models/halvorsen-remittance-advice/dm-fgtbf38cj0bwxppxn69etcci.xsd",
+   "record": "cases/halvorsen-remittance-advice/m-date.xml",
+   "expected": "expected/halvorsen-remittance-advice/m-date.json"
+  },
+  {
+   "id": "halvorsen-remittance-advice/m-datetime",
+   "model": "models/halvorsen-remittance-advice/dm-fgtbf38cj0bwxppxn69etcci.xsd",
+   "record": "cases/halvorsen-remittance-advice/m-datetime.xml",
+   "expected": "expected/halvorsen-remittance-advice/m-datetime.json"
+  },
+  {
+   "id": "halvorsen-remittance-advice/m-quantity-type",
+   "model": "models/halvorsen-remittance-advice/dm-fgtbf38cj0bwxppxn69etcci.xsd",
+   "record": "cases/halvorsen-remittance-advice/m-quantity-type.xml",
+   "expected": "expected/halvorsen-remittance-advice/m-quantity-type.json"
+  },
+  {
+   "id": "halvorsen-remittance-advice/m-string-empty",
+   "model": "models/halvorsen-remittance-advice/dm-fgtbf38cj0bwxppxn69etcci.xsd",
+   "record": "cases/halvorsen-remittance-advice/m-string-empty.xml",
+   "expected": "expected/halvorsen-remittance-advice/m-string-empty.json"
+  },
+  {
+   "id": "halvorsen-remittance-advice/m-time",
+   "model": "models/halvorsen-remittance-advice/dm-fgtbf38cj0bwxppxn69etcci.xsd",
+   "record": "cases/halvorsen-remittance-advice/m-time.xml",
+   "expected": "expected/halvorsen-remittance-advice/m-time.json"
+  },
+  {
+   "id": "halvorsen-remittance-advice/m-token",
+   "model": "models/halvorsen-remittance-advice/dm-fgtbf38cj0bwxppxn69etcci.xsd",
+   "record": "cases/halvorsen-remittance-advice/m-token.xml",
+   "expected": "expected/halvorsen-remittance-advice/m-token.json"
+  },
+  {
+   "id": "halvorsen-remittance-advice/m-two-errors",
+   "model": "models/halvorsen-remittance-advice/dm-fgtbf38cj0bwxppxn69etcci.xsd",
+   "record": "cases/halvorsen-remittance-advice/m-two-errors.xml",
+   "expected": "expected/halvorsen-remittance-advice/m-two-errors.json"
+  },
+  {
+   "id": "halvorsen-remittance-advice/s-duplicate-label",
+   "model": "models/halvorsen-remittance-advice/dm-fgtbf38cj0bwxppxn69etcci.xsd",
+   "record": "cases/halvorsen-remittance-advice/s-duplicate-label.xml",
+   "expected": "expected/halvorsen-remittance-advice/s-duplicate-label.json"
+  },
+  {
+   "id": "halvorsen-remittance-advice/s-missing-label",
+   "model": "models/halvorsen-remittance-advice/dm-fgtbf38cj0bwxppxn69etcci.xsd",
+   "record": "cases/halvorsen-remittance-advice/s-missing-label.xml",
+   "expected": "expected/halvorsen-remittance-advice/s-missing-label.json"
+  },
+  {
+   "id": "halvorsen-remittance-advice/s-unknown-element",
+   "model": "models/halvorsen-remittance-advice/dm-fgtbf38cj0bwxppxn69etcci.xsd",
+   "record": "cases/halvorsen-remittance-advice/s-unknown-element.xml",
+   "expected": "expected/halvorsen-remittance-advice/s-unknown-element.json"
+  },
+  {
+   "id": "halvorsen-remittance-advice/valid-1",
+   "model": "models/halvorsen-remittance-advice/dm-fgtbf38cj0bwxppxn69etcci.xsd",
+   "record": "cases/halvorsen-remittance-advice/valid-1.xml",
+   "expected": "expected/halvorsen-remittance-advice/valid-1.json"
+  },
+  {
+   "id": "halvorsen-remittance-advice/valid-2",
+   "model": "models/halvorsen-remittance-advice/dm-fgtbf38cj0bwxppxn69etcci.xsd",
+   "record": "cases/halvorsen-remittance-advice/valid-2.xml",
+   "expected": "expected/halvorsen-remittance-advice/valid-2.json"
+  },
+  {
+   "id": "halvorsen-torvale-order/ev-existing",
+   "model": "models/halvorsen-torvale-order/dm-cq1fjrvyn0fxl1kyk9y3kr1w.xsd",
+   "record": "cases/halvorsen-torvale-order/ev-existing.xml",
+   "expected": "expected/halvorsen-torvale-order/ev-existing.json"
+  },
+  {
+   "id": "halvorsen-torvale-order/m-boolean",
+   "model": "models/halvorsen-torvale-order/dm-cq1fjrvyn0fxl1kyk9y3kr1w.xsd",
+   "record": "cases/halvorsen-torvale-order/m-boolean.xml",
+   "expected": "expected/halvorsen-torvale-order/m-boolean.json"
+  },
+  {
+   "id": "halvorsen-torvale-order/m-count-type",
+   "model": "models/halvorsen-torvale-order/dm-cq1fjrvyn0fxl1kyk9y3kr1w.xsd",
+   "record": "cases/halvorsen-torvale-order/m-count-type.xml",
+   "expected": "expected/halvorsen-torvale-order/m-count-type.json"
+  },
+  {
+   "id": "halvorsen-torvale-order/m-date",
+   "model": "models/halvorsen-torvale-order/dm-cq1fjrvyn0fxl1kyk9y3kr1w.xsd",
+   "record": "cases/halvorsen-torvale-order/m-date.xml",
+   "expected": "expected/halvorsen-torvale-order/m-date.json"
+  },
+  {
+   "id": "halvorsen-torvale-order/m-datetime",
+   "model": "models/halvorsen-torvale-order/dm-cq1fjrvyn0fxl1kyk9y3kr1w.xsd",
+   "record": "cases/halvorsen-torvale-order/m-datetime.xml",
+   "expected": "expected/halvorsen-torvale-order/m-datetime.json"
+  },
+  {
+   "id": "halvorsen-torvale-order/m-quantity-type",
+   "model": "models/halvorsen-torvale-order/dm-cq1fjrvyn0fxl1kyk9y3kr1w.xsd",
+   "record": "cases/halvorsen-torvale-order/m-quantity-type.xml",
+   "expected": "expected/halvorsen-torvale-order/m-quantity-type.json"
+  },
+  {
+   "id": "halvorsen-torvale-order/m-string-empty",
+   "model": "models/halvorsen-torvale-order/dm-cq1fjrvyn0fxl1kyk9y3kr1w.xsd",
+   "record": "cases/halvorsen-torvale-order/m-string-empty.xml",
+   "expected": "expected/halvorsen-torvale-order/m-string-empty.json"
+  },
+  {
+   "id": "halvorsen-torvale-order/m-time",
+   "model": "models/halvorsen-torvale-order/dm-cq1fjrvyn0fxl1kyk9y3kr1w.xsd",
+   "record": "cases/halvorsen-torvale-order/m-time.xml",
+   "expected": "expected/halvorsen-torvale-order/m-time.json"
+  },
+  {
+   "id": "halvorsen-torvale-order/m-token",
+   "model": "models/halvorsen-torvale-order/dm-cq1fjrvyn0fxl1kyk9y3kr1w.xsd",
+   "record": "cases/halvorsen-torvale-order/m-token.xml",
+   "expected": "expected/halvorsen-torvale-order/m-token.json"
+  },
+  {
+   "id": "halvorsen-torvale-order/m-two-errors",
+   "model": "models/halvorsen-torvale-order/dm-cq1fjrvyn0fxl1kyk9y3kr1w.xsd",
+   "record": "cases/halvorsen-torvale-order/m-two-errors.xml",
+   "expected": "expected/halvorsen-torvale-order/m-two-errors.json"
+  },
+  {
+   "id": "halvorsen-torvale-order/s-duplicate-label",
+   "model": "models/halvorsen-torvale-order/dm-cq1fjrvyn0fxl1kyk9y3kr1w.xsd",
+   "record": "cases/halvorsen-torvale-order/s-duplicate-label.xml",
+   "expected": "expected/halvorsen-torvale-order/s-duplicate-label.json"
+  },
+  {
+   "id": "halvorsen-torvale-order/s-missing-label",
+   "model": "models/halvorsen-torvale-order/dm-cq1fjrvyn0fxl1kyk9y3kr1w.xsd",
+   "record": "cases/halvorsen-torvale-order/s-missing-label.xml",
+   "expected": "expected/halvorsen-torvale-order/s-missing-label.json"
+  },
+  {
+   "id": "halvorsen-torvale-order/s-unknown-element",
+   "model": "models/halvorsen-torvale-order/dm-cq1fjrvyn0fxl1kyk9y3kr1w.xsd",
+   "record": "cases/halvorsen-torvale-order/s-unknown-element.xml",
+   "expected": "expected/halvorsen-torvale-order/s-unknown-element.json"
+  },
+  {
+   "id": "halvorsen-torvale-order/valid-1",
+   "model": "models/halvorsen-torvale-order/dm-cq1fjrvyn0fxl1kyk9y3kr1w.xsd",
+   "record": "cases/halvorsen-torvale-order/valid-1.xml",
+   "expected": "expected/halvorsen-torvale-order/valid-1.json"
+  },
+  {
+   "id": "halvorsen-torvale-order/valid-2",
+   "model": "models/halvorsen-torvale-order/dm-cq1fjrvyn0fxl1kyk9y3kr1w.xsd",
+   "record": "cases/halvorsen-torvale-order/valid-2.xml",
+   "expected": "expected/halvorsen-torvale-order/valid-2.json"
+  }
+ ]
+}

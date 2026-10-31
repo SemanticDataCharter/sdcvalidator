@@ -1,0 +1,21 @@
+{
+ "recover": {
+  "ok": true,
+  "recoveries": [
+   {
+    "code": "INV",
+    "inserted": false,
+    "path": "/{https://semanticdatacharter.com/ns/sdc4/}dm-jkuyr38hydqaiwlq5vhp2rjr/{https://semanticdatacharter.com/ns/sdc4/}ms-eqika8chjyab0nbkqcoyrtce/{https://semanticdatacharter.com/ns/sdc4/}ms-vkn71t5d3juhuwqg61cszc1m/{https://semanticdatacharter.com/ns/sdc4/}ms-gxndnrq7p8irahxlef9ytakb/{https://semanticdatacharter.com/ns/sdc4/}ms-yko4thjau27yl7bjicqa8hzk/{https://semanticdatacharter.com/ns/sdc4/}ms-ilnb30g9dumsn2peazfupz95/{https://semanticdatacharter.com/ns/sdc4/}ms-cfyo90kf2i12yi4q6tfz096p/{https://semanticdatacharter.com/ns/sdc4/}ms-bg61jdtt3gfwgptnh8l4n2qh/{https://semanticdatacharter.com/ns/sdc4/}ms-ivmsm0wfok9g4chzb0gryzqy/xdquantity-value"
+   }
+  ],
+  "unrecoverable": []
+ },
+ "semantic": [
+  {
+   "ev": "INV",
+   "path": "/{https://semanticdatacharter.com/ns/sdc4/}dm-jkuyr38hydqaiwlq5vhp2rjr/{https://semanticdatacharter.com/ns/sdc4/}ms-eqika8chjyab0nbkqcoyrtce/{https://semanticdatacharter.com/ns/sdc4/}ms-vkn71t5d3juhuwqg61cszc1m/{https://semanticdatacharter.com/ns/sdc4/}ms-gxndnrq7p8irahxlef9ytakb/{https://semanticdatacharter.com/ns/sdc4/}ms-yko4thjau27yl7bjicqa8hzk/{https://semanticdatacharter.com/ns/sdc4/}ms-ilnb30g9dumsn2peazfupz95/{https://semanticdatacharter.com/ns/sdc4/}ms-cfyo90kf2i12yi4q6tfz096p/{https://semanticdatacharter.com/ns/sdc4/}ms-bg61jdtt3gfwgptnh8l4n2qh/{https://semanticdatacharter.com/ns/sdc4/}ms-ivmsm0wfok9g4chzb0gryzqy/xdquantity-value"
+  }
+ ],
+ "structural": [],
+ "valid": false
+}

@@ -1,0 +1,22 @@
+{
+ "recover": {
+  "ok": true,
+  "recoveries": [
+   {
+    "code": "NI",
+    "inserted": true,
+    "path": "/{https://semanticdatacharter.com/ns/sdc4/}dm-tog0v0p1zit1xwpxysxwpf3d/{https://semanticdatacharter.com/ns/sdc4/}ms-oocnj5uo4fkqs2zgxc85657g/{https://semanticdatacharter.com/ns/sdc4/}ms-t2tvd3wylxrstdeu5aw6gkw1/{https://semanticdatacharter.com/ns/sdc4/}ms-lcsns9hrrzcg74jlit8srxgp/{https://semanticdatacharter.com/ns/sdc4/}ms-ce1c8sydkov8bkv4dgdmwe5x/xdtoken-value"
+   }
+  ],
+  "unrecoverable": []
+ },
+ "recovered": "expected/halvorsen-receipt-advice/m-token.recovered.xml",
+ "semantic": [
+  {
+   "ev": "NI",
+   "path": "/{https://semanticdatacharter.com/ns/sdc4/}dm-tog0v0p1zit1xwpxysxwpf3d/{https://semanticdatacharter.com/ns/sdc4/}ms-oocnj5uo4fkqs2zgxc85657g/{https://semanticdatacharter.com/ns/sdc4/}ms-t2tvd3wylxrstdeu5aw6gkw1/{https://semanticdatacharter.com/ns/sdc4/}ms-lcsns9hrrzcg74jlit8srxgp/{https://semanticdatacharter.com/ns/sdc4/}ms-ce1c8sydkov8bkv4dgdmwe5x/xdtoken-value"
+  }
+ ],
+ "structural": [],
+ "valid": false
+}

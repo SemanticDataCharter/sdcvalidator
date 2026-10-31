@@ -1,0 +1,31 @@
+{
+ "recover": {
+  "ok": true,
+  "recoveries": [
+   {
+    "code": "INV",
+    "inserted": true,
+    "path": "/{https://semanticdatacharter.com/ns/sdc4/}dm-fgtbf38cj0bwxppxn69etcci/{https://semanticdatacharter.com/ns/sdc4/}ms-c58celu1ukeo9ntpzf25ewuk/{https://semanticdatacharter.com/ns/sdc4/}ms-oyd0sik2krxuplyn3dbfafiv/{https://semanticdatacharter.com/ns/sdc4/}ms-bkxu8lqco28bg8jn2te6n9hq/{https://semanticdatacharter.com/ns/sdc4/}ms-fhawvo5fxxlp8wf7yffrqr7j/{https://semanticdatacharter.com/ns/sdc4/}ms-jce61gv76krf6vwk63ym367j/xdquantity-value"
+   },
+   {
+    "code": "INV",
+    "inserted": true,
+    "path": "/{https://semanticdatacharter.com/ns/sdc4/}dm-fgtbf38cj0bwxppxn69etcci/{https://semanticdatacharter.com/ns/sdc4/}ms-c58celu1ukeo9ntpzf25ewuk/{https://semanticdatacharter.com/ns/sdc4/}ms-oyd0sik2krxuplyn3dbfafiv/{https://semanticdatacharter.com/ns/sdc4/}ms-pnpbq6767i7i05afp648yhdd/{https://semanticdatacharter.com/ns/sdc4/}ms-vft2wpeny3khc2whtji4qve5/{https://semanticdatacharter.com/ns/sdc4/}ms-iw79shpxfxnmiueutlhubpr2/xdtemporal-date"
+   }
+  ],
+  "unrecoverable": []
+ },
+ "recovered": "expected/halvorsen-remittance-advice/m-two-errors.recovered.xml",
+ "semantic": [
+  {
+   "ev": "INV",
+   "path": "/{https://semanticdatacharter.com/ns/sdc4/}dm-fgtbf38cj0bwxppxn69etcci/{https://semanticdatacharter.com/ns/sdc4/}ms-c58celu1ukeo9ntpzf25ewuk/{https://semanticdatacharter.com/ns/sdc4/}ms-oyd0sik2krxuplyn3dbfafiv/{https://semanticdatacharter.com/ns/sdc4/}ms-bkxu8lqco28bg8jn2te6n9hq/{https://semanticdatacharter.com/ns/sdc4/}ms-fhawvo5fxxlp8wf7yffrqr7j/{https://semanticdatacharter.com/ns/sdc4/}ms-jce61gv76krf6vwk63ym367j/xdquantity-value"
+  },
+  {
+   "ev": "INV",
+   "path": "/{https://semanticdatacharter.com/ns/sdc4/}dm-fgtbf38cj0bwxppxn69etcci/{https://semanticdatacharter.com/ns/sdc4/}ms-c58celu1ukeo9ntpzf25ewuk/{https://semanticdatacharter.com/ns/sdc4/}ms-oyd0sik2krxuplyn3dbfafiv/{https://semanticdatacharter.com/ns/sdc4/}ms-pnpbq6767i7i05afp648yhdd/{https://semanticdatacharter.com/ns/sdc4/}ms-vft2wpeny3khc2whtji4qve5/{https://semanticdatacharter.com/ns/sdc4/}ms-iw79shpxfxnmiueutlhubpr2/xdtemporal-date"
+  }
+ ],
+ "structural": [],
+ "valid": false
+}
