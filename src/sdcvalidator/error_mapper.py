@@ -22,6 +22,8 @@ from xmlschema.validators.exceptions import (
     XMLSchemaDecodeError,
     XMLSchemaChildrenValidationError,
 )
+from xmlschema.validators import XsdAssert, XsdComponent, XsdElement
+from xmlschema.validators.facets import XsdEnumerationFacets, XsdFacet
 from .constants import ExceptionalValueType, STRUCTURAL_ELEMENTS
 from .error_classifier import ErrorClassifier
 
@@ -122,6 +124,14 @@ class ErrorMapper:
             # Don't map to ExceptionalValue - let validation fail
             return None
 
+        # The constraint that failed decides, when xmlschema says which one it was. The wording rules
+        # below are the fallback: xmlschema's messages change between releases (4.6.2 and earlier
+        # mapped every facet violation to NI because "value must be one of [...]" and "value doesn't
+        # match any pattern of [...]" no longer matched them), and its validator classes do not.
+        ev_type = self._map_by_constraint(error)
+        if ev_type is not None:
+            return ev_type
+
         # For SDC4 data-bearing elements or unknown elements, map to appropriate ExceptionalValue
         # Note: We're permissive here - only STRUCTURAL_ELEMENTS fail validation
         # This allows the system to work with custom element names and future SDC versions
@@ -131,6 +141,33 @@ class ErrorMapper:
 
         # Should never reach here due to default rule, but just in case
         return ExceptionalValueType.NI
+
+    @staticmethod
+    def _map_by_constraint(error: XMLSchemaValidationError) -> Optional[ExceptionalValueType]:
+        """
+        The ExceptionalValue for an error, from the constraint xmlschema reports as having failed
+        (``error.validator``), or None when the constraint does not decide it.
+
+        - a value outside its enumeration: OTH;
+        - a value that breaks any other facet (pattern, length, range, digits), a built-in type's own
+          range (a negative nonNegativeInteger), an assertion, or an element's fixed value: INV;
+        - a value that is not of its type at all (a decode error): INV, as the wording rules give it.
+        """
+        if isinstance(error, XMLSchemaChildrenValidationError):
+            return None
+        if isinstance(error, XMLSchemaDecodeError):
+            return ExceptionalValueType.INV
+        validator = error.validator
+        if isinstance(validator, XsdEnumerationFacets):
+            return ExceptionalValueType.OTH
+        if isinstance(validator, (XsdFacet, XsdAssert)):
+            return ExceptionalValueType.INV
+        if isinstance(validator, XsdElement) and validator.fixed is not None:
+            return ExceptionalValueType.INV
+        if callable(validator) and not isinstance(validator, XsdComponent):
+            # A built-in type's own facet: xmlschema checks it with a plain function.
+            return ExceptionalValueType.INV
+        return None
 
     def is_structural_error(self, error: XMLSchemaValidationError) -> bool:
         """

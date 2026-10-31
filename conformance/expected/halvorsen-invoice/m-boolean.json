@@ -3,7 +3,7 @@
   "ok": true,
   "recoveries": [
    {
-    "code": "NI",
+    "code": "OTH",
     "inserted": true,
     "path": "/{https://semanticdatacharter.com/ns/sdc4/}dm-u19w614300a8ot4a7qnn2o1c/{https://semanticdatacharter.com/ns/sdc4/}ms-hw6n0jmf2nzr3ye7s76gb2fz/{https://semanticdatacharter.com/ns/sdc4/}ms-nv7e4kp5ngatnxophnpn8yh0/{https://semanticdatacharter.com/ns/sdc4/}ms-sfke5l7u5is9cjh5wjhozpsz/{https://semanticdatacharter.com/ns/sdc4/}ms-kq1axd3psm1tsnz26dtvpzb3/{https://semanticdatacharter.com/ns/sdc4/}ms-nsv2eblxq8s0vk28ue2vh1fl/false-value"
    }
@@ -13,7 +13,7 @@
  "recovered": "expected/halvorsen-invoice/m-boolean.recovered.xml",
  "semantic": [
   {
-   "ev": "NI",
+   "ev": "OTH",
    "path": "/{https://semanticdatacharter.com/ns/sdc4/}dm-u19w614300a8ot4a7qnn2o1c/{https://semanticdatacharter.com/ns/sdc4/}ms-hw6n0jmf2nzr3ye7s76gb2fz/{https://semanticdatacharter.com/ns/sdc4/}ms-nv7e4kp5ngatnxophnpn8yh0/{https://semanticdatacharter.com/ns/sdc4/}ms-sfke5l7u5is9cjh5wjhozpsz/{https://semanticdatacharter.com/ns/sdc4/}ms-kq1axd3psm1tsnz26dtvpzb3/{https://semanticdatacharter.com/ns/sdc4/}ms-nsv2eblxq8s0vk28ue2vh1fl/false-value"
   }
  ],

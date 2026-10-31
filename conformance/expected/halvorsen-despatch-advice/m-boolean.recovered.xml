@@ -384,7 +384,7 @@
         <sdc4:ms-kq1axd3psm1tsnz26dtvpzb3>
           <sdc4:ms-nsv2eblxq8s0vk28ue2vh1fl>
             <label>Copy Indicator</label>
-            <sdc4:NI><ev-name>No Information</ev-name></sdc4:NI><false-value>maybe</false-value>
+            <sdc4:OTH><ev-name>Other</ev-name></sdc4:OTH><false-value>maybe</false-value>
           </sdc4:ms-nsv2eblxq8s0vk28ue2vh1fl>
         </sdc4:ms-kq1axd3psm1tsnz26dtvpzb3>
         <sdc4:ms-haiqjii7v81fewii6c47rrig>

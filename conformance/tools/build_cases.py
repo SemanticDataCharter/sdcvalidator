@@ -77,6 +77,126 @@ MUTATIONS = {
 }
 
 
+def _schema(xsd: Path):
+    sys.path.insert(0, str(ROOT.parent / 'src'))
+    from sdcvalidator.xsd11_restriction import build_xsd11_schema
+    reference = str(ROOT / 'reference' / 'sdc4.xsd')
+    return build_xsd11_schema(str(xsd), uri_mapper=lambda u: reference if u.endswith('/ns/sdc4/sdc4.xsd') else u)
+
+
+def _facet(simple_type, name: str):
+    """The value of a facet on a simple type or the nearest base type that declares it."""
+    qname = '{http://www.w3.org/2001/XMLSchema}' + name
+    t = simple_type
+    while t is not None and hasattr(t, 'facets'):
+        f = (t.facets or {}).get(qname)
+        if f is not None:
+            return f
+        t = getattr(t, 'base_type', None)
+    return None
+
+
+def schema_cases(xsd: Path, record: Path) -> dict:
+    """
+    Cases a text substitution cannot make, because they depend on the schema: a value that breaks a
+    length, range or pattern facet, and a record that fails an assertion. Each walks the record in
+    document order, tries the first value (or child) the facet (or assertion) applies to, and keeps
+    the first mutation that gives exactly one error, from exactly that constraint.
+    """
+    import xml.etree.ElementTree as ET
+    from decimal import Decimal
+    from xmlschema import XMLResource
+    from xmlschema.validators import XsdAssert
+    from xmlschema.validators import facets as F
+
+    schema = _schema(xsd)
+    ET.register_namespace('sdc4', 'https://semanticdatacharter.com/ns/sdc4/')
+    ET.register_namespace('xsi', 'http://www.w3.org/2001/XMLSchema-instance')
+
+    def pairs():
+        resource = XMLResource(str(record))
+        out = []
+        list(schema.iter_errors(resource, validation_hook=lambda e, x: out.append((e, x)) or False))
+        return resource, out
+
+    def simple(xsd_element):
+        t = xsd_element.type
+        return t if t.is_simple() else (t.content if t.has_simple_content() else None)
+
+    def errors_of(root):
+        return list(schema.iter_errors(ET.tostring(root, encoding='unicode')))
+
+    def first(candidates, expected_class):
+        """The first mutation, in document order, giving one error from ``expected_class``."""
+        _, base = pairs()
+        for index in range(len(base)):
+            for mutate in candidates(base[index]):
+                resource, ps = pairs()
+                element, xsd_element = ps[index]
+                if not mutate(element, xsd_element):
+                    continue
+                errors = errors_of(resource.root)
+                if len(errors) == 1 and isinstance(errors[0].validator, expected_class):
+                    return ET.tostring(resource.root, encoding='unicode')
+        return None
+
+    def set_text(value):
+        def apply(element, xsd_element):
+            if len(element):
+                return False
+            element.text = value
+            return True
+        return apply
+
+    def length_over(pair):
+        st = simple(pair[1])
+        f = st is not None and _facet(st, 'maxLength')
+        return [set_text('x' * (f.value + 1))] if f else []
+
+    def length_under(pair):
+        st = simple(pair[1])
+        f = st is not None and _facet(st, 'minLength')
+        return [set_text('x' * (f.value - 1))] if f and f.value >= 2 else []
+
+    def above_max(pair):
+        st = simple(pair[1])
+        f = st is not None and _facet(st, 'maxInclusive')
+        return [set_text(str(Decimal(str(f.value)) + 1))] if f else []
+
+    def below_min(pair):
+        st = simple(pair[1])
+        f = st is not None and _facet(st, 'minInclusive')
+        return [set_text(str(Decimal(str(f.value)) - 1))] if f else []
+
+    def off_pattern(pair):
+        st = simple(pair[1])
+        return [set_text(v) for v in ('!!', 'x', '0', 'xx-')] if st is not None and _facet(st, 'pattern') else []
+
+    def assertion_fails(pair):
+        if not getattr(pair[1].type, 'assertions', None) or not len(pair[0]):
+            return []
+
+        def remove(i):
+            def apply(element, xsd_element):
+                kids = list(element)
+                if i >= len(kids) or not kids[i].tag.rsplit('}', 1)[-1].startswith('ms-'):
+                    return False
+                element.remove(kids[i])
+                return True
+            return apply
+        return [remove(i) for i in range(len(pair[0]))]
+
+    found = {
+        'm-maxlength': first(length_over, F.XsdMaxLengthFacet),
+        'm-minlength': first(length_under, F.XsdMinLengthFacet),
+        'm-maxinclusive': first(above_max, F.XsdMaxInclusiveFacet),
+        'm-mininclusive': first(below_min, F.XsdMinInclusiveFacet),
+        'm-pattern': first(off_pattern, F.XsdPatternFacets),
+        'm-assertion': first(assertion_fails, XsdAssert),
+    }
+    return {name: '<?xml version="1.0" encoding="UTF-8"?>\n' + text for name, text in found.items() if text}
+
+
 def ev_existing(xsd: Path, invalid_record: Path, out: Path):
     """A record that already carries an ExceptionalValue: sdcvalidator's recovery of an invalid one."""
     import xml.etree.ElementTree as ET
@@ -109,6 +229,8 @@ def main(samples: Path):
             mutated = mutate(source)
             if mutated is not None and mutated != source:
                 (cases / f'{case}.xml').write_text(mutated, encoding='utf-8')
+        for case, text in schema_cases(ROOT / 'models' / name / xsds[0].name, cases / 'valid-1.xml').items():
+            (cases / f'{case}.xml').write_text(text, encoding='utf-8')
         if (cases / 'm-quantity-type.xml').exists():
             ev_existing(ROOT / 'models' / name / xsds[0].name, cases / 'm-quantity-type.xml', cases / 'ev-existing.xml')
         print(name, len(list(cases.glob('*.xml'))), 'cases')
