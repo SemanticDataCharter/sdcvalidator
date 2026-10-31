@@ -1,0 +1,22 @@
+{
+ "recover": {
+  "ok": true,
+  "recoveries": [
+   {
+    "code": "INV",
+    "inserted": true,
+    "path": "/{https://semanticdatacharter.com/ns/sdc4/}dm-jkuyr38hydqaiwlq5vhp2rjr/{https://semanticdatacharter.com/ns/sdc4/}ms-eqika8chjyab0nbkqcoyrtce/{https://semanticdatacharter.com/ns/sdc4/}ms-vkn71t5d3juhuwqg61cszc1m/{https://semanticdatacharter.com/ns/sdc4/}ms-gxndnrq7p8irahxlef9ytakb/{https://semanticdatacharter.com/ns/sdc4/}ms-yko4thjau27yl7bjicqa8hzk/{https://semanticdatacharter.com/ns/sdc4/}ms-ilnb30g9dumsn2peazfupz95/{https://semanticdatacharter.com/ns/sdc4/}ms-yat9nppabvpq1jrgpsi5g226/{https://semanticdatacharter.com/ns/sdc4/}ms-w4pmewp5mgp43q2k0p4bmyfw/{https://semanticdatacharter.com/ns/sdc4/}ms-f3hxcmvvq1jtowruh5y3evhc/{https://semanticdatacharter.com/ns/sdc4/}ms-l3ue9scta9uq277rtu869kag/{https://semanticdatacharter.com/ns/sdc4/}ms-v4zn5xtqlkni8qr3ly7e2j1a/xdquantity-value"
+   }
+  ],
+  "unrecoverable": []
+ },
+ "recovered": "expected/halvorsen-credit-note/m-maxinclusive.recovered.xml",
+ "semantic": [
+  {
+   "ev": "INV",
+   "path": "/{https://semanticdatacharter.com/ns/sdc4/}dm-jkuyr38hydqaiwlq5vhp2rjr/{https://semanticdatacharter.com/ns/sdc4/}ms-eqika8chjyab0nbkqcoyrtce/{https://semanticdatacharter.com/ns/sdc4/}ms-vkn71t5d3juhuwqg61cszc1m/{https://semanticdatacharter.com/ns/sdc4/}ms-gxndnrq7p8irahxlef9ytakb/{https://semanticdatacharter.com/ns/sdc4/}ms-yko4thjau27yl7bjicqa8hzk/{https://semanticdatacharter.com/ns/sdc4/}ms-ilnb30g9dumsn2peazfupz95/{https://semanticdatacharter.com/ns/sdc4/}ms-yat9nppabvpq1jrgpsi5g226/{https://semanticdatacharter.com/ns/sdc4/}ms-w4pmewp5mgp43q2k0p4bmyfw/{https://semanticdatacharter.com/ns/sdc4/}ms-f3hxcmvvq1jtowruh5y3evhc/{https://semanticdatacharter.com/ns/sdc4/}ms-l3ue9scta9uq277rtu869kag/{https://semanticdatacharter.com/ns/sdc4/}ms-v4zn5xtqlkni8qr3ly7e2j1a/xdquantity-value"
+  }
+ ],
+ "structural": [],
+ "valid": false
+}

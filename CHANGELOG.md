@@ -6,6 +6,26 @@ semantic versioning.
 
 ## [Unreleased]
 
+## [4.6.3] - 2026-10-31
+
+### Fixed
+
+- **ExceptionalValue codes follow the rule table again.** The mapper matched xmlschema's English error
+  messages, and when xmlschema's wording changed ("value must be one of [...]", "value doesn't match
+  any pattern of [...]", "value length cannot be greater than ..."), every facet violation fell
+  through to `NI`. It now decides from the constraint xmlschema reports as having failed
+  (`error.validator`), which does not depend on wording: a value outside its enumeration is `OTH`; a
+  pattern, length, range or digits violation, a built-in type's own range, an assertion and a fixed
+  value are `INV`. Type errors stay `INV`, structural elements stay untaggable, and the wording rules
+  remain as the fallback for anything the constraint does not decide. Recovered records now carry
+  these codes. `tests/test_error_mapping_by_constraint.py` covers each.
+
+### Added
+
+- **31 conformance cases** found from the schema: values breaking a length, range or pattern facet,
+  and a record failing an assertion, 151 cases in all. The suite's expectations change with the fix
+  above; implementations conforming to 4.6.2 must meet the new ones.
+
 ## [4.6.2] - 2026-10-31
 
 ### Added

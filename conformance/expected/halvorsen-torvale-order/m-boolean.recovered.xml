@@ -779,7 +779,7 @@
               <sdc4:ms-d8ivryspsiurkq9m4rou7gr3>
                 <sdc4:ms-tx38l0xvewnhe47t73jkbjyz>
                   <label>Back Order Allowed</label>
-                  <sdc4:NI><ev-name>No Information</ev-name></sdc4:NI><true-value>maybe</true-value>
+                  <sdc4:OTH><ev-name>Other</ev-name></sdc4:OTH><true-value>maybe</true-value>
                 </sdc4:ms-tx38l0xvewnhe47t73jkbjyz>
               </sdc4:ms-d8ivryspsiurkq9m4rou7gr3>
               <sdc4:ms-vvdd9ha4a79c0p03wsuxv1px>

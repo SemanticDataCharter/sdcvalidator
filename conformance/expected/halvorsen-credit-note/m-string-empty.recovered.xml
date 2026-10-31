@@ -13,7 +13,7 @@
       <sdc4:ms-hpkc8xrccpwc3shm4ubm5o47>
         <sdc4:ms-dkc2ccj5te35z9gd4bu1blcq>
           <label>Audit Agent Reference</label>
-          <sdc4:NI><ev-name>No Information</ev-name></sdc4:NI><xdstring-value></xdstring-value>
+          <sdc4:INV><ev-name>Invalid</ev-name></sdc4:INV><xdstring-value></xdstring-value>
         </sdc4:ms-dkc2ccj5te35z9gd4bu1blcq>
       </sdc4:ms-hpkc8xrccpwc3shm4ubm5o47>
       <sdc4:ms-ynnnvgi8748h2d01z2gf4z8x>

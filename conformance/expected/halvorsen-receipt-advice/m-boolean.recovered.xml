@@ -1867,7 +1867,7 @@
               <sdc4:ms-k1l35vd96pzjt9zruk4mrr1y>
                 <sdc4:ms-wrnl8gyzup8j3i8s00oh9n8y>
                   <label>Pack Specification Compliant</label>
-                  <sdc4:NI><ev-name>No Information</ev-name></sdc4:NI><true-value>maybe</true-value>
+                  <sdc4:OTH><ev-name>Other</ev-name></sdc4:OTH><true-value>maybe</true-value>
                 </sdc4:ms-wrnl8gyzup8j3i8s00oh9n8y>
               </sdc4:ms-k1l35vd96pzjt9zruk4mrr1y>
               <sdc4:ms-efzduttyl2d2fl2se8zgw21w>

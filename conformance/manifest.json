@@ -1,5 +1,5 @@
 {
- "sdcvalidator": "4.6.2",
+ "sdcvalidator": "4.6.3",
  "reference_model": "reference/sdc4.xsd",
  "cases": [
   {
@@ -31,6 +31,30 @@
    "model": "models/halvorsen-credit-note/dm-jkuyr38hydqaiwlq5vhp2rjr.xsd",
    "record": "cases/halvorsen-credit-note/m-datetime.xml",
    "expected": "expected/halvorsen-credit-note/m-datetime.json"
+  },
+  {
+   "id": "halvorsen-credit-note/m-maxinclusive",
+   "model": "models/halvorsen-credit-note/dm-jkuyr38hydqaiwlq5vhp2rjr.xsd",
+   "record": "cases/halvorsen-credit-note/m-maxinclusive.xml",
+   "expected": "expected/halvorsen-credit-note/m-maxinclusive.json"
+  },
+  {
+   "id": "halvorsen-credit-note/m-maxlength",
+   "model": "models/halvorsen-credit-note/dm-jkuyr38hydqaiwlq5vhp2rjr.xsd",
+   "record": "cases/halvorsen-credit-note/m-maxlength.xml",
+   "expected": "expected/halvorsen-credit-note/m-maxlength.json"
+  },
+  {
+   "id": "halvorsen-credit-note/m-mininclusive",
+   "model": "models/halvorsen-credit-note/dm-jkuyr38hydqaiwlq5vhp2rjr.xsd",
+   "record": "cases/halvorsen-credit-note/m-mininclusive.xml",
+   "expected": "expected/halvorsen-credit-note/m-mininclusive.json"
+  },
+  {
+   "id": "halvorsen-credit-note/m-pattern",
+   "model": "models/halvorsen-credit-note/dm-jkuyr38hydqaiwlq5vhp2rjr.xsd",
+   "record": "cases/halvorsen-credit-note/m-pattern.xml",
+   "expected": "expected/halvorsen-credit-note/m-pattern.json"
   },
   {
    "id": "halvorsen-credit-note/m-quantity-type",
@@ -123,6 +147,24 @@
    "expected": "expected/halvorsen-despatch-advice/m-datetime.json"
   },
   {
+   "id": "halvorsen-despatch-advice/m-maxlength",
+   "model": "models/halvorsen-despatch-advice/dm-cacl4njrwanj15g3p3so8t6h.xsd",
+   "record": "cases/halvorsen-despatch-advice/m-maxlength.xml",
+   "expected": "expected/halvorsen-despatch-advice/m-maxlength.json"
+  },
+  {
+   "id": "halvorsen-despatch-advice/m-mininclusive",
+   "model": "models/halvorsen-despatch-advice/dm-cacl4njrwanj15g3p3so8t6h.xsd",
+   "record": "cases/halvorsen-despatch-advice/m-mininclusive.xml",
+   "expected": "expected/halvorsen-despatch-advice/m-mininclusive.json"
+  },
+  {
+   "id": "halvorsen-despatch-advice/m-pattern",
+   "model": "models/halvorsen-despatch-advice/dm-cacl4njrwanj15g3p3so8t6h.xsd",
+   "record": "cases/halvorsen-despatch-advice/m-pattern.xml",
+   "expected": "expected/halvorsen-despatch-advice/m-pattern.json"
+  },
+  {
    "id": "halvorsen-despatch-advice/m-quantity-type",
    "model": "models/halvorsen-despatch-advice/dm-cacl4njrwanj15g3p3so8t6h.xsd",
    "record": "cases/halvorsen-despatch-advice/m-quantity-type.xml",
@@ -211,6 +253,30 @@
    "model": "models/halvorsen-invoice/dm-u19w614300a8ot4a7qnn2o1c.xsd",
    "record": "cases/halvorsen-invoice/m-datetime.xml",
    "expected": "expected/halvorsen-invoice/m-datetime.json"
+  },
+  {
+   "id": "halvorsen-invoice/m-maxinclusive",
+   "model": "models/halvorsen-invoice/dm-u19w614300a8ot4a7qnn2o1c.xsd",
+   "record": "cases/halvorsen-invoice/m-maxinclusive.xml",
+   "expected": "expected/halvorsen-invoice/m-maxinclusive.json"
+  },
+  {
+   "id": "halvorsen-invoice/m-maxlength",
+   "model": "models/halvorsen-invoice/dm-u19w614300a8ot4a7qnn2o1c.xsd",
+   "record": "cases/halvorsen-invoice/m-maxlength.xml",
+   "expected": "expected/halvorsen-invoice/m-maxlength.json"
+  },
+  {
+   "id": "halvorsen-invoice/m-mininclusive",
+   "model": "models/halvorsen-invoice/dm-u19w614300a8ot4a7qnn2o1c.xsd",
+   "record": "cases/halvorsen-invoice/m-mininclusive.xml",
+   "expected": "expected/halvorsen-invoice/m-mininclusive.json"
+  },
+  {
+   "id": "halvorsen-invoice/m-pattern",
+   "model": "models/halvorsen-invoice/dm-u19w614300a8ot4a7qnn2o1c.xsd",
+   "record": "cases/halvorsen-invoice/m-pattern.xml",
+   "expected": "expected/halvorsen-invoice/m-pattern.json"
   },
   {
    "id": "halvorsen-invoice/m-quantity-type",
@@ -303,6 +369,30 @@
    "expected": "expected/halvorsen-order/m-datetime.json"
   },
   {
+   "id": "halvorsen-order/m-maxinclusive",
+   "model": "models/halvorsen-order/dm-h8bttbt9afwzf9zs4jhae566.xsd",
+   "record": "cases/halvorsen-order/m-maxinclusive.xml",
+   "expected": "expected/halvorsen-order/m-maxinclusive.json"
+  },
+  {
+   "id": "halvorsen-order/m-maxlength",
+   "model": "models/halvorsen-order/dm-h8bttbt9afwzf9zs4jhae566.xsd",
+   "record": "cases/halvorsen-order/m-maxlength.xml",
+   "expected": "expected/halvorsen-order/m-maxlength.json"
+  },
+  {
+   "id": "halvorsen-order/m-mininclusive",
+   "model": "models/halvorsen-order/dm-h8bttbt9afwzf9zs4jhae566.xsd",
+   "record": "cases/halvorsen-order/m-mininclusive.xml",
+   "expected": "expected/halvorsen-order/m-mininclusive.json"
+  },
+  {
+   "id": "halvorsen-order/m-pattern",
+   "model": "models/halvorsen-order/dm-h8bttbt9afwzf9zs4jhae566.xsd",
+   "record": "cases/halvorsen-order/m-pattern.xml",
+   "expected": "expected/halvorsen-order/m-pattern.json"
+  },
+  {
    "id": "halvorsen-order/m-quantity-type",
    "model": "models/halvorsen-order/dm-h8bttbt9afwzf9zs4jhae566.xsd",
    "record": "cases/halvorsen-order/m-quantity-type.xml",
@@ -391,6 +481,30 @@
    "model": "models/halvorsen-order-response/dm-kuntv2wlkw54h7nxe0kqhvi2.xsd",
    "record": "cases/halvorsen-order-response/m-datetime.xml",
    "expected": "expected/halvorsen-order-response/m-datetime.json"
+  },
+  {
+   "id": "halvorsen-order-response/m-maxinclusive",
+   "model": "models/halvorsen-order-response/dm-kuntv2wlkw54h7nxe0kqhvi2.xsd",
+   "record": "cases/halvorsen-order-response/m-maxinclusive.xml",
+   "expected": "expected/halvorsen-order-response/m-maxinclusive.json"
+  },
+  {
+   "id": "halvorsen-order-response/m-maxlength",
+   "model": "models/halvorsen-order-response/dm-kuntv2wlkw54h7nxe0kqhvi2.xsd",
+   "record": "cases/halvorsen-order-response/m-maxlength.xml",
+   "expected": "expected/halvorsen-order-response/m-maxlength.json"
+  },
+  {
+   "id": "halvorsen-order-response/m-mininclusive",
+   "model": "models/halvorsen-order-response/dm-kuntv2wlkw54h7nxe0kqhvi2.xsd",
+   "record": "cases/halvorsen-order-response/m-mininclusive.xml",
+   "expected": "expected/halvorsen-order-response/m-mininclusive.json"
+  },
+  {
+   "id": "halvorsen-order-response/m-pattern",
+   "model": "models/halvorsen-order-response/dm-kuntv2wlkw54h7nxe0kqhvi2.xsd",
+   "record": "cases/halvorsen-order-response/m-pattern.xml",
+   "expected": "expected/halvorsen-order-response/m-pattern.json"
   },
   {
    "id": "halvorsen-order-response/m-quantity-type",
@@ -483,6 +597,24 @@
    "expected": "expected/halvorsen-receipt-advice/m-datetime.json"
   },
   {
+   "id": "halvorsen-receipt-advice/m-maxlength",
+   "model": "models/halvorsen-receipt-advice/dm-tog0v0p1zit1xwpxysxwpf3d.xsd",
+   "record": "cases/halvorsen-receipt-advice/m-maxlength.xml",
+   "expected": "expected/halvorsen-receipt-advice/m-maxlength.json"
+  },
+  {
+   "id": "halvorsen-receipt-advice/m-mininclusive",
+   "model": "models/halvorsen-receipt-advice/dm-tog0v0p1zit1xwpxysxwpf3d.xsd",
+   "record": "cases/halvorsen-receipt-advice/m-mininclusive.xml",
+   "expected": "expected/halvorsen-receipt-advice/m-mininclusive.json"
+  },
+  {
+   "id": "halvorsen-receipt-advice/m-pattern",
+   "model": "models/halvorsen-receipt-advice/dm-tog0v0p1zit1xwpxysxwpf3d.xsd",
+   "record": "cases/halvorsen-receipt-advice/m-pattern.xml",
+   "expected": "expected/halvorsen-receipt-advice/m-pattern.json"
+  },
+  {
    "id": "halvorsen-receipt-advice/m-quantity-type",
    "model": "models/halvorsen-receipt-advice/dm-tog0v0p1zit1xwpxysxwpf3d.xsd",
    "record": "cases/halvorsen-receipt-advice/m-quantity-type.xml",
@@ -573,6 +705,30 @@
    "expected": "expected/halvorsen-remittance-advice/m-datetime.json"
   },
   {
+   "id": "halvorsen-remittance-advice/m-maxinclusive",
+   "model": "models/halvorsen-remittance-advice/dm-fgtbf38cj0bwxppxn69etcci.xsd",
+   "record": "cases/halvorsen-remittance-advice/m-maxinclusive.xml",
+   "expected": "expected/halvorsen-remittance-advice/m-maxinclusive.json"
+  },
+  {
+   "id": "halvorsen-remittance-advice/m-maxlength",
+   "model": "models/halvorsen-remittance-advice/dm-fgtbf38cj0bwxppxn69etcci.xsd",
+   "record": "cases/halvorsen-remittance-advice/m-maxlength.xml",
+   "expected": "expected/halvorsen-remittance-advice/m-maxlength.json"
+  },
+  {
+   "id": "halvorsen-remittance-advice/m-mininclusive",
+   "model": "models/halvorsen-remittance-advice/dm-fgtbf38cj0bwxppxn69etcci.xsd",
+   "record": "cases/halvorsen-remittance-advice/m-mininclusive.xml",
+   "expected": "expected/halvorsen-remittance-advice/m-mininclusive.json"
+  },
+  {
+   "id": "halvorsen-remittance-advice/m-pattern",
+   "model": "models/halvorsen-remittance-advice/dm-fgtbf38cj0bwxppxn69etcci.xsd",
+   "record": "cases/halvorsen-remittance-advice/m-pattern.xml",
+   "expected": "expected/halvorsen-remittance-advice/m-pattern.json"
+  },
+  {
    "id": "halvorsen-remittance-advice/m-quantity-type",
    "model": "models/halvorsen-remittance-advice/dm-fgtbf38cj0bwxppxn69etcci.xsd",
    "record": "cases/halvorsen-remittance-advice/m-quantity-type.xml",
@@ -639,6 +795,12 @@
    "expected": "expected/halvorsen-torvale-order/ev-existing.json"
   },
   {
+   "id": "halvorsen-torvale-order/m-assertion",
+   "model": "models/halvorsen-torvale-order/dm-cq1fjrvyn0fxl1kyk9y3kr1w.xsd",
+   "record": "cases/halvorsen-torvale-order/m-assertion.xml",
+   "expected": "expected/halvorsen-torvale-order/m-assertion.json"
+  },
+  {
    "id": "halvorsen-torvale-order/m-boolean",
    "model": "models/halvorsen-torvale-order/dm-cq1fjrvyn0fxl1kyk9y3kr1w.xsd",
    "record": "cases/halvorsen-torvale-order/m-boolean.xml",
@@ -661,6 +823,30 @@
    "model": "models/halvorsen-torvale-order/dm-cq1fjrvyn0fxl1kyk9y3kr1w.xsd",
    "record": "cases/halvorsen-torvale-order/m-datetime.xml",
    "expected": "expected/halvorsen-torvale-order/m-datetime.json"
+  },
+  {
+   "id": "halvorsen-torvale-order/m-maxinclusive",
+   "model": "models/halvorsen-torvale-order/dm-cq1fjrvyn0fxl1kyk9y3kr1w.xsd",
+   "record": "cases/halvorsen-torvale-order/m-maxinclusive.xml",
+   "expected": "expected/halvorsen-torvale-order/m-maxinclusive.json"
+  },
+  {
+   "id": "halvorsen-torvale-order/m-maxlength",
+   "model": "models/halvorsen-torvale-order/dm-cq1fjrvyn0fxl1kyk9y3kr1w.xsd",
+   "record": "cases/halvorsen-torvale-order/m-maxlength.xml",
+   "expected": "expected/halvorsen-torvale-order/m-maxlength.json"
+  },
+  {
+   "id": "halvorsen-torvale-order/m-mininclusive",
+   "model": "models/halvorsen-torvale-order/dm-cq1fjrvyn0fxl1kyk9y3kr1w.xsd",
+   "record": "cases/halvorsen-torvale-order/m-mininclusive.xml",
+   "expected": "expected/halvorsen-torvale-order/m-mininclusive.json"
+  },
+  {
+   "id": "halvorsen-torvale-order/m-pattern",
+   "model": "models/halvorsen-torvale-order/dm-cq1fjrvyn0fxl1kyk9y3kr1w.xsd",
+   "record": "cases/halvorsen-torvale-order/m-pattern.xml",
+   "expected": "expected/halvorsen-torvale-order/m-pattern.json"
   },
   {
    "id": "halvorsen-torvale-order/m-quantity-type",
