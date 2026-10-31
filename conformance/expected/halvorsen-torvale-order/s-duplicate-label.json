@@ -1,0 +1,10 @@
+{
+ "recover": {
+  "rejected": "structural"
+ },
+ "semantic": [],
+ "structural": [
+  "/{https://semanticdatacharter.com/ns/sdc4/}dm-cq1fjrvyn0fxl1kyk9y3kr1w/{https://semanticdatacharter.com/ns/sdc4/}ms-t4dco9ogeo04yi6pgl0panb3"
+ ],
+ "valid": false
+}

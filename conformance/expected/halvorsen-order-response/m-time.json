@@ -1,0 +1,22 @@
+{
+ "recover": {
+  "ok": true,
+  "recoveries": [
+   {
+    "code": "INV",
+    "inserted": true,
+    "path": "/{https://semanticdatacharter.com/ns/sdc4/}dm-kuntv2wlkw54h7nxe0kqhvi2/{https://semanticdatacharter.com/ns/sdc4/}ms-xrtq55a6zyrnr068ja610u3n/{https://semanticdatacharter.com/ns/sdc4/}ms-r7soe9xhvta7hbfqe07d36zs/{https://semanticdatacharter.com/ns/sdc4/}ms-vhhb40dovh00vbt3hd2pdm7t/{https://semanticdatacharter.com/ns/sdc4/}ms-q1u1nttzsb9blnszjdzpgd78/{https://semanticdatacharter.com/ns/sdc4/}ms-oybfzltffyfioix1zdblxcp3/xdtemporal-time"
+   }
+  ],
+  "unrecoverable": []
+ },
+ "recovered": "expected/halvorsen-order-response/m-time.recovered.xml",
+ "semantic": [
+  {
+   "ev": "INV",
+   "path": "/{https://semanticdatacharter.com/ns/sdc4/}dm-kuntv2wlkw54h7nxe0kqhvi2/{https://semanticdatacharter.com/ns/sdc4/}ms-xrtq55a6zyrnr068ja610u3n/{https://semanticdatacharter.com/ns/sdc4/}ms-r7soe9xhvta7hbfqe07d36zs/{https://semanticdatacharter.com/ns/sdc4/}ms-vhhb40dovh00vbt3hd2pdm7t/{https://semanticdatacharter.com/ns/sdc4/}ms-q1u1nttzsb9blnszjdzpgd78/{https://semanticdatacharter.com/ns/sdc4/}ms-oybfzltffyfioix1zdblxcp3/xdtemporal-time"
+  }
+ ],
+ "structural": [],
+ "valid": false
+}
