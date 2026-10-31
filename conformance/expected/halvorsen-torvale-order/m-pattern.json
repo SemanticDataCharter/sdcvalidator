@@ -1,0 +1,22 @@
+{
+ "recover": {
+  "ok": true,
+  "recoveries": [
+   {
+    "code": "INV",
+    "inserted": true,
+    "path": "/{https://semanticdatacharter.com/ns/sdc4/}dm-cq1fjrvyn0fxl1kyk9y3kr1w/{https://semanticdatacharter.com/ns/sdc4/}ms-t4dco9ogeo04yi6pgl0panb3/{https://semanticdatacharter.com/ns/sdc4/}ms-i7a87peygfjohxwfk5urd3q8/{https://semanticdatacharter.com/ns/sdc4/}ms-nylve3b8ss572vh8zso2u4l7/{https://semanticdatacharter.com/ns/sdc4/}ms-asbbdn0eof6713wx4y2e90c2/{https://semanticdatacharter.com/ns/sdc4/}ms-useph7s4ienfhwerqx2thedj/{https://semanticdatacharter.com/ns/sdc4/}ms-kibeh8vp79shumcdyj8xzqw1/{https://semanticdatacharter.com/ns/sdc4/}ms-d2xwhnb2vqzxw70jcizj9csx/{https://semanticdatacharter.com/ns/sdc4/}ms-rr45vpoto55jhvob6vtzsz27/{https://semanticdatacharter.com/ns/sdc4/}ms-q922mqaon3yn5zlwf2bszf28/xdstring-value"
+   }
+  ],
+  "unrecoverable": []
+ },
+ "recovered": "expected/halvorsen-torvale-order/m-pattern.recovered.xml",
+ "semantic": [
+  {
+   "ev": "INV",
+   "path": "/{https://semanticdatacharter.com/ns/sdc4/}dm-cq1fjrvyn0fxl1kyk9y3kr1w/{https://semanticdatacharter.com/ns/sdc4/}ms-t4dco9ogeo04yi6pgl0panb3/{https://semanticdatacharter.com/ns/sdc4/}ms-i7a87peygfjohxwfk5urd3q8/{https://semanticdatacharter.com/ns/sdc4/}ms-nylve3b8ss572vh8zso2u4l7/{https://semanticdatacharter.com/ns/sdc4/}ms-asbbdn0eof6713wx4y2e90c2/{https://semanticdatacharter.com/ns/sdc4/}ms-useph7s4ienfhwerqx2thedj/{https://semanticdatacharter.com/ns/sdc4/}ms-kibeh8vp79shumcdyj8xzqw1/{https://semanticdatacharter.com/ns/sdc4/}ms-d2xwhnb2vqzxw70jcizj9csx/{https://semanticdatacharter.com/ns/sdc4/}ms-rr45vpoto55jhvob6vtzsz27/{https://semanticdatacharter.com/ns/sdc4/}ms-q922mqaon3yn5zlwf2bszf28/xdstring-value"
+  }
+ ],
+ "structural": [],
+ "valid": false
+}

@@ -3,7 +3,7 @@
   "ok": true,
   "recoveries": [
    {
-    "code": "NI",
+    "code": "OTH",
     "inserted": true,
     "path": "/{https://semanticdatacharter.com/ns/sdc4/}dm-u19w614300a8ot4a7qnn2o1c/{https://semanticdatacharter.com/ns/sdc4/}ms-hw6n0jmf2nzr3ye7s76gb2fz/{https://semanticdatacharter.com/ns/sdc4/}ms-t2tvd3wylxrstdeu5aw6gkw1/{https://semanticdatacharter.com/ns/sdc4/}ms-lcsns9hrrzcg74jlit8srxgp/{https://semanticdatacharter.com/ns/sdc4/}ms-ce1c8sydkov8bkv4dgdmwe5x/xdtoken-value"
    }
@@ -13,7 +13,7 @@
  "recovered": "expected/halvorsen-invoice/m-token.recovered.xml",
  "semantic": [
   {
-   "ev": "NI",
+   "ev": "OTH",
    "path": "/{https://semanticdatacharter.com/ns/sdc4/}dm-u19w614300a8ot4a7qnn2o1c/{https://semanticdatacharter.com/ns/sdc4/}ms-hw6n0jmf2nzr3ye7s76gb2fz/{https://semanticdatacharter.com/ns/sdc4/}ms-t2tvd3wylxrstdeu5aw6gkw1/{https://semanticdatacharter.com/ns/sdc4/}ms-lcsns9hrrzcg74jlit8srxgp/{https://semanticdatacharter.com/ns/sdc4/}ms-ce1c8sydkov8bkv4dgdmwe5x/xdtoken-value"
   }
  ],

@@ -1,0 +1,22 @@
+{
+ "recover": {
+  "ok": true,
+  "recoveries": [
+   {
+    "code": "INV",
+    "inserted": true,
+    "path": "/{https://semanticdatacharter.com/ns/sdc4/}dm-tog0v0p1zit1xwpxysxwpf3d/{https://semanticdatacharter.com/ns/sdc4/}ms-oocnj5uo4fkqs2zgxc85657g/{https://semanticdatacharter.com/ns/sdc4/}ms-t2tvd3wylxrstdeu5aw6gkw1/{https://semanticdatacharter.com/ns/sdc4/}ms-uf11uwd9s5x5t9bw98z9dr5l/{https://semanticdatacharter.com/ns/sdc4/}ms-fjhgr5fyqxt2crmg2cb5c513/xdstring-value"
+   }
+  ],
+  "unrecoverable": []
+ },
+ "recovered": "expected/halvorsen-receipt-advice/m-maxlength.recovered.xml",
+ "semantic": [
+  {
+   "ev": "INV",
+   "path": "/{https://semanticdatacharter.com/ns/sdc4/}dm-tog0v0p1zit1xwpxysxwpf3d/{https://semanticdatacharter.com/ns/sdc4/}ms-oocnj5uo4fkqs2zgxc85657g/{https://semanticdatacharter.com/ns/sdc4/}ms-t2tvd3wylxrstdeu5aw6gkw1/{https://semanticdatacharter.com/ns/sdc4/}ms-uf11uwd9s5x5t9bw98z9dr5l/{https://semanticdatacharter.com/ns/sdc4/}ms-fjhgr5fyqxt2crmg2cb5c513/xdstring-value"
+  }
+ ],
+ "structural": [],
+ "valid": false
+}

@@ -3,7 +3,7 @@
   "ok": true,
   "recoveries": [
    {
-    "code": "NI",
+    "code": "INV",
     "inserted": true,
     "path": "/{https://semanticdatacharter.com/ns/sdc4/}dm-cq1fjrvyn0fxl1kyk9y3kr1w/{https://semanticdatacharter.com/ns/sdc4/}ms-t4dco9ogeo04yi6pgl0panb3/{https://semanticdatacharter.com/ns/sdc4/}ms-t2tvd3wylxrstdeu5aw6gkw1/{https://semanticdatacharter.com/ns/sdc4/}ms-hpkc8xrccpwc3shm4ubm5o47/{https://semanticdatacharter.com/ns/sdc4/}ms-dkc2ccj5te35z9gd4bu1blcq/xdstring-value"
    }
@@ -13,7 +13,7 @@
  "recovered": "expected/halvorsen-torvale-order/m-string-empty.recovered.xml",
  "semantic": [
   {
-   "ev": "NI",
+   "ev": "INV",
    "path": "/{https://semanticdatacharter.com/ns/sdc4/}dm-cq1fjrvyn0fxl1kyk9y3kr1w/{https://semanticdatacharter.com/ns/sdc4/}ms-t4dco9ogeo04yi6pgl0panb3/{https://semanticdatacharter.com/ns/sdc4/}ms-t2tvd3wylxrstdeu5aw6gkw1/{https://semanticdatacharter.com/ns/sdc4/}ms-hpkc8xrccpwc3shm4ubm5o47/{https://semanticdatacharter.com/ns/sdc4/}ms-dkc2ccj5te35z9gd4bu1blcq/xdstring-value"
   }
  ],

@@ -1,0 +1,22 @@
+{
+ "recover": {
+  "ok": true,
+  "recoveries": [
+   {
+    "code": "INV",
+    "inserted": true,
+    "path": "/{https://semanticdatacharter.com/ns/sdc4/}dm-fgtbf38cj0bwxppxn69etcci/{https://semanticdatacharter.com/ns/sdc4/}ms-c58celu1ukeo9ntpzf25ewuk/{https://semanticdatacharter.com/ns/sdc4/}ms-oyd0sik2krxuplyn3dbfafiv/{https://semanticdatacharter.com/ns/sdc4/}ms-yat9nppabvpq1jrgpsi5g226/{https://semanticdatacharter.com/ns/sdc4/}ms-w4pmewp5mgp43q2k0p4bmyfw/{https://semanticdatacharter.com/ns/sdc4/}ms-f3hxcmvvq1jtowruh5y3evhc/{https://semanticdatacharter.com/ns/sdc4/}ms-l3ue9scta9uq277rtu869kag/{https://semanticdatacharter.com/ns/sdc4/}ms-v4zn5xtqlkni8qr3ly7e2j1a/xdquantity-value"
+   }
+  ],
+  "unrecoverable": []
+ },
+ "recovered": "expected/halvorsen-remittance-advice/m-maxinclusive.recovered.xml",
+ "semantic": [
+  {
+   "ev": "INV",
+   "path": "/{https://semanticdatacharter.com/ns/sdc4/}dm-fgtbf38cj0bwxppxn69etcci/{https://semanticdatacharter.com/ns/sdc4/}ms-c58celu1ukeo9ntpzf25ewuk/{https://semanticdatacharter.com/ns/sdc4/}ms-oyd0sik2krxuplyn3dbfafiv/{https://semanticdatacharter.com/ns/sdc4/}ms-yat9nppabvpq1jrgpsi5g226/{https://semanticdatacharter.com/ns/sdc4/}ms-w4pmewp5mgp43q2k0p4bmyfw/{https://semanticdatacharter.com/ns/sdc4/}ms-f3hxcmvvq1jtowruh5y3evhc/{https://semanticdatacharter.com/ns/sdc4/}ms-l3ue9scta9uq277rtu869kag/{https://semanticdatacharter.com/ns/sdc4/}ms-v4zn5xtqlkni8qr3ly7e2j1a/xdquantity-value"
+  }
+ ],
+ "structural": [],
+ "valid": false
+}

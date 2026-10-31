@@ -49,7 +49,7 @@
       <sdc4:ms-lcsns9hrrzcg74jlit8srxgp>
         <sdc4:ms-ce1c8sydkov8bkv4dgdmwe5x>
           <label>Audit Event Action</label>
-          <sdc4:NI><ev-name>No Information</ev-name></sdc4:NI><xdtoken-value>not-a-listed-value</xdtoken-value>
+          <sdc4:OTH><ev-name>Other</ev-name></sdc4:OTH><xdtoken-value>not-a-listed-value</xdtoken-value>
         </sdc4:ms-ce1c8sydkov8bkv4dgdmwe5x>
       </sdc4:ms-lcsns9hrrzcg74jlit8srxgp>
       <sdc4:ms-wu8f1x11e6ihbltdd6w20rg5>
