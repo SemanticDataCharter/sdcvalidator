@@ -172,6 +172,8 @@ A client configuration needs only `"command": "uvx", "args": ["sdcvalidator"]`.
 
 `validate_instance` and `validate_and_report` take `schema_path` and `instance_path`, plus an optional `check_compliance` boolean (default `true`). `check_schema_compliance` takes `schema_path` only.
 
+Also listed on [mcprush](https://mcprush.com/semanticdatacharter/sdcvalidator-mcp).
+
 ## Two-Tier Error Classification
 
 | Tier | Type | Examples | Action |
